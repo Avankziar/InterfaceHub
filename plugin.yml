@@ -1,0 +1,8 @@
+main: main.java.me.avankziar.interfacehub.spigot.InterfaceHub
+name: InterfaceHub
+version: 1
+load: STARTUP
+api-version: 1.16
+description: a Vault-Like plugin. To let plugins communicate with plugins. 
+author: Avankziar
+website: https://www.spigotmc.org

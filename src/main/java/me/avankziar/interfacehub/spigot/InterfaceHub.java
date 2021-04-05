@@ -1,0 +1,72 @@
+package main.java.me.avankziar.interfacehub.spigot;
+
+import java.util.concurrent.Callable;
+import java.util.logging.Logger;
+
+import org.bukkit.Bukkit;
+import org.bukkit.event.HandlerList;
+import org.bukkit.plugin.RegisteredServiceProvider;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import main.java.me.avankziar.interfacehub.spigot.Metrics.Metrics;
+import main.java.me.avankziar.interfacehub.spigot.interfaces.PlayerTimes;
+
+public class InterfaceHub extends JavaPlugin
+{
+	private static InterfaceHub plugin;
+	public static Logger log;
+	public static String pluginName = "InterfaceHub";
+	
+	public void onEnable()
+	{
+		plugin = this;
+		log = getLogger();
+		
+		//https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=IFH
+		log.info(" ██╗███████╗██╗  ██╗ | API-Version: "+plugin.getDescription().getAPIVersion());
+		log.info(" ██║██╔════╝██║  ██║ | Author: "+plugin.getDescription().getAuthors().toString());
+		log.info(" ██║█████╗  ███████║ | Plugin Website: "+plugin.getDescription().getWebsite());
+		log.info(" ██║██╔══╝  ██╔══██║ | Depend Plugins: "+plugin.getDescription().getDepend().toString());
+		log.info(" ██║██║     ██║  ██║ | SoftDepend Plugins: "+plugin.getDescription().getSoftDepend().toString());
+		log.info(" ╚═╝╚═╝     ╚═╝  ╚═╝ | LoadBefore: "+plugin.getDescription().getLoadBefore().toString());
+		
+		setupBstats();
+	}
+	
+	public void onDisable()
+	{
+		Bukkit.getScheduler().cancelTasks(this);
+		HandlerList.unregisterAll(this);		
+		log.info(pluginName + " is disabled!");
+	}
+	
+	public static InterfaceHub getPlugin()
+	{
+		return plugin;
+	}
+	
+	public void setupBstats()
+	{
+		int pluginId = 10912;
+        Metrics metrics = new Metrics(this, pluginId);
+        findCustomData(metrics);
+	}
+	
+	private void findCustomData(Metrics metrics)
+	{
+		RegisteredServiceProvider<PlayerTimes> rspPTimes = Bukkit.getServer().getServicesManager().getRegistration(PlayerTimes.class);
+		PlayerTimes ptimes = null;
+        if (rspPTimes != null) {
+            ptimes = rspPTimes.getProvider();
+        }
+        final String ptimesName = ptimes != null ? ptimes.getName() : "No PlayerTimes";
+        metrics.addCustomChart(new Metrics.SimplePie("playertimes", new Callable<String>() 
+        {
+            @Override
+            public String call() 
+            {
+                return ptimesName;
+            }
+        }));
+	}
+}
