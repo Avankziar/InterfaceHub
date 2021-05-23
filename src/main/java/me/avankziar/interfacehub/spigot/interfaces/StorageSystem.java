@@ -101,7 +101,7 @@ public interface StorageSystem
 	 * @param searchableItem
 	 * @return
 	 */
-	Integer[] getStorageChestsWithSearchableItem(Player player, String searchableItem);
+	Integer[] getStorageChestsWithSearchableItem(Player player, ItemStack searchItem);
 	
 	/**
 	 * Return all storagechests which have this item as filter.<br>
@@ -109,7 +109,7 @@ public interface StorageSystem
 	 * @param searchableItem
 	 * @return
 	 */
-	Integer[] getStorageChestsWithSearchableItem(String searchableItem);
+	Integer[] getStorageChestsWithSearchableItem(ItemStack searchItem);
 	
 	/**
 	 * Return the owner uuid of this distributionchest.<br>
