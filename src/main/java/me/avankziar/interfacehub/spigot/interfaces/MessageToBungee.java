@@ -1,28 +1,28 @@
 package main.java.me.avankziar.interfacehub.spigot.interfaces;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
-import org.bukkit.entity.Player;
-
 public interface MessageToBungee
-{
+{	
 	/**
-	 * Send message to BungeeCord proxy to one player with this uuid.
+	 * Send messages to BungeeCord proxy to one player with this uuid.
 	 * @param uuid
 	 * @param message
 	 */
-	void sendMessage(UUID uuid, String message);
+	void sendMessage(UUID uuid, String... message);
 	
 	/**
-	 * Send message to BungeeCord proxy to one player.
-	 * @param player
+	 * Send messages to BungeeCord proxy to multiple player with this uuid.
+	 * @param uuid
 	 * @param message
 	 */
-	void sendMessage(Player player, String message);
+	void sendMessage(ArrayList<UUID> uuid, String... message);
+
 	
 	/**
-	 * Send message to all Player in the BungeeCord proxy.
+	 * Send messages to all Player in the BungeeCord proxy.
 	 * @param message
 	 */
-	void sendMessage(String message);
+	void sendMessage(String... message);
 }
