@@ -16,7 +16,7 @@ public interface MessageToBungee
 	
 	/**
 	 * Send messages and sound through BungeeCord proxy to the spigot server, to one player with this uuid.
-	 * The sound is played at the player location with 3.0F and 0.5F.
+	 * <br>The sound is played at the player location with 3.0F and 0.5F.
 	 * @param uuid
 	 * @param sound
 	 * @param message
@@ -32,7 +32,7 @@ public interface MessageToBungee
 	
 	/**
 	 * Send messages and sound through BungeeCord proxy to the spigot server of the multiple player with the uuids.
-	 * The sound is played at the player location with 3.0F and 0.5F.
+	 * <br>The sound is played at the player location with 3.0F and 0.5F.
 	 * @param uuid
 	 * @param sound
 	 * @param message
@@ -41,7 +41,7 @@ public interface MessageToBungee
 	
 	/**
 	 * Send messages to BungeeCord proxy to multiple player with the uuids, if the player has this permission.
-	 * If hasPermission is false, will check if the player hasnt the Permission. True for normal check.
+	 * <br>If hasPermission is false, will check if the player hasnt the Permission. True for normal check.
 	 * @param uuid
 	 * @param permission
 	 * @param hasPermission
@@ -52,8 +52,8 @@ public interface MessageToBungee
 	/**
 	 * Send messages and sound through BungeeCord proxy to the spigot server of the multiple player with the uuids,
 	 * if the player has this permission.
-	 * If hasPermission is false, will check if the player hasnt the Permission. True for normal check.
-	 * The sound is played at the player location with 3.0F and 0.5F.
+	 * <br>If hasPermission is false, will check if the player hasnt the Permission. True for normal check.
+	 * <br>The sound is played at the player location with 3.0F and 0.5F.
 	 * @param uuid
 	 * @param permission
 	 * @param hasPermission
@@ -77,8 +77,8 @@ public interface MessageToBungee
 	
 	/**
 	 * Send messages to all Player in the BungeeCord proxy, if the players has this permission.
-	 * If hasPermission is false, will check if the player hasnt the Permission. True for normal check.
-	 * The sound is played at the player location with 3.0F and 0.5F.
+	 * <br>If hasPermission is false, will check if the player hasnt the Permission. True for normal check.
+	 * <br>The sound is played at the player location with 3.0F and 0.5F.
 	 * @param permission
 	 * @param hasPermission
 	 * @param message
@@ -87,8 +87,8 @@ public interface MessageToBungee
 	
 	/**
 	 * Send messages and sound to all Player through BungeeCord proxy, if the players has this permission.
-	 * If hasPermission is false, will check if the player hasnt the Permission. True for normal check.
-	 * The sound is played at the player location with 3.0F and 0.5F.
+	 * <br>If hasPermission is false, will check if the player hasnt the Permission. True for normal check.
+	 * <br>The sound is played at the player location with 3.0F and 0.5F.
 	 * @param permission
 	 * @param hasPermission
 	 * @param sound
