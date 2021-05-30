@@ -6,8 +6,9 @@ import java.util.UUID;
 import org.bukkit.Sound;
 
 public interface MessageToBungee
-{	
-	 
+{
+	
+	
 	/**
 	 * Send messages to BungeeCord proxy to one player with this uuid.
 	 * @param uuid
