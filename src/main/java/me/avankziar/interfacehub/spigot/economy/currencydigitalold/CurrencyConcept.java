@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.currencydigital;
+package main.java.me.avankziar.interfacehub.spigot.economy.currencydigitalold;
 
 import java.util.Locale;
 

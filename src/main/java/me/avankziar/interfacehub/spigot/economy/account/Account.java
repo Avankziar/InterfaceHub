@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.UUID;
 
 import main.java.me.avankziar.interfacehub.spigot.economy.Action.EconomyAction;
-import main.java.me.avankziar.interfacehub.spigot.economy.currencydigital.EconomyCurrency;
+import main.java.me.avankziar.interfacehub.spigot.economy.currencydigitalold.EconomyCurrency;
 /**
  * The Account class. This represents all accounts, from normal, early player accounts, to bank accounts.<br>
  * For a explanation to implements this,

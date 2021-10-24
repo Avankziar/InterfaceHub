@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.currencytoken;
+package main.java.me.avankziar.interfacehub.spigot.economy.currencytokenold;
 
 import java.util.LinkedHashMap;
 

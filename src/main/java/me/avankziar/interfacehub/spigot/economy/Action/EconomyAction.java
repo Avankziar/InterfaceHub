@@ -8,29 +8,29 @@ public class EconomyAction
 	
 	private final String transactionMessage;
 	
-	private final EconomyEntity holder;
+	private final EconomyEntity withdraw;
 	
-	private final EconomyEntity participant;
+	private final EconomyEntity deposit;
 	
 	private final double amount;
 	
-	public EconomyAction(double amount, EconomyEntity holder, EconomyEntity participant, boolean transactionSuccess, String transactionMessage)
+	public EconomyAction(double amount, EconomyEntity withdraw, EconomyEntity deposit, boolean transactionSuccess, String transactionMessage)
 	{
 		this.amount = amount;
-		this.holder = holder;
-		this.participant = participant;
+		this.withdraw = withdraw;
+		this.deposit = deposit;
 		this.transactionSuccess = transactionSuccess;
 		this.transactionMessage = transactionMessage;
 	}
 	
-	public EconomyAction(double amount, EconomyEntity holder, boolean transactionSuccess, String transactionMessage)
+	public EconomyAction(double amount, EconomyEntity withdraw, boolean transactionSuccess, String transactionMessage)
 	{
-		this(amount, holder, null, transactionSuccess, transactionMessage);
+		this(amount, withdraw, null, transactionSuccess, transactionMessage);
 	}
 	
-	public EconomyAction(double amount, EconomyEntity holder, boolean transactionSuccess)
+	public EconomyAction(double amount, EconomyEntity withdraw, boolean transactionSuccess)
 	{
-		this(amount, holder, null, transactionSuccess, null);
+		this(amount, withdraw, null, transactionSuccess, null);
 	}
 	
 	public boolean isSuccess()
@@ -38,14 +38,14 @@ public class EconomyAction
 		return transactionSuccess;
 	}
 	
-	public EconomyEntity getHolder()
+	public EconomyEntity getWithdraw()
 	{
-		return holder;
+		return withdraw;
 	}
 	
-	public EconomyEntity getParticipant()
+	public EconomyEntity getDeposit()
 	{
-		return participant;
+		return deposit;
 	}
 	
 	public double getAmount()

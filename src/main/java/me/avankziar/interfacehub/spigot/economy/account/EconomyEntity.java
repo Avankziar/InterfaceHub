@@ -38,6 +38,36 @@ public class EconomyEntity
 		}
 	}
 	
+	@Override
+	public String toString()
+	{
+		String s = "EconomyEntity{Type='"+this.type.toString()+"' ,";
+		switch(this.type)
+		{
+		case ENTITY:
+			s += "uuid='"+this.entityUUID+"', name='"+this.entityName+"'}";
+			break;
+		case PLAYER:
+			s += "uuid='"+this.playerUUID+"', name='"+this.playerName+"'}";
+			break;
+		case SERVER:
+			s += "uuid='"+this.serverEntityUUID+"', name='"+this.serverEntityName+"'}";
+			break;
+		}
+		s += "}";
+		return s;
+	}
+	
+	public static EconomyEntity fromString(String data)
+	{
+		String[] first = data.split("{");
+		String[] second = first[1].split(",");
+		String type = second[0].split("'")[1];
+		String uuid = second[1].split("'")[1];
+		String name = second[2].split("'")[1];
+		return new EconomyEntity(EconomyType.valueOf(type), UUID.fromString(uuid), name);
+	}
+	
 	/*
 	 * To use, if the server or entity account ready to init.
 	 */
