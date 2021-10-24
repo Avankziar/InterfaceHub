@@ -1,11 +1,6 @@
 package main.java.me.avankziar.interfacehub.spigot.interfaces;
 
-public class BossbarToBungee
+public interface BossbarToBungee
 {
-
-	public BossbarToBungee()
-	{
-		// TODO Auto-generated constructor stub
-	}
 
 }
