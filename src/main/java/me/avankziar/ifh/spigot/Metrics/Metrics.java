@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.Metrics;
+package main.java.me.avankziar.ifh.spigot.Metrics;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

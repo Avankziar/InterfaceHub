@@ -1,16 +1,17 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.account;
+package main.java.me.avankziar.ifh.spigot.economy.account;
 
 import java.util.LinkedHashMap;
 import java.util.UUID;
 
-import main.java.me.avankziar.interfacehub.spigot.economy.Action.EconomyAction;
-import main.java.me.avankziar.interfacehub.spigot.economy.currencydigitalold.EconomyCurrency;
+import main.java.me.avankziar.ifh.spigot.economy.Action.EconomyAction;
+import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 /**
  * The Account class. This represents all accounts, from normal, early player accounts, to bank accounts.<br>
  * For a explanation to implements this,
  * <br> look at <a href="#{@link}">{@link https://www.spigotmc.org/resources/authors/avankziar.332028/}</a>
  * 
- * If you use normal Economy and Tokeneconomy, so create 2 Object which both extends this.
+ * If you use normal Economy and Tokeneconomy, so create 2 Object which both extends this.<br>
+ * Means one Walletaccount for normal money and one for tokens.
  * @author Avankziar
  */
 public abstract class Account
@@ -47,7 +48,10 @@ public abstract class Account
 		this.accountCurrency = accountCurrency;
 		setOwner(owner);
 		this.members = new LinkedHashMap<>();
-		this.members.putAll(members);
+		if(members != null && !members.isEmpty())
+		{
+			this.members.putAll(members);
+		}
 	}
 	
 	/**

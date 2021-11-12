@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.account;
+package main.java.me.avankziar.ifh.spigot.economy.account;
 
 import java.util.UUID;
 

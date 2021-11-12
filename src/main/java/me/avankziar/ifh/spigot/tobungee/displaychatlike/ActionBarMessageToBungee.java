@@ -1,11 +1,11 @@
-package main.java.me.avankziar.interfacehub.spigot.interfaces;
+package main.java.me.avankziar.ifh.spigot.tobungee.displaychatlike;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 import org.bukkit.Sound;
 
-public interface ActionBarToBungee
+public interface ActionBarMessageToBungee
 {
 	void sendActionBarMessage(UUID uuid, String actionbarmessage);
 	

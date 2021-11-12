@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.bungee.plugin.event;
+package main.java.me.avankziar.ifh.bungee.plugin.event;
 
 import net.md_5.bungee.api.plugin.Event;
 

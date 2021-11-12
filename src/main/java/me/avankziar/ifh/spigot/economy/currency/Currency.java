@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.currency;
+package main.java.me.avankziar.ifh.spigot.economy.currency;
 
 public class Currency
 {
@@ -30,7 +30,7 @@ public class Currency
 	 */
 	protected double standartUnitWorth = 1;
 	
-	protected Currency(){}
+	public Currency(){}
 	
 	public Currency setUnique(String uniqueName)
 	{
@@ -43,7 +43,13 @@ public class Currency
 		this.server = server;
 		return this;
 	}
-	
+
+	public Currency setCurrencyGradation(CurrencyGradation currencyGradation)
+	{
+		this.currencyGradation = currencyGradation;
+		return this;
+	}
+
 	public Currency setWorld(String world)
 	{
 		this.world = world;

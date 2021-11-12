@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.currency;
+package main.java.me.avankziar.ifh.spigot.economy.currency;
 
 public class EconomyCurrency implements CurrencyInterface
 {
@@ -16,7 +16,7 @@ public class EconomyCurrency implements CurrencyInterface
 	}
 
 	@Override
-	public CurrencyGradation currencyGradation()
+	public CurrencyGradation getCurrencyGradation()
 	{
 		return currency.currencyGradation;
 	}

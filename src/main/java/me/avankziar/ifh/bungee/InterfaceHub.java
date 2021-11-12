@@ -1,8 +1,8 @@
-package main.java.me.avankziar.interfacehub.bungee;
+package main.java.me.avankziar.ifh.bungee;
 
 import java.util.logging.Logger;
 
-import main.java.me.avankziar.interfacehub.bungee.plugin.SimpleServicesManager;
+import main.java.me.avankziar.ifh.bungee.plugin.SimpleServicesManager;
 import net.md_5.bungee.api.plugin.Plugin;
 
 public class InterfaceHub extends Plugin

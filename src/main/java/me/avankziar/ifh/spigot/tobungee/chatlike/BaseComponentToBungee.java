@@ -1,11 +1,14 @@
-package main.java.me.avankziar.interfacehub.spigot.interfaces;
+package main.java.me.avankziar.ifh.spigot.tobungee.chatlike;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 import org.bukkit.Sound;
 
+import main.java.me.avankziar.ifh.general.assistance.ChatApi;
 import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
 
 public interface BaseComponentToBungee
 {
@@ -110,4 +113,136 @@ public interface BaseComponentToBungee
 	 * @param message
 	 */
 	void sendMessage(String permission, boolean hasPermission, Sound sound, ArrayList<ArrayList<BaseComponent>> message);
+	
+	public class BaseComponentBuilder
+	{
+		private ArrayList<ArrayList<BaseComponent>> message = new ArrayList<>();
+		
+		public BaseComponentBuilder add(int index, String msg)
+		{
+			if(message.size() >= index+1)
+			{
+				ArrayList<BaseComponent> bc = message.get(index);
+				bc.add(ChatApi.apiChat(msg, null, null, null, null));
+				message.set(index, bc);
+			} else
+			{
+				ArrayList<BaseComponent> bc = new ArrayList<>();
+				bc.add(ChatApi.apiChat(msg, null, null, null, null));
+				message.add(bc);
+			}
+			return this;
+		}
+		
+		public BaseComponentBuilder add(int index, String msg,
+				ClickEvent.Action click, String clicktext)
+		{
+			if(message.size() >= index+1)
+			{
+				ArrayList<BaseComponent> bc = message.get(index);
+				bc.add(ChatApi.apiChat(msg, click, clicktext, null, null));
+				message.set(index, bc);
+			} else
+			{
+				ArrayList<BaseComponent> bc = new ArrayList<>();
+				bc.add(ChatApi.apiChat(msg, click, clicktext, null, null));
+				message.add(bc);
+			}
+			return this;
+		}
+		
+		public BaseComponentBuilder add(int index, String msg,
+				HoverEvent.Action hover, String... hovertext)
+		{
+			if(message.size() >= index+1)
+			{
+				ArrayList<BaseComponent> bc = message.get(index);
+				String ht = "";
+				for(int i = 0; i < hovertext.length; i++)
+				{
+					if(i+1 >= hovertext.length)
+					{
+						ht += hovertext[i];
+					} else
+					{
+						ht += hovertext[i]+"~!~";
+					}
+				}
+				bc.add(ChatApi.apiChat(msg, null, null, hover, ht));
+				message.set(index, bc);
+			} else
+			{
+				ArrayList<BaseComponent> bc = new ArrayList<>();
+				String ht = "";
+				for(int i = 0; i < hovertext.length; i++)
+				{
+					if(i+1 >= hovertext.length)
+					{
+						ht += hovertext[i];
+					} else
+					{
+						ht += hovertext[i]+"~!~";
+					}
+				}
+				bc.add(ChatApi.apiChat(msg, null, null, hover, ht));
+				message.add(bc);
+			}
+			return this;
+		}
+		
+		/**
+		 * Add or set the message with the events in the array.
+		 * @param index
+		 * @param msg
+		 * @param click
+		 * @param clicktext
+		 * @param hover
+		 * @param hovertext
+		 * @return object itself
+		 */
+		public BaseComponentBuilder add(int index, String msg,
+				ClickEvent.Action click, String clicktext, 
+				HoverEvent.Action hover, String... hovertext)
+		{
+			if(message.size() >= index+1)
+			{
+				ArrayList<BaseComponent> bc = message.get(index);
+				String ht = "";
+				for(int i = 0; i < hovertext.length; i++)
+				{
+					if(i+1 >= hovertext.length)
+					{
+						ht += hovertext[i];
+					} else
+					{
+						ht += hovertext[i]+"~!~";
+					}
+				}
+				bc.add(ChatApi.apiChat(msg, click, clicktext, hover, ht));
+				message.set(index, bc);
+			} else
+			{
+				ArrayList<BaseComponent> bc = new ArrayList<>();
+				String ht = "";
+				for(int i = 0; i < hovertext.length; i++)
+				{
+					if(i+1 >= hovertext.length)
+					{
+						ht += hovertext[i];
+					} else
+					{
+						ht += hovertext[i]+"~!~";
+					}
+				}
+				bc.add(ChatApi.apiChat(msg, click, clicktext, hover, ht));
+				message.add(bc);
+			}
+			return this;
+		}
+		
+		public ArrayList<ArrayList<BaseComponent>> build()
+		{
+			return this.message;
+		}
+	}
 }

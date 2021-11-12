@@ -1,14 +1,15 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.subinterfaces;
+package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.UUID;
 
 import org.bukkit.OfflinePlayer;
 
-import main.java.me.avankziar.interfacehub.spigot.economy.account.Account;
-import main.java.me.avankziar.interfacehub.spigot.economy.account.AccountType;
-import main.java.me.avankziar.interfacehub.spigot.economy.account.EconomyEntity;
-import main.java.me.avankziar.interfacehub.spigot.economy.currency.EconomyCurrency;
+import main.java.me.avankziar.ifh.spigot.economy.account.Account;
+import main.java.me.avankziar.ifh.spigot.economy.account.AccountType;
+import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
+import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 
 public interface AccountHandling
 {
@@ -52,6 +53,12 @@ public interface AccountHandling
 	{
 		return getAccount(uuid, accountCurrency, accountType, entityType).exists();
 	}
+	
+	boolean createAccount(String accountName, AccountType type, EconomyCurrency accountCurrency,
+			EconomyEntity owner, LinkedHashMap<EconomyEntity, Boolean> members);
+	
+	boolean createAccount(String accountName, AccountType type, EconomyCurrency accountCurrency,
+			EconomyEntity owner, LinkedHashMap<EconomyEntity, Boolean> members, double startingBalance);
 	
 	boolean createAccount(Account account);
 	

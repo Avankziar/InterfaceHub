@@ -1,8 +1,8 @@
-package main.java.me.avankziar.interfacehub.bungee.plugin.event;
+package main.java.me.avankziar.ifh.bungee.plugin.event;
 
 import javax.annotation.Nonnull;
 
-import main.java.me.avankziar.interfacehub.bungee.plugin.RegisteredServiceProvider;
+import main.java.me.avankziar.ifh.bungee.plugin.RegisteredServiceProvider;
 
 public abstract class ServiceEvent extends ServerEvent
 {

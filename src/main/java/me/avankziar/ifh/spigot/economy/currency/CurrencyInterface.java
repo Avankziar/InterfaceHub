@@ -1,10 +1,10 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.currency;
+package main.java.me.avankziar.ifh.spigot.economy.currency;
 
 public interface CurrencyInterface
 {
 	String getUniqueName();
 	
-	CurrencyGradation currencyGradation();
+	CurrencyGradation getCurrencyGradation();
 	
 	String getServer();
 	

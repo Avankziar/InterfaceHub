@@ -1,8 +1,9 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.subinterfaces;
+package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
 import org.bukkit.inventory.ItemStack;
 
-import main.java.me.avankziar.interfacehub.spigot.economy.currency.EconomyCurrency;
+import main.java.me.avankziar.ifh.spigot.economy.currency.Currency;
+import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 
 public interface CurrencyHandling
 {
@@ -13,11 +14,11 @@ public interface CurrencyHandling
 	boolean existsCurrency(String uniqueCurrencyName);
 	
 	/**
-	 * Registered a currency. The unique name of the currency must not already exist!
-	 * @param economyCurrency
+	 * Registered a currency. The unique name of the currency must not exist!
+	 * @param currency
 	 * @return true, if the currency is registered.
 	 */
-	boolean registerCurrency(EconomyCurrency economyCurrency);
+	boolean registerCurrency(Currency currency);
 	
 	/**
 	 * @return the default currency.
@@ -35,25 +36,46 @@ public interface CurrencyHandling
 	EconomyCurrency getDefaultExperienceCurrency();
 	
 	/**
-	 * @param server
-	 * @param world
-	 * @return the default currency in this world.
+	 * @param server, nullable
+	 * @param world, nullable
+	 * @return the default currency in this server & world.
 	 */
 	EconomyCurrency getDefaultCurrency(String server, String world);
 	
 	/**
-	 * @param server
-	 * @param world
-	 * @return the default itemstack currency in this world.
+	 * @param server, nullable
+	 * @param world, nullable
+	 * @return the default itemstack currency in this server & world.
 	 */
 	EconomyCurrency getDefaultItemStackCurrency(String server, String world);
 	
 	/**
-	 * @param server
-	 * @param world
-	 * @return the default experience currency in this world.
+	 * @param server, nullable
+	 * @param world, nullable
+	 * @return the default experience currency in this server & world.
 	 */
 	EconomyCurrency getDefaultExperienceCurrency(String server, String world);
+	
+	/**
+	 * @param server, nullable
+	 * @param world, nullable
+	 * @return return, if the default currency is now setted
+	 */
+	boolean setDefaultCurrency(String server, String world);
+	
+	/**
+	 * @param server, nullable
+	 * @param world, nullable
+	 * @return return, if the default currency is now setted
+	 */
+	boolean setDefaultItemStackCurrency(String server, String world);
+	
+	/**
+	 * @param server, nullable
+	 * @param world, nullable
+	 * @return return, if the default currency is now setted
+	 */
+	boolean setDefaultExperienceCurrency(String server, String world);
 	
 	/**
 	 * @param uniqueName

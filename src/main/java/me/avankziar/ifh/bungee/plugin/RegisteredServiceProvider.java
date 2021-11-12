@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.bungee.plugin;
+package main.java.me.avankziar.ifh.bungee.plugin;
 
 import javax.annotation.Nonnull;
 

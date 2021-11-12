@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.general.chat;
+package main.java.me.avankziar.ifh.general.chat;
 
 import java.util.LinkedHashMap;
 import java.util.UUID;

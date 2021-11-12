@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.currency;
+package main.java.me.avankziar.ifh.spigot.economy.currency;
 
 public class Gradation
 {	

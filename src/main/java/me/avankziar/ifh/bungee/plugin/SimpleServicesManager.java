@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.bungee.plugin;
+package main.java.me.avankziar.ifh.bungee.plugin;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,8 +15,8 @@ import javax.annotation.Nullable;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
-import main.java.me.avankziar.interfacehub.bungee.plugin.event.ServiceRegisterEvent;
-import main.java.me.avankziar.interfacehub.bungee.plugin.event.ServiceUnregisterEvent;
+import main.java.me.avankziar.ifh.bungee.plugin.event.ServiceRegisterEvent;
+import main.java.me.avankziar.ifh.bungee.plugin.event.ServiceUnregisterEvent;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.plugin.Plugin;
 

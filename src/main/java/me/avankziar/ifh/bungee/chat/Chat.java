@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.bungee.chat;
+package main.java.me.avankziar.ifh.bungee.chat;
 
 public interface Chat
 {

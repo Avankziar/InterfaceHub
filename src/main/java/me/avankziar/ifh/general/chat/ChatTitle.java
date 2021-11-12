@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.general.chat;
+package main.java.me.avankziar.ifh.general.chat;
 
 /**
  * The chattitle are pre- and suffix which most are placed before and after the playername.

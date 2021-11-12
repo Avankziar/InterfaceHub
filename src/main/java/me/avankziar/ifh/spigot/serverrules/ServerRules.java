@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.serverrules;
+package main.java.me.avankziar.ifh.spigot.serverrules;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

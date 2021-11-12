@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.general.assitance;
+package main.java.me.avankziar.ifh.general.assistance;
 
 import java.awt.Color;
 import java.util.ArrayList;

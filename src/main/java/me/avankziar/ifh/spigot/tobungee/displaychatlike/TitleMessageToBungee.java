@@ -1,4 +1,4 @@
-package main.java.me.avankziar.interfacehub.spigot.interfaces;
+package main.java.me.avankziar.ifh.spigot.tobungee.displaychatlike;
 
 import java.util.ArrayList;
 import java.util.UUID;

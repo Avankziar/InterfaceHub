@@ -1,6 +1,6 @@
-package main.java.me.avankziar.interfacehub.spigot.economy.Action;
+package main.java.me.avankziar.ifh.spigot.economy.Action;
 
-import main.java.me.avankziar.interfacehub.spigot.economy.account.EconomyEntity;
+import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
 
 public class EconomyAction
 {
