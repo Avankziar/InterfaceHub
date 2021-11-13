@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.economy.Action;
+package main.java.me.avankziar.ifh.spigot.economy.action;
 
 import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
 

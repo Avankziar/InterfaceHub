@@ -3,7 +3,7 @@ package main.java.me.avankziar.ifh.spigot.economy.account;
 import java.util.LinkedHashMap;
 import java.util.UUID;
 
-import main.java.me.avankziar.ifh.spigot.economy.Action.EconomyAction;
+import main.java.me.avankziar.ifh.spigot.economy.action.EconomyAction;
 import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 /**
  * The Account class. This represents all accounts, from normal, early player accounts, to bank accounts.<br>

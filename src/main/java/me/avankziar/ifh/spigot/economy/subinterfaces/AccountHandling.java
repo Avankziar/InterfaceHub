@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.UUID;
 
-import org.bukkit.OfflinePlayer;
-
 import main.java.me.avankziar.ifh.spigot.economy.account.Account;
 import main.java.me.avankziar.ifh.spigot.economy.account.AccountType;
 import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
@@ -64,15 +62,11 @@ public interface AccountHandling
 	
 	boolean createAccount(Account account, double startingBalance);
 	
-	boolean createAccount(OfflinePlayer player);
-	
-	boolean createAccount(OfflinePlayer player, double startingBalance);
-	
 	boolean deleteAccount(Account account);
 	
-	boolean deleteAllAccounts(OfflinePlayer player);
+	boolean deleteAllAccounts(UUID uuid);
 	
-	boolean deleteAllAccounts(OfflinePlayer player, AccountType accountType);
+	boolean deleteAllAccounts(UUID uuid, AccountType accountType);
 	
 	boolean deleteAllAccounts(UUID uuid, EconomyEntity.EconomyType entityType);
 	

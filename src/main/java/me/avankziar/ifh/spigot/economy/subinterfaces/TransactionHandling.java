@@ -1,7 +1,7 @@
 package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
-import main.java.me.avankziar.ifh.spigot.economy.Action.EconomyAction;
 import main.java.me.avankziar.ifh.spigot.economy.account.Account;
+import main.java.me.avankziar.ifh.spigot.economy.action.EconomyAction;
 
 public interface TransactionHandling
 {
@@ -16,7 +16,7 @@ public interface TransactionHandling
 	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount);
 	
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxpercent);
+	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent);
 	
 	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent, Account taxDepot);
 	
