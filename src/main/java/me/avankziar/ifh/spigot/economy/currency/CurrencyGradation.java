@@ -111,14 +111,14 @@ public class CurrencyGradation
 			}
 			s += ",";
 		}
-		s += "UseItemStackCurrency='"+this.useItemStackCurrency+"',";
+		s += "UseItemStackCurrency="+this.useItemStackCurrency+",";
 		if(!this.itemStackMap.isEmpty())
 		{
 			s += "ItemStackMap{";
 			int i = 0;
 			for(Entry<ItemStack, Double> e : this.itemStackMap.entrySet())
 			{
-				s += "ItemStack='"+e.getKey().toString()+"',Worth='"+e.getValue().toString()+"'";
+				s += "ItemStack="+e.getKey().toString()+",Worth="+e.getValue().toString();
 				if(i-1 < this.itemStackMap.size())
 				{
 					s += ";";
@@ -126,7 +126,7 @@ public class CurrencyGradation
 			}
 			s += "}";
 		}
-		s += "UseExperienceWorth='"+this.useExperienceCurrency+"',ExperienceWorth='"+this.experienceWorth+"'}";
+		s += "UseExperienceWorth="+this.useExperienceCurrency+",ExperienceWorth="+this.experienceWorth+"}";
 		return s;
 	}
 }

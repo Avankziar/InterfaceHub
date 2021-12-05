@@ -64,8 +64,8 @@ public class Gradation
 	public String toString()
 	{
 		return "Gradation{"+
-				"singular='"+this.singular+"',"+
-				"plural='"+this.plural+"',"+
-				"valueToBaseGradation='"+this.valueToBaseGradation+"'}";
+				"singular="+this.singular+","+
+				"plural="+this.plural+","+
+				"valueToBaseGradation="+this.valueToBaseGradation+"}";
 	}
 }

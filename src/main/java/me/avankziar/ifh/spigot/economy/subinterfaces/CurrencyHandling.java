@@ -2,6 +2,8 @@ package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
 import org.bukkit.inventory.ItemStack;
 
+import main.java.me.avankziar.ifh.spigot.economy.account.AccountType;
+import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
 import main.java.me.avankziar.ifh.spigot.economy.currency.Currency;
 import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 
@@ -61,21 +63,21 @@ public interface CurrencyHandling
 	 * @param world, nullable
 	 * @return return, if the default currency is now setted
 	 */
-	boolean setDefaultCurrency(String server, String world);
+	boolean setDefaultCurrency(EconomyCurrency currency, String server, String world);
 	
 	/**
 	 * @param server, nullable
 	 * @param world, nullable
 	 * @return return, if the default currency is now setted
 	 */
-	boolean setDefaultItemStackCurrency(String server, String world);
+	boolean setDefaultItemStackCurrency(EconomyCurrency currency, String server, String world);
 	
 	/**
 	 * @param server, nullable
 	 * @param world, nullable
 	 * @return return, if the default currency is now setted
 	 */
-	boolean setDefaultExperienceCurrency(String server, String world);
+	boolean setDefaultExperienceCurrency(EconomyCurrency currency, String server, String world);
 	
 	/**
 	 * @param uniqueName
@@ -90,4 +92,12 @@ public interface CurrencyHandling
 	 * @return standart worth of the itemstack.
 	 */
 	double getDefaultItemStackWorth(ItemStack itemstack);
+	
+	double getTotalMoneyInTheSystem();
+	
+	double getTotalMoneyInTheSystem(AccountType accountType);
+	
+	double getTotalMoneyInTheSystem(EconomyEntity.EconomyType ownerType);
+	
+	double getTotalMoneyInTheSystem(AccountType accountType, EconomyEntity.EconomyType ownerType);
 }

@@ -38,5 +38,4 @@ public class EconomyCurrency implements CurrencyInterface
 	{
 		return currency.standartUnitWorth;
 	}
-	
 }

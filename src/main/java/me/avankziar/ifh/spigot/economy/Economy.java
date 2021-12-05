@@ -1,5 +1,7 @@
 package main.java.me.avankziar.ifh.spigot.economy;
 
+import javax.annotation.Nonnull;
+
 import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 import main.java.me.avankziar.ifh.spigot.economy.subinterfaces.AccountHandling;
 import main.java.me.avankziar.ifh.spigot.economy.subinterfaces.CurrencyHandling;
@@ -50,24 +52,63 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	String[] getAuthors();
 	
 	/**
+	 * Formats a double 'amount' as String with the default settings.
 	 * @param amount
-	 * @return a string format of the amount.
+	 * @return
+	 * F.e.:
+	 * <br>- '20 $' if $ (Dollar & Cent) is the default currency
+	 * <br>For other/unique/better display use 'formatWithCurency'
 	 */
 	String format(double amount);
 	
+	int getDefaultGradationQuantity();
+	
+	boolean getDefaultUseSIPrefix();
+	
+	int getDefaultDecimalPlaces();
+	
+	boolean getDefaultUseSymbol();
+	
 	/**
 	 * A string format of the amount in the specific currency in one String.
+	 * <br><b>The value decimalPlaces and gradationQuantity are mutually exclusive.</b>
+	 * <br>decimalPlaces cannot be less than 0.
+	 * <br>See the examples.
+	 * <br>1 Dollar = 100 Cents
+	 * <br>1 Gold = 100 Silver = 10.000 Copper
+	 * <br>, = Seperation between Thousand | . = Decimalseperator
+	 * <br>k = kilo(thousand), M = Mega(Million), G = Giga(Billion) ... [should be configurable]
+	 * <br>gQ = gradationQuantity | SI = useSIPrefix | dP = decimalPlaces | uS = useSymbol
+	 * <br>F.e.: 
+	 * <br>- <b>1,820 $</b>                      (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820.1 $</b>                    (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 $ 1 ¢</b>                  (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,8201 ¢</b>                     (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 $ 1.0 ¢</b>                (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 Dollars</b>                (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820.1 Dollars</b>              (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820 Dollars 1 Cents</b>        (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820 Dollars 1.0 Cents</b>      (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>1.8k Dollars</b>                 (gQ: <b>1</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Au</b>                       (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
+	 * <br>- <b>211.13 Au</b>                    (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>2</b> | uS: <b>true</b>)
+	 * <br>- <b>211 Au 13 Ag</b>                 (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
+	 * <br>- <b>211 Au 13 Ag 88 Cu</b>           (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
+	 * <br>- <b>211 Au 13 Ag 88.0 Cu</b>         (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>211 Gold</b>                     (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Gold 12 Silver</b>           (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Gold 12 Silver 88 Copper</b> (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>21,112 Silver 88 Copper</b>      (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>21,112,088 Copper</b>            (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>21,112,088.0 Copper</b>          (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>21.1M Copper</b>                 (gQ:<b>-2</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
 	 * @param amount
 	 * @param economyCurrency
+	 * @param gradationQuantity
 	 * @param decimalPlaces
-	 * @param onlyUseMajor
+	 * @param useSIPrefix
 	 * @param useSymbol
-	 * @return 
-	 * F.e.: 
-	 * <br>- '20 $' (decimalPlaces:0 | useSymbol:true | onlyUseMajor:<b>here does not matter, symbol is preceding</b>)
-	 * <br>- '20.0 Dollars' (decimalPlaces:1 | useSymbol:false | onlyUseMajor:true)
-	 * <br>- '20 Dollars 1 Cent' (decimalPlaces:0 | useSymbol:false | onlyUseMajor:false)
-	 * <br>- '1 Gold 13 Silver 88 Copper' (decimalPlaces:0 | useSymbol:false | onlyUseMajor:false) If you have more degradation as two as for dollars and cents
 	 */
-	String formatWithCurrency(double amount, EconomyCurrency economyCurrency, int decimalPlaces, boolean useSymbol, boolean onlyUseMajor);
+	String formatWithCurrency(double amount, @Nonnull EconomyCurrency economyCurrency, int gradationQuantity, int decimalPlaces, 
+			boolean useSIPrefix, boolean useSymbol);
 }

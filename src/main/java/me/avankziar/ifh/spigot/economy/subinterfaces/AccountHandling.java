@@ -1,7 +1,6 @@
 package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.UUID;
 
 import main.java.me.avankziar.ifh.spigot.economy.account.Account;
@@ -13,54 +12,21 @@ public interface AccountHandling
 {
 	int getMultiAccountLimit(EconomyEntity.EconomyType entityType, AccountType accountType);
 	
+	int getMultiAccountLimit(EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
+	
 	double getAccountSizeLimit(EconomyEntity.EconomyType entityType, AccountType accountType);
 	
-	/**
-	 * Player, npc should have a UUID. For Example Citizen NPC has a UUID.<br>
-	 * For Serveraccount, you could generate a UUID and save this. The EconomyEntity class can generate one<br>
-	 * BUT! This methode with only uuid input should be reserved for players only.<br>
-	 * <br>However, this method is rather inaccurate, since only the ownerUUID.
-	 * <br>For getting the default account use <b>getDefaultPlayerAccount(UUID ownerUUID)</b>
-	 * @param uuid
-	 * @return the respective account
-	 */
-	Account getAccount(UUID ownerUUID, EconomyEntity.EconomyType ownerEntityType);
+	double getAccountSizeLimit(EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
 	
-	Account getAccount(UUID ownerUUID, EconomyCurrency accountCurrency);
-	
-	Account getAccount(UUID ownerUUID, EconomyCurrency accountCurrency, AccountType accountType);
-	
-	Account getAccount(UUID ownerUUID, EconomyCurrency accountCurrency, AccountType accountType, EconomyEntity.EconomyType ownerEntityType);
-	
-	default boolean hasAccount(UUID uuid, EconomyEntity.EconomyType ownerEntityType)
-	{
-		return getAccount(uuid, ownerEntityType).exists();
-	}
-	
-	default boolean hasAccount(UUID uuid, EconomyCurrency accountCurrency)
-	{
-		return getAccount(uuid, accountCurrency).exists();
-	}
-	
-	default boolean hasAccount(UUID uuid, EconomyCurrency accountCurrency, AccountType accountType)
-	{
-		return getAccount(uuid, accountCurrency, accountType).exists();
-	}
-	
-	default boolean hasAccount(UUID uuid, EconomyCurrency accountCurrency, AccountType accountType, EconomyEntity.EconomyType entityType)
-	{
-		return getAccount(uuid, accountCurrency, accountType, entityType).exists();
-	}
-	
-	boolean createAccount(String accountName, AccountType type, EconomyCurrency accountCurrency,
-			EconomyEntity owner, LinkedHashMap<EconomyEntity, Boolean> members);
-	
-	boolean createAccount(String accountName, AccountType type, EconomyCurrency accountCurrency,
-			EconomyEntity owner, LinkedHashMap<EconomyEntity, Boolean> members, double startingBalance);
+	boolean hasAccount(UUID uuid, EconomyCurrency accountCurrency, AccountType accountType, EconomyEntity.EconomyType entityType);	
 	
 	boolean createAccount(Account account);
 	
-	boolean createAccount(Account account, double startingBalance);
+	boolean createAccount(String accountName, AccountType type, EconomyCurrency accountCurrency,
+			EconomyEntity owner, double balance);
+	
+	boolean createAccount(String accountName, AccountType type, EconomyCurrency accountCurrency,
+			EconomyEntity owner, double balance, String server, String world);
 	
 	boolean deleteAccount(Account account);
 	
@@ -72,6 +38,25 @@ public interface AccountHandling
 	
 	boolean deleteAllAccounts(UUID uuid, EconomyEntity.EconomyType entityType, AccountType accountType);
 	
+	boolean deleteAllAccounts(UUID uuid, EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
+	
+	/**
+	 * Get the Account
+	 * @param ownerUUID
+	 * @param accountCurrency
+	 * @param accountType
+	 * @param ownerEntityType
+	 * @return
+	 */
+	Account getAccount(String accountName);
+	
+	Account getAccount(UUID ownerUUID, EconomyEntity.EconomyType ownerEntityType, AccountType accountType, EconomyCurrency accountCurrency);
+	
+	Account getAccount(EconomyEntity owner, AccountType accountType, EconomyCurrency accountCurrency);
+	
+	Account getAccount(UUID ownerUUID, EconomyCurrency accountCurrency, AccountType accountType, EconomyEntity.EconomyType ownerEntityType,
+			String server, String world);
+	
 	ArrayList<Account> getAccounts();
 	
 	ArrayList<Account> getAccounts(AccountType accountType);
@@ -80,7 +65,29 @@ public interface AccountHandling
 	
 	ArrayList<Account> getAccount(AccountType accountType, EconomyEntity.EconomyType ownerType);
 	
+	ArrayList<Account> getAccount(AccountType accountType, EconomyEntity.EconomyType ownerType, String server, String world);
+	
 	Account getPlayerDefaultAccount(UUID ownerUUID);
 	
-	void setPlayerDefaultAccount(UUID ownerUUID);
+	Account getPlayerDefaultAccount(UUID ownerUUID, String server, String world);
+	
+	void setPlayerDefaultAccount(Account account);
+	
+	void setPlayerDefaultAccount(Account account, String server, String world);
+	
+	boolean isMember(Account account, EconomyEntity member);
+	
+	boolean canWithdrawAsMember(Account account, EconomyEntity member);
+	
+	boolean addMember(Account account, EconomyEntity member, boolean canWithdraw);
+	
+	boolean removeMember(Account account, EconomyEntity member);
+	
+	Account getDefaultTaxAccount();
+	
+	Account getDefaultTaxAccount(String server, String world);
+	
+	Account getDefautVoidAccount();
+	
+	Account getDefautVoidAccount(String server, String world);
 }
