@@ -18,16 +18,18 @@ public interface TransactionHandling
 	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount);
 	
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, UUID orderer, String actionLogComment);
+	EconomyAction transaction(Account withdraw, Account deposit, double amount,
+			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent);
 	
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent, UUID orderer, String actionLogComment);
+	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent,
+			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent, Account taxDepot);
 	
 	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent, Account taxDepot,
-			UUID orderer, String actionLogComment);
+			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	/**
 	 * Use to do a simple economy action of only one EconomyEntity.
@@ -38,15 +40,18 @@ public interface TransactionHandling
 	 */
 	EconomyAction deposit(Account holder, double amount);
 	
-	EconomyAction deposit(Account holder, double amount, UUID orderer, String actionLogComment);
+	EconomyAction deposit(Account holder, double amount, UUID orderer,
+			String actionLogCategory, String actionLogComment);
 	
 	EconomyAction deposit(Account holder, double amount, double taxAsPercent);
 	
-	EconomyAction deposit(Account holder, double amount, double taxAsPercent, UUID orderer, String actionLogComment);
+	EconomyAction deposit(Account holder, double amount, double taxAsPercent,
+			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	EconomyAction deposit(Account holder, double amount, double taxAsPercent, Account taxDepot);
 	
-	EconomyAction deposit(Account holder, double amount, double taxAsPercent, Account taxDepot, UUID orderer, String actionLogComment);
+	EconomyAction deposit(Account holder, double amount, double taxAsPercent, Account taxDepot,
+			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	/**
 	 * Use to do a simple economy action of only one EconomyEntity.
@@ -57,13 +62,16 @@ public interface TransactionHandling
 	 */
 	EconomyAction withdraw(Account holder, double amount);
 	
-	EconomyAction withdraw(Account holder, double amount, UUID orderer, String actionLogComment);
+	EconomyAction withdraw(Account holder, double amount, 
+			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	EconomyAction withdraw(Account holder, double amount, double taxAsPercent);
 	
-	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, UUID orderer, String actionLogComment);
+	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, 
+			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, Account taxDepot);
 	
-	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, Account taxDepot, UUID orderer, String actionLogComment);
+	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, Account taxDepot,
+			UUID orderer, String actionLogCategory, String actionLogComment);
 }

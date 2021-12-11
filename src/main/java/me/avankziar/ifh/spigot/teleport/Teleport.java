@@ -3,7 +3,7 @@ package main.java.me.avankziar.ifh.spigot.teleport;
 import java.util.ArrayList;
 
 import org.bukkit.Location;
-import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 
 public interface Teleport
@@ -35,15 +35,15 @@ public interface Teleport
 	 */
 	void setGiveEffects(boolean active, PotionEffect... potionEffect);
 	
-	boolean teleport(OfflinePlayer player, String server, Location location);
+	boolean teleport(Player player, String server, Location location);
 	
-	boolean teleport(OfflinePlayer player, String server, Location location, 
+	boolean teleport(Player player, String server, Location location, 
 			ArrayList<String> preTeleportMessage);
 	
-	boolean teleport(OfflinePlayer player, String server, Location location, 
+	boolean teleport(Player player, String server, Location location, 
 			ArrayList<String> preTeleportMessage, ArrayList<String> postTeleportMessage);
 	
-	boolean teleport(OfflinePlayer player, String server, Location location, 
+	boolean teleport(Player player, String server, Location location, 
 			ArrayList<String> preTeleportMessage, ArrayList<String> postTeleportMessage,
 			boolean createBack);
 }

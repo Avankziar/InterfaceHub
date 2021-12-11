@@ -2,7 +2,7 @@ package main.java.me.avankziar.ifh.spigot.interfaces;
 
 import org.bukkit.OfflinePlayer;
 
-public interface PlayerTimes
+public interface PlayerTimes //ADDME Login counter getter setter adder
 {
 	/*
 	 * Is the PlayerTimes as such enabled.

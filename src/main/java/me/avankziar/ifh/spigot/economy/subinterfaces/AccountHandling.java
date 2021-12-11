@@ -30,6 +30,8 @@ public interface AccountHandling
 	
 	boolean deleteAccount(Account account);
 	
+	boolean deleteAccount(EconomyCurrency accountCurrency);
+	
 	boolean deleteAllAccounts(UUID uuid);
 	
 	boolean deleteAllAccounts(UUID uuid, AccountType accountType);
@@ -39,6 +41,16 @@ public interface AccountHandling
 	boolean deleteAllAccounts(UUID uuid, EconomyEntity.EconomyType entityType, AccountType accountType);
 	
 	boolean deleteAllAccounts(UUID uuid, EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
+	
+	boolean deleteAllAccounts(AccountType accountType);
+	
+	boolean deleteAllAccounts(EconomyEntity.EconomyType entityType);
+	
+	boolean deleteAllAccounts(EconomyEntity.EconomyType entityType, AccountType accountType);
+	
+	boolean deleteAllAccounts(String server, String world);
+	
+	boolean deleteAllAccounts(EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
 	
 	/**
 	 * Get the Account
@@ -83,11 +95,11 @@ public interface AccountHandling
 	
 	boolean removeMember(Account account, EconomyEntity member);
 	
-	Account getDefaultTaxAccount();
+	Account getDefaultTaxAccount(EconomyCurrency accountCurrency);
 	
-	Account getDefaultTaxAccount(String server, String world);
+	Account getDefaultTaxAccount(EconomyCurrency accountCurrency, String server, String world);
 	
-	Account getDefautVoidAccount();
+	Account getDefautVoidAccount(EconomyCurrency accountCurrency);
 	
-	Account getDefautVoidAccount(String server, String world);
+	Account getDefautVoidAccount(EconomyCurrency accountCurrency, String server, String world);
 }

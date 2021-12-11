@@ -16,14 +16,19 @@ public class CurrencyGradation
 	/*
 	 * The define of a itemstack to a currency at BaseGradation.
 	 */
-	private LinkedHashMap<ItemStack, Double> itemStackMap = new LinkedHashMap<>();
+	private ItemStack correspondingItem;
+	
+	/*
+	 * the worth of 1 currency to 1 correspondingItem (baseGradation).
+	 */
+	private double itemstackWorth = Double.MAX_VALUE;
 	
 	private boolean useExperienceCurrency = false;
 	
 	/*
-	 * the worth of 1 player experience to 1 currency (baseGradation).
+	 * the worth of 1 currency to 1 playerexperience (baseGradation).
 	 */
-	private int experienceWorth = Integer.MAX_VALUE;
+	private double experienceWorth = Double.MAX_VALUE;
 	
 	/**
 	 * F.e. If you have a currency of copper, silver and gold, where copper is the minor, silver the middle and gold the major,
@@ -81,12 +86,33 @@ public class CurrencyGradation
 		return this;
 	}
 	
-	public CurrencyGradation addItemStackWorthToBaseGradation(ItemStack itemstack, double worth)
+	public CurrencyGradation setItemStackWorthToBaseGradation(ItemStack itemstack, double worth)
 	{
-		this.itemStackMap.put(itemstack, worth);
+		this.correspondingItem = itemstack;
+		this.itemstackWorth = worth;
 		return this;
 	}
 	
+	public ItemStack getCorrespondingItem()
+	{
+		return correspondingItem;
+	}
+
+	public void setCorrespondingItem(ItemStack correspondingItem)
+	{
+		this.correspondingItem = correspondingItem;
+	}
+
+	public double getItemstackWorth()
+	{
+		return itemstackWorth;
+	}
+
+	public void setItemstackWorth(double itemstackWorth)
+	{
+		this.itemstackWorth = itemstackWorth;
+	}
+
 	public CurrencyGradation setUseExperienceCurrency(boolean useExperienceCurrency)
 	{
 		this.useExperienceCurrency = useExperienceCurrency;
@@ -111,22 +137,9 @@ public class CurrencyGradation
 			}
 			s += ",";
 		}
-		s += "UseItemStackCurrency="+this.useItemStackCurrency+",";
-		if(!this.itemStackMap.isEmpty())
-		{
-			s += "ItemStackMap{";
-			int i = 0;
-			for(Entry<ItemStack, Double> e : this.itemStackMap.entrySet())
-			{
-				s += "ItemStack="+e.getKey().toString()+",Worth="+e.getValue().toString();
-				if(i-1 < this.itemStackMap.size())
-				{
-					s += ";";
-				}
-			}
-			s += "}";
-		}
-		s += "UseExperienceWorth="+this.useExperienceCurrency+",ExperienceWorth="+this.experienceWorth+"}";
+		s += "UseItemStackCurrency="+this.useItemStackCurrency
+				+",ItemStack="+this.correspondingItem.toString()+",Worth="+this.itemstackWorth
+				+",UseExperienceWorth="+this.useExperienceCurrency+",ExperienceWorth="+this.experienceWorth+"}";
 		return s;
 	}
 }

@@ -59,15 +59,15 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * <br>- '20 $' if $ (Dollar & Cent) is the default currency
 	 * <br>For other/unique/better display use 'formatWithCurency'
 	 */
-	String format(double amount);
+	String format(EconomyCurrency economyCurrency, double amount);
 	
-	int getDefaultGradationQuantity();
+	int getDefaultGradationQuantity(EconomyCurrency economyCurrency);
 	
-	boolean getDefaultUseSIPrefix();
+	boolean getDefaultUseSIPrefix(EconomyCurrency economyCurrency);
 	
-	int getDefaultDecimalPlaces();
+	int getDefaultDecimalPlaces(EconomyCurrency economyCurrency);
 	
-	boolean getDefaultUseSymbol();
+	boolean getDefaultUseSymbol(EconomyCurrency economyCurrency);
 	
 	/**
 	 * A string format of the amount in the specific currency in one String.

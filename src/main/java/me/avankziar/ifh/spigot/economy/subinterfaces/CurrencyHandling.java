@@ -1,7 +1,5 @@
 package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
-import org.bukkit.inventory.ItemStack;
-
 import main.java.me.avankziar.ifh.spigot.economy.account.AccountType;
 import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
 import main.java.me.avankziar.ifh.spigot.economy.currency.Currency;
@@ -84,14 +82,6 @@ public interface CurrencyHandling
 	 * @return the currency with the uniqueName.
 	 */
 	EconomyCurrency getCurrency(String uniqueName);
-	
-	/**
-	 * If the using currency has this itemstack not on his list,
-	 * <br>than use this methode to determind the worth of the item.
-	 * @param itemstack
-	 * @return standart worth of the itemstack.
-	 */
-	double getDefaultItemStackWorth(ItemStack itemstack);
 	
 	double getTotalMoneyInTheSystem();
 	

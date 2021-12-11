@@ -29,13 +29,13 @@ public class EconomyAction
 	
 	private final double amount;
 	
-	private final double withdrawBalance;
+	private final double withdrawBalanceAfterTransaction;
 	
-	private final double depositBalance;
+	private final double depositBalanceAfterTransaction;
 	
 	public EconomyAction(double amount, EconomyEntity withdraw, EconomyEntity deposit,
 			boolean transactionSuccess, String defaultErrorMessage, ErrorMessageType errorMessageType,
-			double withdrawBalance, double depositBalance)
+			double withdrawBalanceAfterTransaction, double depositBalanceAfterTransaction)
 	{
 		this.amount = amount;
 		this.withdraw = withdraw;
@@ -43,23 +43,23 @@ public class EconomyAction
 		this.transactionSuccess = transactionSuccess;
 		this.defaultErrorMessage = defaultErrorMessage;
 		this.errorMessageType = errorMessageType;
-		this.withdrawBalance = withdrawBalance;
-		this.depositBalance = depositBalance;
+		this.withdrawBalanceAfterTransaction = withdrawBalanceAfterTransaction;
+		this.depositBalanceAfterTransaction = depositBalanceAfterTransaction;
 	}
 	
 	public EconomyAction(double amount, EconomyEntity withdraw, boolean transactionSuccess, String defaultErrorMessage, 
-			double withdrawBalance, double depositBalance)
+			double withdrawBalanceAfterTransaction, double depositBalanceAfterTransaction)
 	{
 		this(amount, withdraw, null, transactionSuccess, defaultErrorMessage, ErrorMessageType.NO_TYPE_SET, 
-				withdrawBalance, depositBalance);
+				withdrawBalanceAfterTransaction, depositBalanceAfterTransaction);
 	}
 	
 	public EconomyAction(double amount, EconomyEntity withdraw,
 			boolean transactionSuccess, String defaultErrorMessage, ErrorMessageType errorMessageType, 
-			double withdrawBalance, double depositBalance)
+			double withdrawBalanceAfterTransaction, double depositBalanceAfterTransaction)
 	{
 		this(amount, withdraw, null, transactionSuccess, defaultErrorMessage, errorMessageType,
-				withdrawBalance, depositBalance);
+				withdrawBalanceAfterTransaction, depositBalanceAfterTransaction);
 	}
 	
 	public boolean isSuccess()
@@ -92,13 +92,13 @@ public class EconomyAction
 		return defaultErrorMessage;
 	}
 
-	public double getWithdrawBalance()
+	public double getWithdrawBalanceAfterTransaction()
 	{
-		return withdrawBalance;
+		return withdrawBalanceAfterTransaction;
 	}
 
-	public double getDepositBalance()
+	public double getDepositBalanceAfterTransaction()
 	{
-		return depositBalance;
+		return depositBalanceAfterTransaction;
 	}
 }
