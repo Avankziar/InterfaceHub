@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.interfaces;
+package main.java.me.avankziar.ifh.general.interfaces;
 
 public interface UUIDFetcher
 {
