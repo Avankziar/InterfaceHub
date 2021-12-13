@@ -1,8 +1,27 @@
 package main.java.me.avankziar.ifh.spigot.Metrics;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonPrimitive;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.logging.Level;
+import java.util.zip.GZIPOutputStream;
+
+import javax.net.ssl.HttpsURLConnection;
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -10,16 +29,10 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
-import java.util.concurrent.Callable;
-import java.util.logging.Level;
-import java.util.zip.GZIPOutputStream;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 
 /**
  * bStats collects some data for plugin authors.
@@ -265,7 +278,8 @@ public class Metrics {
     /**
      * Collects the data and sends it afterwards.
      */
-    private void submitData() {
+    @SuppressWarnings("deprecation")
+	private void submitData() {
         final JsonObject data = getServerData();
 
         JsonArray pluginData = new JsonArray();
@@ -287,7 +301,7 @@ public class Metrics {
                                     jsonStringGetter.setAccessible(true);
                                     String jsonString = (String) jsonStringGetter.invoke(plugin);
                                     //JsonObject object = new JsonParser().parse(jsonString).getAsJsonObject();
-                                    JsonObject object = JsonParser.parseString(jsonString).getAsJsonObject();
+                                    JsonObject object = new JsonParser().parse(jsonString).getAsJsonObject();
                                     pluginData.add(object);
                                 }
                             } catch (ClassNotFoundException e) {
