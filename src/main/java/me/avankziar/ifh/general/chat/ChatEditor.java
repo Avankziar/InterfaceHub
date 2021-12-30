@@ -4,7 +4,7 @@ import java.util.UUID;
 
 /**
  * The ChatEditor is a function to keep players away from the actual chat,
- * that ingame chat input can be used for administrative things. 
+ * that ingame chat input can than be used for administrative things. 
  * @author Avankziar
  */
 public interface ChatEditor

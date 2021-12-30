@@ -8,8 +8,8 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import main.java.me.avankziar.ifh.general.interfaces.PlayerTimes;
 import main.java.me.avankziar.ifh.spigot.Metrics.Metrics;
-import main.java.me.avankziar.ifh.spigot.interfaces.PlayerTimes;
 
 public class InterfaceHub extends JavaPlugin
 {

@@ -61,12 +61,32 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 */
 	String format(EconomyCurrency economyCurrency, double amount);
 	
+	/**
+	 * default value for the methode <b>formatWithCurrency</b>
+	 * @param economyCurrency
+	 * @return
+	 */
 	int getDefaultGradationQuantity(EconomyCurrency economyCurrency);
 	
+	/**
+	 * default value for the methode <b>formatWithCurrency</b>
+	 * @param economyCurrency
+	 * @return
+	 */
 	boolean getDefaultUseSIPrefix(EconomyCurrency economyCurrency);
 	
+	/**
+	 * default value for the methode <b>formatWithCurrency</b>
+	 * @param economyCurrency
+	 * @return
+	 */
 	int getDefaultDecimalPlaces(EconomyCurrency economyCurrency);
 	
+	/**
+	 * default value for the methode <b>formatWithCurrency</b>
+	 * @param economyCurrency
+	 * @return
+	 */
 	boolean getDefaultUseSymbol(EconomyCurrency economyCurrency);
 	
 	/**

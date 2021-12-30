@@ -8,7 +8,7 @@ import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 public interface CurrencyHandling
 {
 	/**
-	 * @param economyCurrency
+	 * @param economyCurrencyName
 	 * @return true, if the currency already exists.
 	 */
 	boolean existsCurrency(String uniqueCurrencyName);
@@ -83,11 +83,11 @@ public interface CurrencyHandling
 	 */
 	EconomyCurrency getCurrency(String uniqueName);
 	
-	double getTotalMoneyInTheSystem();
+	double getTotalMoneyInTheSystem(EconomyCurrency currency);
 	
-	double getTotalMoneyInTheSystem(AccountType accountType);
+	double getTotalMoneyInTheSystem(EconomyCurrency currency, AccountType accountType);
 	
-	double getTotalMoneyInTheSystem(EconomyEntity.EconomyType ownerType);
+	double getTotalMoneyInTheSystem(EconomyCurrency currency, EconomyEntity.EconomyType ownerType);
 	
-	double getTotalMoneyInTheSystem(AccountType accountType, EconomyEntity.EconomyType ownerType);
+	double getTotalMoneyInTheSystem(EconomyCurrency currency, AccountType accountType, EconomyEntity.EconomyType ownerType);
 }

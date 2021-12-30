@@ -1,8 +1,10 @@
 package main.java.me.avankziar.ifh.general.interfaces;
 
+import java.util.UUID;
+
 public interface UUIDFetcher
-{
-	String getPlayerUUIDFromName(String name);
+{	
+	UUID getPlayerUUIDFromName(String playername);
 	
-	String getPlayerNameFromUUID(String uuid);
+	String getPlayerNameFromUUID(UUID uuid);
 }

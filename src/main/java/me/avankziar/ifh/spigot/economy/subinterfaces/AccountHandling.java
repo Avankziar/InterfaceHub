@@ -87,6 +87,8 @@ public interface AccountHandling
 	
 	void setPlayerDefaultAccount(Account account, String server, String world);
 	
+	boolean setOwner(Account account, EconomyEntity newowner);
+	
 	boolean isMember(Account account, EconomyEntity member);
 	
 	boolean canWithdrawAsMember(Account account, EconomyEntity member);

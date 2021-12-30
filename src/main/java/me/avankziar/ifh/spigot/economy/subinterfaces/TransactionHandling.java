@@ -1,6 +1,9 @@
 package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
+import java.util.LinkedHashMap;
 import java.util.UUID;
+
+import org.bukkit.inventory.ItemStack;
 
 import main.java.me.avankziar.ifh.spigot.economy.account.Account;
 import main.java.me.avankziar.ifh.spigot.economy.action.EconomyAction;
@@ -73,5 +76,9 @@ public interface TransactionHandling
 	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, Account taxDepot);
 	
 	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, Account taxDepot,
+			UUID orderer, String actionLogCategory, String actionLogComment);
+	
+	EconomyAction withdraw(Account holder, double amount, LinkedHashMap<ItemStack, Double> possibleItemsWithRelatedValue,
+			double taxAsPercent, Account taxDepot,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 }
