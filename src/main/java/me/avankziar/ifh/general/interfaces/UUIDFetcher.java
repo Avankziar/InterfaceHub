@@ -7,4 +7,6 @@ public interface UUIDFetcher
 	UUID getPlayerUUIDFromName(String playername);
 	
 	String getPlayerNameFromUUID(UUID uuid);
+	
+	int lastCheckIn10Mins();
 }

@@ -10,6 +10,7 @@ import main.java.me.avankziar.ifh.spigot.economy.subinterfaces.TransactionHandli
 public interface Economy
 extends AccountHandling, CurrencyHandling, TransactionHandling
 {
+	
 	/**
 	 * @return true if the normal economy is enabled.
 	 */
@@ -57,7 +58,7 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * @return
 	 * F.e.:
 	 * <br>- '20 $' if $ (Dollar & Cent) is the default currency
-	 * <br>For other/unique/better display use 'formatWithCurency'
+	 * <br>For other/unique/better display use 'format'
 	 */
 	String format(EconomyCurrency economyCurrency, double amount);
 	
@@ -129,6 +130,9 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * @param useSIPrefix
 	 * @param useSymbol
 	 */
-	String formatWithCurrency(double amount, @Nonnull EconomyCurrency economyCurrency, int gradationQuantity, int decimalPlaces, 
+	String format(double amount, @Nonnull EconomyCurrency economyCurrency, int gradationQuantity, int decimalPlaces, 
 			boolean useSIPrefix, boolean useSymbol);
+	
+	String format(double amount, @Nonnull EconomyCurrency economyCurrency, int gradationQuantity, int decimalPlaces, 
+			boolean useSIPrefix, boolean useSymbol, String thousandSeperator, String decimalSeperator);
 }

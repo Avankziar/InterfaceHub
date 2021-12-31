@@ -1,5 +1,7 @@
 package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
+import java.util.ArrayList;
+
 import main.java.me.avankziar.ifh.spigot.economy.account.AccountType;
 import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
 import main.java.me.avankziar.ifh.spigot.economy.currency.Currency;
@@ -19,6 +21,24 @@ public interface CurrencyHandling
 	 * @return true, if the currency is registered.
 	 */
 	boolean registerCurrency(Currency currency);
+	
+	/**
+	 * get all registered normal Currency
+	 * @return
+	 */
+	ArrayList<EconomyCurrency> getCurrency();
+	
+	/**
+	 * get all registered itemstack Currency
+	 * @return
+	 */
+	ArrayList<EconomyCurrency> getItemStackCurrency();
+	
+	/**
+	 * get all registered experience Currency
+	 * @return
+	 */
+	ArrayList<EconomyCurrency> getExperienceCurrency();
 	
 	/**
 	 * @return the default currency.

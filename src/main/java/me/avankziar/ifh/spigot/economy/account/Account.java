@@ -7,8 +7,12 @@ import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
  * <br> look at <a href="#{@link}">{@link https://www.spigotmc.org/resources/authors/avankziar.332028/}</a>
  * @author Avankziar
  */
-public abstract class Account
+public class Account
 {
+	/**
+	 * The id of the Account from the mysql autoincrement.
+	 */
+	protected int id;
 	/**
 	 * The name of this account.
 	 */
@@ -17,6 +21,10 @@ public abstract class Account
 	 * The accounttype define which type of account this is. A wallet or a typical bankaccount.
 	 */
 	protected final AccountType type;
+	/**
+	 * The Category of the account. F.E. 'main' for main account of a player, 'tax' for a separate tax account for a player.
+	 */
+	protected AccountCategory category;
 	/**
 	 * The currency of this account.
 	 */
@@ -37,11 +45,13 @@ public abstract class Account
 	/**
 	 * Constructor of the account.
 	 */
-	public Account(String accountName, AccountType type, EconomyCurrency accountCurrency,
+	public Account(String accountName, AccountType type, AccountCategory category, EconomyCurrency accountCurrency,
 			EconomyEntity owner, double balance)
 	{
+		this.id = 0;
 		setAccountName(accountName);
 		this.type = type;
+		setCategory(category);
 		this.accountCurrency = accountCurrency;
 		setOwner(owner);
 		setBalance(balance);
@@ -49,11 +59,41 @@ public abstract class Account
 		setWorld(null);
 	}
 	
-	public Account(String accountName, AccountType type, EconomyCurrency accountCurrency,
-			EconomyEntity owner, double balance, String server, String world)
+	public Account(int id, String accountName, AccountType type, AccountCategory category, EconomyCurrency accountCurrency,
+			EconomyEntity owner, double balance)
 	{
+		this.id = id;
 		setAccountName(accountName);
 		this.type = type;
+		setCategory(category);
+		this.accountCurrency = accountCurrency;
+		setOwner(owner);
+		setBalance(balance);
+		setServer(null);
+		setWorld(null);
+	}
+	
+	public Account(String accountName, AccountType type, AccountCategory category, EconomyCurrency accountCurrency,
+			EconomyEntity owner, double balance, String server, String world)
+	{
+		this.id = 0;
+		setAccountName(accountName);
+		this.type = type;
+		setCategory(category);
+		this.accountCurrency = accountCurrency;
+		setOwner(owner);
+		setBalance(balance);
+		setServer(server);
+		setWorld(world);
+	}
+	
+	public Account(int id, String accountName, AccountType type, AccountCategory category, EconomyCurrency accountCurrency,
+			EconomyEntity owner, double balance, String server, String world)
+	{
+		this.id = id;
+		setAccountName(accountName);
+		this.type = type;
+		setCategory(category);
 		this.accountCurrency = accountCurrency;
 		setOwner(owner);
 		setBalance(balance);
@@ -79,6 +119,16 @@ public abstract class Account
 		return this;
 	}
 	
+	public AccountCategory getCategory()
+	{
+		return category;
+	}
+
+	public void setCategory(AccountCategory category)
+	{
+		this.category = category;
+	}
+
 	/**
 	 * @return the economycurrency of this account.
 	 */

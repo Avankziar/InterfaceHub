@@ -24,14 +24,27 @@ public interface TransactionHandling
 	EconomyAction transaction(Account withdraw, Account deposit, double amount,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent);
+	/**
+	 * Use to do a simple economy action between 2 Accounts.
+	 * <br>If you wish to take or add a amount on one EconomyEntity, please use
+	 * <br>the single transaction methode.
+	 * <br>taxAreAdditional is true => amountWhichAreWithdrawn = amount + amount*taxInPercent
+	 * <br>taxAreAdditional is false=> amountWhichAreWithdrawn = amount - amount*taxInPercent
+	 * @param withdraw
+	 * @param deposit
+	 * @param amount
+	 * @param taxInPercent
+	 * @param taxAreAddition
+	 * @return
+	 */
+	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreAddition);
 	
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent,
+	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreAddition,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent, Account taxDepot);
+	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreAddition, Account taxDepot);
 	
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxAsPercent, Account taxDepot,
+	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreAddition, Account taxDepot,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	/**
@@ -46,14 +59,14 @@ public interface TransactionHandling
 	EconomyAction deposit(Account holder, double amount, UUID orderer,
 			String actionLogCategory, String actionLogComment);
 	
-	EconomyAction deposit(Account holder, double amount, double taxAsPercent);
+	EconomyAction deposit(Account holder, double amount, double taxInPercent, boolean taxAreAddition);
 	
-	EconomyAction deposit(Account holder, double amount, double taxAsPercent,
+	EconomyAction deposit(Account holder, double amount, double taxInPercent, boolean taxAreAddition,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
-	EconomyAction deposit(Account holder, double amount, double taxAsPercent, Account taxDepot);
+	EconomyAction deposit(Account holder, double amount, double taxInPercent, boolean taxAreAddition, Account taxDepot);
 	
-	EconomyAction deposit(Account holder, double amount, double taxAsPercent, Account taxDepot,
+	EconomyAction deposit(Account holder, double amount, double taxInPercent, boolean taxAreAddition, Account taxDepot,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	/**
@@ -68,17 +81,17 @@ public interface TransactionHandling
 	EconomyAction withdraw(Account holder, double amount, 
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
-	EconomyAction withdraw(Account holder, double amount, double taxAsPercent);
+	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreAddition);
 	
-	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, 
+	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreAddition, 
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
-	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, Account taxDepot);
+	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreAddition, Account taxDepot);
 	
-	EconomyAction withdraw(Account holder, double amount, double taxAsPercent, Account taxDepot,
+	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreAddition, Account taxDepot,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
 	EconomyAction withdraw(Account holder, double amount, LinkedHashMap<ItemStack, Double> possibleItemsWithRelatedValue,
-			double taxAsPercent, Account taxDepot,
+			double taxInPercent, boolean taxAreAddition, Account taxDepot,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 }
