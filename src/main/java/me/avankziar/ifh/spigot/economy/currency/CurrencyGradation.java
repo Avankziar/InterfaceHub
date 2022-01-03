@@ -3,27 +3,11 @@ package main.java.me.avankziar.ifh.spigot.economy.currency;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
-import org.bukkit.inventory.ItemStack;
-
 public class CurrencyGradation
-{
+{	
 	private final Gradation baseGradation;
 	
 	private final LinkedHashMap<Integer, Gradation> gradations;
-	
-	private boolean useItemStackCurrency = false;
-	
-	/*
-	 * The define of a itemstack to a currency at BaseGradation.
-	 */
-	private ItemStack correspondingItem;
-	
-	/*
-	 * the worth of 1 currency to 1 correspondingItem (baseGradation).
-	 */
-	private double itemstackWorth = Double.MAX_VALUE;
-	
-	private boolean useExperienceCurrency = false;
 	
 	/*
 	 * the worth of 1 currency to 1 playerexperience (baseGradation).
@@ -80,45 +64,6 @@ public class CurrencyGradation
 		}
 	}
 	
-	public CurrencyGradation setUseItemStackCurrency(boolean useItemStackCurrency)
-	{
-		this.useItemStackCurrency = useItemStackCurrency;
-		return this;
-	}
-	
-	public CurrencyGradation setItemStackWorthToBaseGradation(ItemStack itemstack, double worth)
-	{
-		this.correspondingItem = itemstack;
-		this.itemstackWorth = worth;
-		return this;
-	}
-	
-	public ItemStack getCorrespondingItem()
-	{
-		return correspondingItem;
-	}
-
-	public void setCorrespondingItem(ItemStack correspondingItem)
-	{
-		this.correspondingItem = correspondingItem;
-	}
-
-	public double getItemstackWorth()
-	{
-		return itemstackWorth;
-	}
-
-	public void setItemstackWorth(double itemstackWorth)
-	{
-		this.itemstackWorth = itemstackWorth;
-	}
-
-	public CurrencyGradation setUseExperienceCurrency(boolean useExperienceCurrency)
-	{
-		this.useExperienceCurrency = useExperienceCurrency;
-		return this;
-	}
-	
 	public CurrencyGradation setExperienceWorthToBaseGradation(int experienceWorth)
 	{
 		this.experienceWorth = experienceWorth;
@@ -137,9 +82,7 @@ public class CurrencyGradation
 			}
 			s += ",";
 		}
-		s += "UseItemStackCurrency="+this.useItemStackCurrency
-				+",ItemStack="+this.correspondingItem.toString()+",Worth="+this.itemstackWorth
-				+",UseExperienceWorth="+this.useExperienceCurrency+",ExperienceWorth="+this.experienceWorth+"}";
+		s += ",ExperienceWorth="+this.experienceWorth+"}";
 		return s;
 	}
 }

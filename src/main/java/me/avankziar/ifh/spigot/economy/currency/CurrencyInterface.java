@@ -6,9 +6,13 @@ public interface CurrencyInterface
 	
 	CurrencyGradation getCurrencyGradation();
 	
+	CurrencyType getCurrencyType();
+	
+	boolean isExchangeable();
+	
 	String getServer();
 	
 	String getWorld();
 	
-	double getWorth();
+	double getExchangeWorth();
 }

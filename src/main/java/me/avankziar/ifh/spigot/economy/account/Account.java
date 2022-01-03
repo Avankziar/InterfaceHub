@@ -51,7 +51,6 @@ public class Account
 		this.id = 0;
 		setAccountName(accountName);
 		this.type = type;
-		setCategory(category);
 		this.accountCurrency = accountCurrency;
 		setOwner(owner);
 		setBalance(balance);
@@ -65,7 +64,6 @@ public class Account
 		this.id = id;
 		setAccountName(accountName);
 		this.type = type;
-		setCategory(category);
 		this.accountCurrency = accountCurrency;
 		setOwner(owner);
 		setBalance(balance);
@@ -79,7 +77,6 @@ public class Account
 		this.id = 0;
 		setAccountName(accountName);
 		this.type = type;
-		setCategory(category);
 		this.accountCurrency = accountCurrency;
 		setOwner(owner);
 		setBalance(balance);
@@ -93,7 +90,6 @@ public class Account
 		this.id = id;
 		setAccountName(accountName);
 		this.type = type;
-		setCategory(category);
 		this.accountCurrency = accountCurrency;
 		setOwner(owner);
 		setBalance(balance);
@@ -118,7 +114,7 @@ public class Account
 		this.accountName = accountName;
 		return this;
 	}
-	
+
 	public AccountCategory getCategory()
 	{
 		return category;

@@ -55,12 +55,13 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	/**
 	 * Formats a double 'amount' as String with the default settings.
 	 * @param amount
+	 * @param economyCurrency
 	 * @return
 	 * F.e.:
 	 * <br>- '20 $' if $ (Dollar & Cent) is the default currency
-	 * <br>For other/unique/better display use 'format'
+	 * <br>For other/unique/better display use 'format' with more input values.
 	 */
-	String format(EconomyCurrency economyCurrency, double amount);
+	String format(double amount, EconomyCurrency economyCurrency);
 	
 	/**
 	 * default value for the methode <b>formatWithCurrency</b>
@@ -91,6 +92,20 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	boolean getDefaultUseSymbol(EconomyCurrency economyCurrency);
 	
 	/**
+	 * Return which symbol are in use for seperate between thousand
+	 * @param economyCurrency
+	 * @return
+	 */
+	String getDefaultThousandSeperator(EconomyCurrency economyCurrency);
+	
+	/**
+	 * Return which symbole are in use for seperate the normal number with the decimal number
+	 * @param economyCurrency
+	 * @return
+	 */
+	String getDefaultDecimalSeperator(EconomyCurrency economyCurrency);
+	
+	/**
 	 * A string format of the amount in the specific currency in one String.
 	 * <br><b>The value decimalPlaces and gradationQuantity are mutually exclusive.</b>
 	 * <br>decimalPlaces cannot be less than 0.
@@ -111,6 +126,7 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * <br>- <b>1,820 Dollars 1 Cents</b>        (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
 	 * <br>- <b>1,820 Dollars 1.0 Cents</b>      (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
 	 * <br>- <b>1.8k Dollars</b>                 (gQ: <b>1</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br> => Now for rpg like currency
 	 * <br>- <b>211 Au</b>                       (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
 	 * <br>- <b>211.13 Au</b>                    (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>2</b> | uS: <b>true</b>)
 	 * <br>- <b>211 Au 13 Ag</b>                 (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
@@ -133,6 +149,50 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	String format(double amount, @Nonnull EconomyCurrency economyCurrency, int gradationQuantity, int decimalPlaces, 
 			boolean useSIPrefix, boolean useSymbol);
 	
+	/**
+	 * A string format of the amount in the specific currency in one String.
+	 * <br><b>The value decimalPlaces and gradationQuantity are mutually exclusive.</b>
+	 * <br>decimalPlaces cannot be less than 0.
+	 * <br>See the examples.
+	 * <br>1 Dollar = 100 Cents
+	 * <br>1 Gold = 100 Silver = 10.000 Copper
+	 * <br> @param thousandSeperator = Seperation between Thousand (here ,)
+	 * <br> @param decimalSeperator = Decimalseperator (here .)
+	 * <br>k = kilo(thousand), M = Mega(Million), G = Giga(Billion) ... [should be configurable]
+	 * <br>gQ = gradationQuantity | SI = useSIPrefix | dP = decimalPlaces | uS = useSymbol
+	 * <br>F.e.: 
+	 * <br>- <b>1,820 $</b>                      (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820.1 $</b>                    (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 $ 1 ¢</b>                  (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,8201 ¢</b>                     (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 $ 1.0 ¢</b>                (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 Dollars</b>                (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820.1 Dollars</b>              (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820 Dollars 1 Cents</b>        (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820 Dollars 1.0 Cents</b>      (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>1.8k Dollars</b>                 (gQ: <b>1</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br> => Now for rpg like currency
+	 * <br>- <b>211 Au</b>                       (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
+	 * <br>- <b>211.13 Au</b>                    (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>2</b> | uS: <b>true</b>)
+	 * <br>- <b>211 Au 13 Ag</b>                 (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
+	 * <br>- <b>211 Au 13 Ag 88 Cu</b>           (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
+	 * <br>- <b>211 Au 13 Ag 88.0 Cu</b>         (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>211 Gold</b>                     (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Gold 12 Silver</b>           (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Gold 12 Silver 88 Copper</b> (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>21,112 Silver 88 Copper</b>      (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>21,112,088 Copper</b>            (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>21,112,088.0 Copper</b>          (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>21.1M Copper</b>                 (gQ:<b>-2</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
+	 * @param amount
+	 * @param economyCurrency
+	 * @param gradationQuantity
+	 * @param decimalPlaces
+	 * @param useSIPrefix
+	 * @param useSymbol
+	 * @param thousandSeperator
+	 * @param decimalSeperator
+	 */
 	String format(double amount, @Nonnull EconomyCurrency economyCurrency, int gradationQuantity, int decimalPlaces, 
 			boolean useSIPrefix, boolean useSymbol, String thousandSeperator, String decimalSeperator);
 }

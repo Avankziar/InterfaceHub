@@ -160,13 +160,13 @@ public interface AccountHandling
 	ArrayList<Account> getAccount(AccountType accountType, EconomyEntity.EconomyType ownerType, AccountCategory accountCategory, 
 			String server, String world);
 	
-	Account getPlayerDefaultAccount(UUID ownerUUID);
+	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType, AccountCategory accountCategory);
 	
-	Account getPlayerDefaultAccount(UUID ownerUUID, String server, String world);
+	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType, AccountCategory accountCategory, String server, String world);
 	
-	void setPlayerDefaultAccount(Account account);
+	void setPlayerDefaultAccount(UUID ownerUUID, Account account, AccountCategory accountCategory);
 	
-	void setPlayerDefaultAccount(Account account, String server, String world);
+	void setPlayerDefaultAccount(UUID ownerUUID, Account account, AccountCategory accountCategory, String server, String world);
 	
 	boolean addManagementTypeToAccount(Account account, UUID uuid, AccountManagementType acountManagementType);
 	

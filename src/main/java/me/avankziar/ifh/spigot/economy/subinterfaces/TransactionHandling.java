@@ -21,6 +21,18 @@ public interface TransactionHandling
 	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount);
 	
+	/**
+	 * Use to do a simple economy action between 2 Accounts.
+	 * <br>If you wish to take or add a amount on one EconomyEntity, please use
+	 * <br>the single transaction methode.
+	 * @param withdraw
+	 * @param deposit
+	 * @param amount
+	 * @param orderer
+	 * @param actionLogCategory
+	 * @param actionLogComment
+	 * @return
+	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
@@ -30,6 +42,7 @@ public interface TransactionHandling
 	 * <br>the single transaction methode.
 	 * <br>taxAreAdditional is true => amountWhichAreWithdrawn = amount + amount*taxInPercent
 	 * <br>taxAreAdditional is false=> amountWhichAreWithdrawn = amount - amount*taxInPercent
+	 * <br>In this methode the money goes really into the void
 	 * @param withdraw
 	 * @param deposit
 	 * @param amount
@@ -39,9 +52,41 @@ public interface TransactionHandling
 	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreAddition);
 	
+	/**
+	 * Use to do a simple economy action between 2 Accounts.
+	 * <br>If you wish to take or add a amount on one EconomyEntity, please use
+	 * <br>the single transaction methode.
+	 * <br>taxAreAdditional is true => amountWhichAreWithdrawn = amount + amount*taxInPercent
+	 * <br>taxAreAdditional is false=> amountWhichAreWithdrawn = amount - amount*taxInPercent
+	 * <br>In this methode the money goes really into the void
+	 * @param withdraw
+	 * @param deposit
+	 * @param amount
+	 * @param taxInPercent
+	 * @param taxAreAddition
+	 * @param orderer
+	 * @param actionLogCategory
+	 * @param actionLogComment
+	 * @return
+	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreAddition,
 			UUID orderer, String actionLogCategory, String actionLogComment);
 	
+	/**
+	 * Use to do a simple economy action between 2 Accounts.
+	 * <br>If you wish to take or add a amount on one EconomyEntity, please use
+	 * <br>the single transaction methode.
+	 * <br>taxAreAdditional is true => amountWhichAreWithdrawn = amount + amount*taxInPercent
+	 * <br>taxAreAdditional is false=> amountWhichAreWithdrawn = amount - amount*taxInPercent
+	 * <br>Here the money goes into a taxaccount, preferred, in the tax account of the player.
+	 * @param withdraw
+	 * @param deposit
+	 * @param amount
+	 * @param taxInPercent
+	 * @param taxAreAddition
+	 * @param taxDepot
+	 * @return
+	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreAddition, Account taxDepot);
 	
 	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreAddition, Account taxDepot,
@@ -94,4 +139,37 @@ public interface TransactionHandling
 	EconomyAction withdraw(Account holder, double amount, LinkedHashMap<ItemStack, Double> possibleItemsWithRelatedValue,
 			double taxInPercent, boolean taxAreAddition, Account taxDepot,
 			UUID orderer, String actionLogCategory, String actionLogComment);
+	
+	
+	EconomyAction exchangeCurrencies(Account withdrawAccount, double amountFromWithdrawAccount,
+			Account depositAccount);
+	
+	EconomyAction exchangeCurrencies(Account withdrawAccount, double amountFromWithdrawAccount,
+			Account depositAccount,  
+			UUID orderer, String actionLogCategoryForWithdrawAccount, String actionLogCommentForWithdrawAccount,
+			String actionLogCategoryForDepositAccount, String actionLogCommentFordepositAccount);
+	
+	EconomyAction exchangeCurrencies(Account withdrawAccount, double amountFromWithdrawAccount,
+			double taxInPercent, boolean taxAreAddition, Account taxDepot,
+			Account depositAccount);
+	/**
+	 * Annotation! Exchange are suppose to happen to the same type of currency, not item to exp or item to normal etc.
+	 * @param withdrawAccount, which comes the money for the exchange
+	 * @param amountFromWithdrawAccount
+	 * @param taxInPercent
+	 * @param taxAreAddition
+	 * @param taxDepot
+	 * @param depositAccount, which goes the money from the exchange
+	 * @param orderer
+	 * @param actionLogCategoryForWithdrawAccount
+	 * @param actionLogCommentForWithdrawAccount
+	 * @param actionLogCategoryForDepositAccount
+	 * @param actionLogCommentFordepositAccount
+	 * @return
+	 */
+	EconomyAction exchangeCurrencies(Account withdrawAccount, double amountFromWithdrawAccount,
+			double taxInPercent, boolean taxAreAddition, Account taxDepot,
+			Account depositAccount,  
+			UUID orderer, String actionLogCategoryForWithdrawAccount, String actionLogCommentForWithdrawAccount,
+			String actionLogCategoryForDepositAccount, String actionLogCommentFordepositAccount);
 }

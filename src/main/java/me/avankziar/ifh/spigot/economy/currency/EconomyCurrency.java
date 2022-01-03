@@ -20,6 +20,18 @@ public class EconomyCurrency implements CurrencyInterface
 	{
 		return currency.currencyGradation;
 	}
+	
+	@Override 
+	public CurrencyType getCurrencyType()
+	{
+		return currency.currencyType;
+	}
+	
+	@Override
+	public boolean isExchangeable()
+	{
+		return currency.isExchangeable;
+	}
 
 	@Override
 	public String getServer()
@@ -34,7 +46,7 @@ public class EconomyCurrency implements CurrencyInterface
 	}
 
 	@Override
-	public double getWorth()
+	public double getExchangeWorth()
 	{
 		return currency.standartUnitWorth;
 	}
