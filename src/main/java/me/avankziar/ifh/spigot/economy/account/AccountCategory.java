@@ -6,12 +6,13 @@ public enum AccountCategory
 	MAIN, //The main Account wallet or bank
 	TAX, //The account of the player if he has to pay tax
 	VOID, //The account of the player if he has to pay that goes into the void
-	SHOP,
+	JOB,
+	SHOP, //A
 	RENT, //If the player has a rent to pay
-	CITY,
-	GUILD,
-	PARTY,
-	GROUP,
+	CITY, //Cityaccount, for diffrent things that happend in a city
+	GUILD, //Guidaccount,
+	PARTY, //A temporary account for groups like a rpg party.
+	GROUP, //A permanent account for groups
 	SAVING, //Means saving money for later
 	SHAREDEPOSIT, //aktien in german
 	

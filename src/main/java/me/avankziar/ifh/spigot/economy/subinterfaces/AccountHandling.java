@@ -160,25 +160,72 @@ public interface AccountHandling
 	ArrayList<Account> getAccount(AccountType accountType, EconomyEntity.EconomyType ownerType, AccountCategory accountCategory, 
 			String server, String world);
 	
+	/**
+	 * Get the default account of the Player. The accountcategory default = AccountCategory.MAIN
+	 * @param ownerUUID
+	 * @param accountType
+	 * @return
+	 */
+	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType);
+	
+	/**
+	 * Get the default account of the Player. The accountcategory default = AccountCategory.MAIN
+	 * @param ownerUUID
+	 * @param accountType
+	 * @param server
+	 * @param world
+	 * @return
+	 */
+	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType, String server, String world);
+	
+	/**
+	 * Get the default account of the Player per category.
+	 * @param ownerUUID
+	 * @param accountType
+	 * @param accountCategory
+	 * @return
+	 */
 	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType, AccountCategory accountCategory);
 	
+	/**
+	 * Get the default account of the Player per category.
+	 * @param ownerUUID
+	 * @param accountType
+	 * @param accountCategory
+	 * @param server
+	 * @param world
+	 * @return
+	 */
 	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType, AccountCategory accountCategory, String server, String world);
 	
 	void setPlayerDefaultAccount(UUID ownerUUID, Account account, AccountCategory accountCategory);
 	
 	void setPlayerDefaultAccount(UUID ownerUUID, Account account, AccountCategory accountCategory, String server, String world);
 	
+	/**
+	 * Add a uuid with a specific accountmanagementtype to this account.
+	 * @param account
+	 * @param uuid
+	 * @param acountManagementType
+	 * @return
+	 */
 	boolean addManagementTypeToAccount(Account account, UUID uuid, AccountManagementType acountManagementType);
 	
+	/**
+	 * Remove a uuid with a specific accountmanagementtype to this account.
+	 * @param account
+	 * @param uuid
+	 * @param acountManagementType
+	 * @return
+	 */
 	boolean removeManagementTypeToAccount(Account account, UUID uuid, AccountManagementType acountManagementType);
 	
-	boolean canManageAccount(Account account, UUID uuid, AccountManagementType acountManagementType);
-	
-	Account getDefaultTaxAccount(EconomyCurrency accountCurrency);
-	
-	Account getDefaultTaxAccount(EconomyCurrency accountCurrency, String server, String world);
-	
-	Account getDefautVoidAccount(EconomyCurrency accountCurrency);
-	
-	Account getDefautVoidAccount(EconomyCurrency accountCurrency, String server, String world);
+	/**
+	 * Return true if the uuid has the accountmanagementtype for this account.
+	 * @param account
+	 * @param uuid
+	 * @param acountManagementType
+	 * @return
+	 */
+	boolean canManageAccount(Account account, UUID uuid, AccountManagementType accountManagementType);
 }
