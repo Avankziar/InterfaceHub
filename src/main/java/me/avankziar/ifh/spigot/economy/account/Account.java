@@ -28,7 +28,7 @@ public class Account
 	/**
 	 * The currency of this account.
 	 */
-	protected EconomyCurrency accountCurrency;
+	protected EconomyCurrency currency;
 	/**
 	 * The owner of this account. The owner can always withdraw from the account.
 	 */
@@ -38,63 +38,42 @@ public class Account
 	 */
 	protected double balance;
 	
-	protected String server;
-	
-	protected String world;
+	/**
+	 * Boolean which define, if the account is not open/create from the player manually.
+	 * F.E. is this an idea, that players can not delete these accounts.
+	 */
+	protected boolean predefinedAccount;
 	
 	/**
 	 * Constructor of the account.
 	 */
-	public Account(String accountName, AccountType type, AccountCategory category, EconomyCurrency accountCurrency,
-			EconomyEntity owner, double balance)
+	public Account(String accountName, AccountType type, AccountCategory category, EconomyCurrency currency,
+			EconomyEntity owner, double balance, boolean predefinedAccount)
 	{
 		this.id = 0;
 		setAccountName(accountName);
 		this.type = type;
-		this.accountCurrency = accountCurrency;
+		this.currency = currency;
 		setOwner(owner);
 		setBalance(balance);
-		setServer(null);
-		setWorld(null);
+		this.predefinedAccount = predefinedAccount;
 	}
 	
-	public Account(int id, String accountName, AccountType type, AccountCategory category, EconomyCurrency accountCurrency,
-			EconomyEntity owner, double balance)
+	public Account(int id, String accountName, AccountType type, AccountCategory category, EconomyCurrency currency,
+			EconomyEntity owner, double balance, boolean predefinedAccount)
 	{
 		this.id = id;
 		setAccountName(accountName);
 		this.type = type;
-		this.accountCurrency = accountCurrency;
+		this.currency = currency;
 		setOwner(owner);
 		setBalance(balance);
-		setServer(null);
-		setWorld(null);
+		this.predefinedAccount = predefinedAccount;
 	}
 	
-	public Account(String accountName, AccountType type, AccountCategory category, EconomyCurrency accountCurrency,
-			EconomyEntity owner, double balance, String server, String world)
+	public int getID()
 	{
-		this.id = 0;
-		setAccountName(accountName);
-		this.type = type;
-		this.accountCurrency = accountCurrency;
-		setOwner(owner);
-		setBalance(balance);
-		setServer(server);
-		setWorld(world);
-	}
-	
-	public Account(int id, String accountName, AccountType type, AccountCategory category, EconomyCurrency accountCurrency,
-			EconomyEntity owner, double balance, String server, String world)
-	{
-		this.id = id;
-		setAccountName(accountName);
-		this.type = type;
-		this.accountCurrency = accountCurrency;
-		setOwner(owner);
-		setBalance(balance);
-		setServer(server);
-		setWorld(world);
+		return id;
 	}
 	
 	/**
@@ -128,9 +107,9 @@ public class Account
 	/**
 	 * @return the economycurrency of this account.
 	 */
-	public EconomyCurrency getAccountCurrency()
+	public EconomyCurrency getCurrency()
 	{
-		return accountCurrency;
+		return currency;
 	}
 	
 	/**
@@ -172,23 +151,8 @@ public class Account
 		return this;
 	}
 
-	public String getServer()
+	public boolean isPredefinedAccount()
 	{
-		return server;
-	}
-
-	public void setServer(String server)
-	{
-		this.server = server;
-	}
-
-	public String getWorld()
-	{
-		return world;
-	}
-
-	public void setWorld(String world)
-	{
-		this.world = world;
+		return predefinedAccount;
 	}
 }

@@ -10,9 +10,7 @@ public interface CurrencyInterface
 	
 	boolean isExchangeable();
 	
-	String getServer();
-	
-	String getWorld();
+	boolean getTaxationBeforeExchange();
 	
 	double getExchangeWorth();
 }

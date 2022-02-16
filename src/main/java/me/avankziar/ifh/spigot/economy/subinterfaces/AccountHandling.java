@@ -12,24 +12,24 @@ import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 
 public interface AccountHandling
 {
-	int getMultiAccountLimit(EconomyEntity.EconomyType entityType, AccountType accountType);
+	EconomyEntity getEntity(UUID uuid);
 	
-	int getMultiAccountLimit(EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
+	EconomyEntity getEntity(String name);
 	
-	double getAccountSizeLimit(EconomyEntity.EconomyType entityType, AccountType accountType);
+	boolean existAccount(UUID uuid, String accountName);
 	
-	double getAccountSizeLimit(EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
+	boolean existAccount(UUID uuid, String accountName, EconomyCurrency accountCurrency);
 	
-	boolean hasAccount(UUID uuid, EconomyCurrency accountCurrency, AccountType accountType, AccountCategory accountCategory,
-			EconomyEntity.EconomyType entityType);	
+	boolean existAccount(UUID uuid, EconomyCurrency accountCurrency, AccountType accountType, AccountCategory accountCategory,
+			EconomyEntity.EconomyType entityType);
+	
+	boolean existAccount(UUID uuid, String accountName, EconomyCurrency accountCurrency, AccountType accountType, AccountCategory accountCategory,
+			EconomyEntity.EconomyType entityType);
 	
 	boolean createAccount(Account account);
 	
 	boolean createAccount(String accountName, AccountType type, AccountCategory accountCategory, EconomyCurrency accountCurrency,
 			EconomyEntity owner, double balance);
-	
-	boolean createAccount(String accountName, AccountType type, AccountCategory accountCategory, EconomyCurrency accountCurrency,
-			EconomyEntity owner, double balance, String server, String world);
 	
 	/**
 	 * Return the amount the deleted account.
@@ -43,7 +43,7 @@ public interface AccountHandling
 	 * @param accountCurrency
 	 * @return
 	 */
-	int deleteAccount(EconomyCurrency accountCurrency);
+	int deleteAllAccounts(EconomyCurrency accountCurrency);
 	
 	/**
 	 * Return the amount the deleted account.
@@ -79,17 +79,6 @@ public interface AccountHandling
 	
 	/**
 	 * Return the amount the deleted account.
-	 * @param uuid
-	 * @param entityType
-	 * @param accountType
-	 * @param server
-	 * @param world
-	 * @return
-	 */
-	int deleteAllAccounts(UUID uuid, EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
-	
-	/**
-	 * Return the amount the deleted account.
 	 * @param accountType
 	 * @return
 	 */
@@ -118,30 +107,19 @@ public interface AccountHandling
 	int deleteAllAccounts(EconomyEntity.EconomyType entityType, AccountType accountType);
 	
 	/**
-	 * Return the amount the deleted account.
-	 * @param server
-	 * @param world
+	 * Return the account with this id (Mysql or other database)<br>
+	 * Can be null;
+	 * @param id
 	 * @return
 	 */
-	int deleteAllAccounts(String server, String world);
+	Account getAccount(int id);
 	
-	/**
-	 * Return the amount the deleted account.
-	 * @param entityType
-	 * @param accountType
-	 * @param server
-	 * @param world
-	 * @return
-	 */
-	int deleteAllAccounts(EconomyEntity.EconomyType entityType, AccountType accountType, String server, String world);
+	Account getAccount(EconomyEntity owner, String accountName);
 	
-	Account getAccount(UUID ownerUUID, EconomyEntity.EconomyType ownerEntityType, AccountType accountType, AccountCategory accountCategory,
+	Account getAccount(UUID ownerUUID, String accountName, EconomyEntity.EconomyType ownerEntityType, AccountType accountType, AccountCategory accountCategory,
 			EconomyCurrency accountCurrency);
 	
-	Account getAccount(EconomyEntity owner, AccountType accountType, AccountCategory accountCategory, EconomyCurrency accountCurrency);
-	
-	Account getAccount(UUID ownerUUID, EconomyCurrency accountCurrency, AccountType accountType, AccountCategory accountCategory,
-			EconomyEntity.EconomyType ownerEntityType, String server, String world);
+	Account getAccount(EconomyEntity owner, String accountName, AccountType accountType, AccountCategory accountCategory, EconomyCurrency accountCurrency);
 	
 	ArrayList<Account> getAccounts();
 	
@@ -151,14 +129,9 @@ public interface AccountHandling
 	
 	ArrayList<Account> getAccounts(AccountCategory accountCategory);
 	
-	ArrayList<Account> getAccount(AccountType accountType, EconomyEntity.EconomyType ownerType);
+	ArrayList<Account> getAccounts(AccountType accountType, EconomyEntity.EconomyType ownerType);
 	
-	ArrayList<Account> getAccount(AccountType accountType, EconomyEntity.EconomyType ownerType, AccountCategory accountCategory);
-	
-	ArrayList<Account> getAccount(AccountType accountType, EconomyEntity.EconomyType ownerType, String server, String world);
-	
-	ArrayList<Account> getAccount(AccountType accountType, EconomyEntity.EconomyType ownerType, AccountCategory accountCategory, 
-			String server, String world);
+	ArrayList<Account> getAccounts(AccountType accountType, EconomyEntity.EconomyType ownerType, AccountCategory accountCategory);
 	
 	/**
 	 * Get the default account of the Player. The accountcategory default = AccountCategory.MAIN
@@ -166,17 +139,7 @@ public interface AccountHandling
 	 * @param accountType
 	 * @return
 	 */
-	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType);
-	
-	/**
-	 * Get the default account of the Player. The accountcategory default = AccountCategory.MAIN
-	 * @param ownerUUID
-	 * @param accountType
-	 * @param server
-	 * @param world
-	 * @return
-	 */
-	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType, String server, String world);
+	Account getDefaultAccount(UUID ownerUUID);
 	
 	/**
 	 * Get the default account of the Player per category.
@@ -185,22 +148,11 @@ public interface AccountHandling
 	 * @param accountCategory
 	 * @return
 	 */
-	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType, AccountCategory accountCategory);
+	Account getDefaultAccount(UUID ownerUUID, AccountCategory accountCategory);
 	
-	/**
-	 * Get the default account of the Player per category.
-	 * @param ownerUUID
-	 * @param accountType
-	 * @param accountCategory
-	 * @param server
-	 * @param world
-	 * @return
-	 */
-	Account getPlayerDefaultAccount(UUID ownerUUID, AccountType accountType, AccountCategory accountCategory, String server, String world);
+	Account getDefaultAccount(UUID ownerUUID, AccountCategory accountCategory, EconomyCurrency currency);
 	
-	void setPlayerDefaultAccount(UUID ownerUUID, Account account, AccountCategory accountCategory);
-	
-	void setPlayerDefaultAccount(UUID ownerUUID, Account account, AccountCategory accountCategory, String server, String world);
+	void setDefaultAccount(UUID ownerUUID, Account account, AccountCategory accountCategory);
 	
 	/**
 	 * Add a uuid with a specific accountmanagementtype to this account.
@@ -209,7 +161,7 @@ public interface AccountHandling
 	 * @param acountManagementType
 	 * @return
 	 */
-	boolean addManagementTypeToAccount(Account account, UUID uuid, AccountManagementType acountManagementType);
+	boolean addManagementTypeToAccount(Account account, UUID uuid, AccountManagementType accountManagementType);
 	
 	/**
 	 * Remove a uuid with a specific accountmanagementtype to this account.
@@ -218,7 +170,14 @@ public interface AccountHandling
 	 * @param acountManagementType
 	 * @return
 	 */
-	boolean removeManagementTypeToAccount(Account account, UUID uuid, AccountManagementType acountManagementType);
+	boolean removeManagementTypeFromAccount(Account account, UUID uuid, AccountManagementType accountManagementType);
+	
+	/**
+	 * Removes all AccountManagementType for this accountid.
+	 * @param account
+	 * @return
+	 */
+	boolean removeManagementTypeFromAccount(int accountID);
 	
 	/**
 	 * Return true if the uuid has the accountmanagementtype for this account.
@@ -228,4 +187,6 @@ public interface AccountHandling
 	 * @return
 	 */
 	boolean canManageAccount(Account account, UUID uuid, AccountManagementType accountManagementType);
+	
+	boolean canManageAccount(int accountID, UUID uuid, AccountManagementType accountManagementType);
 }

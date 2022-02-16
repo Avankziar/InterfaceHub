@@ -15,5 +15,5 @@ public enum AccountCategory
 	GROUP, //A permanent account for groups
 	SAVING, //Means saving money for later
 	SHAREDEPOSIT, //aktien in german
-	
+	DONATION, //Spendenkonto
 }

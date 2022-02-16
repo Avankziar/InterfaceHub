@@ -1,11 +1,14 @@
 package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 import main.java.me.avankziar.ifh.spigot.economy.account.AccountType;
 import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
 import main.java.me.avankziar.ifh.spigot.economy.currency.Currency;
+import main.java.me.avankziar.ifh.spigot.economy.currency.CurrencyType;
 import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
+import main.java.me.avankziar.ifh.spigot.economy.subinterfaces.CurrencyHandling.Exchange.TaxToCurrency;
 
 public interface CurrencyHandling
 {
@@ -23,98 +26,33 @@ public interface CurrencyHandling
 	 */
 	boolean registerCurrency(Currency currency);
 	
+	boolean registerCurrency(Currency currency, 
+			int gradationQuantity, boolean useSIPrefix, int decimalPlaces, boolean useSymbol,
+			String thousandSeperator, String decimalSeperator, LinkedHashMap<Double, String> siPrefix);
+	
 	/**
-	 * get all registered digital Currency
+	 * get all registered Currency
 	 * @return
 	 */
-	ArrayList<EconomyCurrency> getDigitalCurrencies();
+	ArrayList<EconomyCurrency> getCurrencies(CurrencyType type);
 	
 	/**
-	 * get all registered itemstack Currency
+	 * Return all currency, which are exchangable.
 	 * @return
 	 */
-	ArrayList<EconomyCurrency> getItemStackCurrencies();
+	ArrayList<EconomyCurrency> getExchangableCurrencies(CurrencyType type);
 	
 	/**
-	 * get all registered experience Currency
-	 * @return
+	 * @return the default currency for the respective type.
 	 */
-	ArrayList<EconomyCurrency> getExperienceCurrencies();
+	EconomyCurrency getDefaultCurrency(CurrencyType type);
 	
 	/**
-	 * Return all digital currency, which are exchangable.
-	 * @return
-	 */
-	ArrayList<EconomyCurrency> getExchangableDigitalCurrencies();
-	
-	/**
-	 * Return all itemstack currency, which are exchangable.
-	 * @return
-	 */
-	ArrayList<EconomyCurrency> getExchangableItemStackCurrencies();
-	
-	/**
-	 * Return all experience currency, which are exchangable.
-	 * @return
-	 */
-	ArrayList<EconomyCurrency> getExchangableExperienceCurrencies();
-	
-	/**
-	 * @return the default currency.
-	 */
-	EconomyCurrency getDefaultCurrency();
-	
-	/**
-	 * @return the default itemstack based currency.
-	 */
-	EconomyCurrency getDefaultItemStackCurrency();
-	
-	/**
-	 * @return the default playerexperience based currency.
-	 */
-	EconomyCurrency getDefaultExperienceCurrency();
-	
-	/**
-	 * @param server, nullable
-	 * @param world, nullable
-	 * @return the default currency in this server & world.
-	 */
-	EconomyCurrency getDefaultCurrency(String server, String world);
-	
-	/**
-	 * @param server, nullable
-	 * @param world, nullable
-	 * @return the default itemstack currency in this server & world.
-	 */
-	EconomyCurrency getDefaultItemStackCurrency(String server, String world);
-	
-	/**
-	 * @param server, nullable
-	 * @param world, nullable
-	 * @return the default experience currency in this server & world.
-	 */
-	EconomyCurrency getDefaultExperienceCurrency(String server, String world);
-	
-	/**
-	 * @param server, nullable
-	 * @param world, nullable
+	 * Set the currency as default for the currencytype which is included in the currency object.
+	 * @param currency
 	 * @return return, if the default currency is now setted
 	 */
-	boolean setDefaultCurrency(EconomyCurrency currency, String server, String world);
-	
-	/**
-	 * @param server, nullable
-	 * @param world, nullable
-	 * @return return, if the default currency is now setted
-	 */
-	boolean setDefaultItemStackCurrency(EconomyCurrency currency, String server, String world);
-	
-	/**
-	 * @param server, nullable
-	 * @param world, nullable
-	 * @return return, if the default currency is now setted
-	 */
-	boolean setDefaultExperienceCurrency(EconomyCurrency currency, String server, String world);
+	boolean setDefaultCurrency(EconomyCurrency currency);
 	
 	/**
 	 * @param uniqueName
@@ -131,18 +69,102 @@ public interface CurrencyHandling
 	double getTotalMoneyInTheSystem(EconomyCurrency currency, AccountType accountType, EconomyEntity.EconomyType ownerType);
 	
 	/**
-	 * Returns the value for the second Currency by exchanging both currencies.<br>
+	 * Returns the a object which contains the .<br>
 	 * <b>amountFromCurrency</b> * <b>multiply</b> = <b>toCurrency amount</b> (return value)
-	 * @param amountFromCurrency amount as double, which one uses from the first currency as exchange.
+	 * @param amountFromCurrency
 	 * @param fromCurrency
 	 * @param toCurrency
-	 * @return amount as double, which you get from the second currency in exchange.
+	 * @param taxInPercent
+	 * @param taxAreAddition
+	 * @param taxationBeforeExchange
+	 * @return
 	 */
-	default double getExchangeOfCurrency(double amountFromCurrency, EconomyCurrency fromCurrency, EconomyCurrency toCurrency)
+	public default Exchange getExchangeOfCurrency(double amountFromCurrency, EconomyCurrency fromCurrency, EconomyCurrency toCurrency,
+			double taxInPercent, boolean taxAreExclusive, boolean taxationBeforeExchange)
 	{
-		return amountFromCurrency *
-				(Math.max(fromCurrency.getExchangeWorth(), toCurrency.getExchangeWorth())
-						/Math.min(fromCurrency.getExchangeWorth(), toCurrency.getExchangeWorth()));
+		double f = fromCurrency.getExchangeWorth();
+		double t = toCurrency.getExchangeWorth();
 		
+		double amount = 300.0;
+		
+		if(taxationBeforeExchange)
+		{
+			double amountToWithdraw = 0.0;
+			double amountToDeposit = 0.0;
+			if(taxAreExclusive)
+			{
+				amountToWithdraw = amount + amount*taxInPercent;
+				amountToDeposit = amount;
+			} else
+			{
+				amountToWithdraw = amount;
+				amountToDeposit = amount - amount*taxInPercent;
+			}
+			double amountToTax = amountToWithdraw - amountToDeposit;
+			
+			double i = 0.0;
+			if(f > t)
+			{
+				i = amountToDeposit * (Math.max(f, t)/Math.min(f, t));
+			} else if(f < t)
+			{
+				i = amountToDeposit / (Math.max(f, t)/Math.min(f, t));
+			} else
+			{
+				i = amountToDeposit;
+			}
+			return new Exchange(amountToWithdraw, i, amountToTax, TaxToCurrency.TO_WITHDRAW_CURRENCY);
+		} else
+		{
+			double i = 0.0;
+			
+			if(f > t)
+			{
+				i = amount * (Math.max(f, t)/Math.min(f, t));
+			} else if(f < t)
+			{
+				i = amount / (Math.max(f, t)/Math.min(f, t));
+			} else
+			{
+				i = amount;
+			}
+			
+			double amountToWithdraw = 0.0;
+			double amountToDeposit = 0.0;
+			if(taxAreExclusive)
+			{
+				amountToWithdraw = amount + amount*taxInPercent;
+				amountToDeposit = i;
+			} else
+			{
+				amountToWithdraw = amount;
+				amountToDeposit = i - i*taxInPercent;
+			}
+			double amountToTax = i - amountToDeposit;
+			return new Exchange(amountToWithdraw, amountToDeposit, amountToTax, TaxToCurrency.TO_DEPOSIT_CURRENCY);
+		}
 	}
+	
+	public class Exchange
+	{
+		public enum TaxToCurrency
+		{
+			TO_WITHDRAW_CURRENCY,
+			TO_DEPOSIT_CURRENCY
+		}
+		
+		public final double toWithdrawAccount;
+		public final double toDepositAccount;
+		public final double toTaxAccount;
+		public final TaxToCurrency taxTo;
+		
+		
+		public Exchange(double toWithdrawAccount, double toDepositAccount, double toTaxAccount, TaxToCurrency taxTo)
+		{
+			this.toWithdrawAccount = toWithdrawAccount;
+			this.toDepositAccount = toDepositAccount;
+			this.toTaxAccount = toTaxAccount;
+			this.taxTo = taxTo;
+		}
+	}	
 }

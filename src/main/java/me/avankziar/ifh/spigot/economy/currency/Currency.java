@@ -24,15 +24,10 @@ public class Currency
 	 */
 	protected boolean isExchangeable;
 	
-	/*
-	 * the applied server.
+	/**
+	 * If the currency is exchange in another currency, this define, if the taxation happens before the exchange in the other currency.
 	 */
-	protected String server;
-	
-	/*
-	 * the applied world.
-	 */
-	protected String world;
+	protected boolean taxationBeforeExchange;
 	
 	/**
 	 * The worth of the currency to a undefine standartunit.<br>
@@ -67,18 +62,12 @@ public class Currency
 		return this;
 	}
 
-	public Currency setServer(String server)
+	public Currency setTaxationBeforeExchange(boolean taxationBeforeExchange)
 	{
-		this.server = server;
+		this.taxationBeforeExchange = taxationBeforeExchange;
 		return this;
 	}
-	
-	public Currency setWorld(String world)
-	{
-		this.world = world;
-		return this;
-	}
-	
+
 	public Currency setStandartUnitWorth(double standartUnitWorth)
 	{
 		if(standartUnitWorth <= 0)
@@ -102,8 +91,6 @@ public class Currency
 				"CurrencyGradation="+this.currencyGradation.toString()+","+
 				"CurrencyType="+this.currencyType.toString()+","+
 				"isExchangable="+this.isExchangeable+","+
-				"Server="+this.server+","+
-				"World="+this.world+","+
 				"StandartUnitWorth="+this.standartUnitWorth+"}";
 	}
 }

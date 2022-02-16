@@ -1,21 +1,21 @@
 package main.java.me.avankziar.ifh.spigot.economy.action;
 
-import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
-
 public class EconomyAction
 {
 	public enum ErrorMessageType
 	{
 		NO_TYPE_SET, //If no error type is set.
+		SUCCESS,
 		CURRENCYS_ARE_NOT_THE_SAME,
+		CURRENCYS_ARE_NOT_EXCHANGEABLE,
 		IS_NOT_ENABLED,
 		HAS_NO_WALLET_SUPPORT,
 		HAS_NO_BANK_SUPPORT,
 		WITHDRAW_ACCOUNT_DONT_EXIST, DEPOSIT_ACCOUNT_DONT_EXIST, TAX_ACCOUNT_DONT_EXIST,
 		WITHDRAW_HAS_NOT_ENOUGH,
-		WITHDRAW_IS_NEGATIV,
-		DEPOSIT_IS_NEGATIV,
-		TAX_IS_HIGHER_AS_100_PERCENT
+		AMOUNT_IS_NEGATIVE,
+		TAX_IS_NEGATIVE,
+		TAX_IS_HIGHER_OR_EQUAL_AS_100_PERCENT
 	}
 	
 	private final ErrorMessageType errorMessageType;
@@ -24,23 +24,23 @@ public class EconomyAction
 	
 	private final boolean transactionSuccess;
 	
-	private final EconomyEntity withdraw;
+	private final double withDrawAmount;
 	
-	private final EconomyEntity deposit;
+	private final double depositAmount;
 	
-	private final double amount;
+	private final double taxAmount;
 	
 	private final double withdrawBalanceAfterTransaction;
 	
 	private final double depositBalanceAfterTransaction;
 	
-	public EconomyAction(double amount, EconomyEntity withdraw, EconomyEntity deposit,
+	public EconomyAction(double withDrawAmount, double depositAmount, double taxAmount,
 			boolean transactionSuccess, String defaultErrorMessage, ErrorMessageType errorMessageType,
 			double withdrawBalanceAfterTransaction, double depositBalanceAfterTransaction)
 	{
-		this.amount = amount;
-		this.withdraw = withdraw;
-		this.deposit = deposit;
+		this.withDrawAmount = withDrawAmount;
+		this.depositAmount = depositAmount;
+		this.taxAmount = taxAmount;
 		this.transactionSuccess = transactionSuccess;
 		this.defaultErrorMessage = defaultErrorMessage;
 		this.errorMessageType = errorMessageType;
@@ -48,39 +48,24 @@ public class EconomyAction
 		this.depositBalanceAfterTransaction = depositBalanceAfterTransaction;
 	}
 	
-	public EconomyAction(double amount, EconomyEntity withdraw, boolean transactionSuccess, String defaultErrorMessage, 
-			double withdrawBalanceAfterTransaction, double depositBalanceAfterTransaction)
-	{
-		this(amount, withdraw, null, transactionSuccess, defaultErrorMessage, ErrorMessageType.NO_TYPE_SET, 
-				withdrawBalanceAfterTransaction, depositBalanceAfterTransaction);
-	}
-	
-	public EconomyAction(double amount, EconomyEntity withdraw,
-			boolean transactionSuccess, String defaultErrorMessage, ErrorMessageType errorMessageType, 
-			double withdrawBalanceAfterTransaction, double depositBalanceAfterTransaction)
-	{
-		this(amount, withdraw, null, transactionSuccess, defaultErrorMessage, errorMessageType,
-				withdrawBalanceAfterTransaction, depositBalanceAfterTransaction);
-	}
-	
 	public boolean isSuccess()
 	{
 		return transactionSuccess;
 	}
 	
-	public EconomyEntity getWithdraw()
+	public double getWithDrawAmount()
 	{
-		return withdraw;
+		return withDrawAmount;
 	}
 	
-	public EconomyEntity getDeposit()
+	public double getDepositAmount()
 	{
-		return deposit;
+		return depositAmount;
 	}
 	
-	public double getAmount()
+	public double getTaxAmount()
 	{
-		return amount;
+		return taxAmount;
 	}
 
 	public ErrorMessageType getErrorMessageType()

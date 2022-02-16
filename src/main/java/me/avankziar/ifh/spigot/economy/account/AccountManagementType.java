@@ -15,7 +15,20 @@ public enum AccountManagementType
 	 */
 	CAN_SEE_BALANCE,
 	/**
-	 * Make it possible, that the player can set the value (of the three above) for a other player at the account
+	 * Make it possible that the player can recieves Account balance changes through notifications
 	 */
-	CAN_ADMINISTRATE_ACCOUNT;
+	CAN_RECEIVES_NOTIFICATIONS,
+	/**
+	 *  Make it possible that the player can set this account a Default account for him self in the account specific category.
+	 */
+	CAN_SET_AS_DEFAULT_ACCOUNT,
+	/**
+	 * Make it possible, that the player can set the value (all other AccountManagement types except the setting of the ownership)
+	 * for a other player or himself, at the account.
+	 */
+	CAN_ADMINISTRATE_ACCOUNT,
+	/**
+	 * Make it possible, to set a new owner. All account management rights of the previous owner will be overwritten to the new owner.
+	 */
+	CAN_SET_OWNERSHIP;
 }

@@ -38,6 +38,38 @@ public class CurrencyGradation
 		return this.baseGradation;
 	}
 	
+	public int getHighestGradationNumber()
+	{
+		int i = 1;
+		while(true)
+		{
+			if(this.gradations.containsKey(i))
+			{
+				i++;
+			} else
+			{
+				break;
+			}
+		}
+		return i;
+	}
+	
+	public Gradation getHighestGradation()
+	{
+		int i = 1;
+		while(true)
+		{
+			if(this.gradations.containsKey(i))
+			{
+				i++;
+			} else
+			{
+				break;
+			}
+		}
+		return getGradation(i);
+	}
+	
 	public Gradation getGradation(int gradationNumber)
 	{
 		if(gradationNumber < 0)

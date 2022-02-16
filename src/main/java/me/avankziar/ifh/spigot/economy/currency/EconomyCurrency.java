@@ -34,20 +34,14 @@ public class EconomyCurrency implements CurrencyInterface
 	}
 
 	@Override
-	public String getServer()
-	{
-		return currency.server;
-	}
-
-	@Override
-	public String getWorld()
-	{
-		return currency.world;
-	}
-
-	@Override
 	public double getExchangeWorth()
 	{
 		return currency.standartUnitWorth;
+	}
+
+	@Override
+	public boolean getTaxationBeforeExchange()
+	{
+		return currency.taxationBeforeExchange;
 	}
 }
