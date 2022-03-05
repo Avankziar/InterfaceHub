@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.economy.account;
+package main.java.me.avankziar.ifh.general.economy.account;
 
 public enum AccountType
 {

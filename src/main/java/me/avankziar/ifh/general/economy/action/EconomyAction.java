@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.economy.action;
+package main.java.me.avankziar.ifh.general.economy.action;
 
 public class EconomyAction
 {

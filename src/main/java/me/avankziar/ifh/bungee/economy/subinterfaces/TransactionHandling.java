@@ -1,8 +1,8 @@
 package main.java.me.avankziar.ifh.bungee.economy.subinterfaces;
 
 import main.java.me.avankziar.ifh.bungee.economy.account.Account;
-import main.java.me.avankziar.ifh.spigot.economy.action.EconomyAction;
-import main.java.me.avankziar.ifh.spigot.economy.action.OrdererType;
+import main.java.me.avankziar.ifh.general.economy.action.EconomyAction;
+import main.java.me.avankziar.ifh.general.economy.action.OrdererType;
 
 public interface TransactionHandling
 {	

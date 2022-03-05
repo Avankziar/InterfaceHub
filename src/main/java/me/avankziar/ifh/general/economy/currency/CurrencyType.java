@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.economy.currency;
+package main.java.me.avankziar.ifh.general.economy.currency;
 
 public enum CurrencyType
 {

@@ -5,10 +5,10 @@ import java.util.UUID;
 
 import main.java.me.avankziar.ifh.bungee.economy.account.Account;
 import main.java.me.avankziar.ifh.bungee.economy.currency.EconomyCurrency;
-import main.java.me.avankziar.ifh.spigot.economy.account.AccountCategory;
-import main.java.me.avankziar.ifh.spigot.economy.account.AccountManagementType;
-import main.java.me.avankziar.ifh.spigot.economy.account.AccountType;
-import main.java.me.avankziar.ifh.spigot.economy.account.EconomyEntity;
+import main.java.me.avankziar.ifh.general.economy.account.AccountCategory;
+import main.java.me.avankziar.ifh.general.economy.account.AccountManagementType;
+import main.java.me.avankziar.ifh.general.economy.account.AccountType;
+import main.java.me.avankziar.ifh.general.economy.account.EconomyEntity;
 
 public interface AccountHandling
 {
