@@ -1,6 +1,6 @@
-package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
+package main.java.me.avankziar.ifh.bungee.economy.subinterfaces;
 
-import main.java.me.avankziar.ifh.spigot.economy.account.Account;
+import main.java.me.avankziar.ifh.bungee.economy.account.Account;
 import main.java.me.avankziar.ifh.spigot.economy.action.EconomyAction;
 import main.java.me.avankziar.ifh.spigot.economy.action.OrdererType;
 
@@ -92,11 +92,6 @@ public interface TransactionHandling
 	
 	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreExclusive, Account taxDepot,
 			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment);
-	
-	/* ItemStackhandling in the spigotpart of economy setting
-	 * EconomyAction withdraw(Account holder, double amount, LinkedHashMap<ItemStack, Double> possibleItemsWithRelatedValue,
-			double taxInPercent, boolean taxAreExclusive, Account taxDepot,
-			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment);*/
 	
 	
 	EconomyAction exchangeCurrencies(Account withdrawAccount, Account depositAccount, double amountFromWithdrawAccount);
