@@ -57,6 +57,7 @@ public class Account
 		this.id = 0;
 		setAccountName(accountName);
 		this.type = type;
+		setCategory(category);
 		this.currency = currency;
 		setOwner(owner);
 		setBalance(balance);
@@ -68,6 +69,7 @@ public class Account
 	{
 		this.id = id;
 		setAccountName(accountName);
+		setCategory(category);
 		this.type = type;
 		this.currency = currency;
 		setOwner(owner);

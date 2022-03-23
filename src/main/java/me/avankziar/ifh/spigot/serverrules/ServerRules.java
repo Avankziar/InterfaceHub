@@ -7,6 +7,10 @@ import org.bukkit.OfflinePlayer;
 
 public interface ServerRules
 {
+	/*
+	 * WORK IN PROGRESS
+	 */
+	
 	/**
 	 * Checks, if the player has accepted the server rules.
 	 * @param player

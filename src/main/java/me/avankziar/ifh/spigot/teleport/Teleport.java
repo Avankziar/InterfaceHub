@@ -2,7 +2,6 @@ package main.java.me.avankziar.ifh.spigot.teleport;
 
 import java.util.ArrayList;
 
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 
@@ -35,15 +34,18 @@ public interface Teleport
 	 */
 	void setGiveEffects(boolean active, PotionEffect... potionEffect);
 	
-	boolean teleport(Player player, String server, Location location);
+	boolean teleport(Player player, String server, String worldname, double x, double y, double z, float yaw, float pitch);
 	
-	boolean teleport(Player player, String server, Location location, 
+	boolean teleport(Player player, String server, String worldname, double x, double y, double z, float yaw, float pitch,
 			ArrayList<String> preTeleportMessage);
 	
-	boolean teleport(Player player, String server, Location location, 
+	boolean teleport(Player player, String server, String worldname, double x, double y, double z, float yaw, float pitch,
 			ArrayList<String> preTeleportMessage, ArrayList<String> postTeleportMessage);
 	
-	boolean teleport(Player player, String server, Location location, 
-			ArrayList<String> preTeleportMessage, ArrayList<String> postTeleportMessage,
+	boolean teleport(Player player, String server, String worldname, double x, double y, double z, float yaw, float pitch,
+			ArrayList<String> preTeleportMessage, ArrayList<String> postTeleportMessage, String errormessage);
+	
+	boolean teleport(Player player, String server, String worldname, double x, double y, double z, float yaw, float pitch, 
+			ArrayList<String> preTeleportMessage, ArrayList<String> postTeleportMessage, String errormessage,
 			boolean createBack);
 }

@@ -48,6 +48,13 @@ public class CurrencyGradation
 				i++;
 			} else
 			{
+				if(i == 1)
+				{
+					i = 0;
+				} else
+				{
+					i--;
+				}
 				break;
 			}
 		}
@@ -64,6 +71,13 @@ public class CurrencyGradation
 				i++;
 			} else
 			{
+				if(i == 1)
+				{
+					i = 0;
+				} else
+				{
+					i--;
+				}
 				break;
 			}
 		}
@@ -72,7 +86,7 @@ public class CurrencyGradation
 	
 	public Gradation getGradation(int gradationNumber)
 	{
-		if(gradationNumber < 0)
+		if(gradationNumber <= 0)
 		{
 			return this.baseGradation;
 		}
@@ -81,11 +95,7 @@ public class CurrencyGradation
 			return this.gradations.get(gradationNumber);
 		} else
 		{
-			if(gradationNumber-1 <= 0)
-			{
-				return this.baseGradation;
-			}
-			for(int i = gradationNumber-1; i > 0; i--)
+			for(int i = gradationNumber; i > 0; i--)
 			{
 				if(this.gradations.containsKey(i))
 				{

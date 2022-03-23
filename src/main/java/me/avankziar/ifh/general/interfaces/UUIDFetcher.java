@@ -8,5 +8,5 @@ public interface UUIDFetcher
 	
 	String getPlayerNameFromUUID(UUID uuid);
 	
-	int lastCheckIn10Mins();
+	int totalChecksIn10Mins();
 }
