@@ -97,7 +97,6 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	
 	/**
 	 * A string format of the amount in the specific currency in one String.
-	 * <br><b>The value decimalPlaces and gradationQuantity are mutually exclusive.</b>
 	 * <br>decimalPlaces cannot be less than 0.
 	 * <br>See the examples.
 	 * <br>1 Dollar = 100 Cents
@@ -141,7 +140,6 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	
 	/**
 	 * A string format of the amount in the specific currency in one String.
-	 * <br><b>The value decimalPlaces and gradationQuantity are mutually exclusive.</b>
 	 * <br>decimalPlaces cannot be less than 0.
 	 * <br>See the examples.
 	 * <br>1 Dollar = 100 Cents
