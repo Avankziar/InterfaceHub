@@ -3,7 +3,6 @@ package main.java.me.avankziar.ifh.spigot.teleport;
 import java.util.ArrayList;
 
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
 
 public interface Teleport
 {
@@ -19,20 +18,6 @@ public interface Teleport
 	 * @param active
 	 */
 	void setBackAsDefault(boolean active);
-	
-	/**
-	 * Return true, if the player gives effects at a teleport through this interface.
-	 * @return
-	 */
-	boolean isGiveEffects();
-	
-	/**
-	 * Override all setted effects with the new ones.<br>
-	 * If no potioneffect is set, it is intended to use the default effect from the providing plugin.
-	 * @param active
-	 * @param potionEffect
-	 */
-	void setGiveEffects(boolean active, PotionEffect... potionEffect);
 	
 	boolean teleport(Player player, String server, String worldname, double x, double y, double z, float yaw, float pitch);
 	
