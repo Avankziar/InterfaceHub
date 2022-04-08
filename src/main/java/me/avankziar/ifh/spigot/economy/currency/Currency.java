@@ -24,12 +24,12 @@ public class Currency
 	/**
 	 * If the currency is exchangable with other currency.
 	 */
-	protected boolean isExchangeable;
+	protected boolean isExchangeable = false;
 	
 	/**
 	 * If the currency is exchange in another currency, this define, if the taxation happens before the exchange in the other currency.
 	 */
-	protected boolean taxationBeforeExchange;
+	protected boolean taxationBeforeExchange = false;
 	
 	/**
 	 * The worth of the currency to a undefine standartunit.<br>

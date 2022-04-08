@@ -61,7 +61,7 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * <br>- '20 $' if $ (Dollar & Cent) is the default currency
 	 * <br>For other/unique/better display use 'format' with more input values.
 	 */
-	String format(double amount, EconomyCurrency economyCurrency);
+	String format(double amount, @Nonnull EconomyCurrency economyCurrency);
 	
 	/**
 	 * default value for the methode <b>formatWithCurrency</b>
@@ -117,13 +117,13 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * <br>F.e.: 
 	 * <br>- <b>1,820 $</b>                      (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
 	 * <br>- <b>1,820.1 $</b>                    (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
-	 * <br>- <b>1,820 $ 10 ¢</b>                  (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 $ 10 ¢</b>                 (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
 	 * <br>- <b>1,8201 ¢</b>                     (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
-	 * <br>- <b>1,820 $ 10.0 ¢</b>                (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 $ 10.0 ¢</b>               (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
 	 * <br>- <b>1,820 Dollars</b>                (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
 	 * <br>- <b>1,820.1 Dollars</b>              (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
-	 * <br>- <b>1,820 Dollars 10 Cents</b>        (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>1,820 Dollars 10.0 Cents</b>      (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820 Dollars 10 Cents</b>       (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820 Dollars 10.0 Cents</b>     (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
 	 * <br>- <b>1.8k Dollars</b>                 (gQ: <b>1</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
 	 * <br> => Now for rpg like currency
 	 * <br>- <b>211 Au</b>                       (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
@@ -132,12 +132,12 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * <br>- <b>211 Au 13 Ag 88 Cu</b>           (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
 	 * <br>- <b>211 Au 13 Ag 88.0 Cu</b>         (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
 	 * <br>- <b>211 Gold</b>                     (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>211 Gold 12 Silver</b>           (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>211 Gold 12 Silver 88 Copper</b> (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>21,112 Silver 88 Copper</b>      (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>21,112,088 Copper</b>            (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>21,112,088.0 Copper</b>          (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
-	 * <br>- <b>21.1M Copper</b>                 (gQ:<b>-2</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Gold 13 Silver</b>           (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Gold 13 Silver 88 Copper</b> (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>21,113 Silver 88 Copper</b>      (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>2,111,388 Copper</b>             (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>2,111,388.0 Copper</b>           (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>2.1M Copper</b>                  (gQ:<b>-2</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
 	 * @param amount
 	 * @param economyCurrency
 	 * @param gradationQuantity
@@ -161,13 +161,13 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * <br>F.e.: 
 	 * <br>- <b>1,820 $</b>                      (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
 	 * <br>- <b>1,820.1 $</b>                    (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
-	 * <br>- <b>1,820 $ 10 ¢</b>                  (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 $ 10 ¢</b>                 (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
 	 * <br>- <b>1,8201 ¢</b>                     (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
-	 * <br>- <b>1,820 $ 10.0 ¢</b>                (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
+	 * <br>- <b>1,820 $ 10.0 ¢</b>               (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
 	 * <br>- <b>1,820 Dollars</b>                (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
 	 * <br>- <b>1,820.1 Dollars</b>              (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
-	 * <br>- <b>1,820 Dollars 10 Cents</b>        (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>1,820 Dollars 10.0 Cents</b>      (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820 Dollars 10 Cents</b>       (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>1,820 Dollars 10.0 Cents</b>     (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
 	 * <br>- <b>1.8k Dollars</b>                 (gQ: <b>1</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
 	 * <br> => Now for rpg like currency
 	 * <br>- <b>211 Au</b>                       (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
@@ -176,12 +176,12 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 * <br>- <b>211 Au 13 Ag 88 Cu</b>           (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>true</b>)
 	 * <br>- <b>211 Au 13 Ag 88.0 Cu</b>         (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>true</b>)
 	 * <br>- <b>211 Gold</b>                     (gQ: <b>0</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>211 Gold 12 Silver</b>           (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>211 Gold 12 Silver 88 Copper</b> (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>21,112 Silver 88 Copper</b>      (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>21,112,088 Copper</b>            (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
-	 * <br>- <b>21,112,088.0 Copper</b>          (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
-	 * <br>- <b>21.1M Copper</b>                 (gQ:<b>-2</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Gold 13 Silver</b>           (gQ: <b>1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>211 Gold 13 Silver 88 Copper</b> (gQ: <b>2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>21,113 Silver 88 Copper</b>      (gQ:<b>-1</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>2,111,388 Copper</b>             (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>0</b> | uS: <b>false</b>)
+	 * <br>- <b>2,111,388.0 Copper</b>           (gQ:<b>-2</b> | SI: <b>false</b> | dP: <b>1</b> | uS: <b>false</b>)
+	 * <br>- <b>2.1M Copper</b>                  (gQ:<b>-2</b> | SI: <b>true</b>  | dP: <b>1</b> | uS: <b>false</b>)
 	 * @param amount
 	 * @param economyCurrency
 	 * @param gradationQuantity

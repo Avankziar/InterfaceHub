@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.Metrics;
+package main.java.me.avankziar.ifh.spigot.metrics;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

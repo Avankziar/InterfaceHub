@@ -133,6 +133,8 @@ public interface AccountHandling
 	
 	ArrayList<Account> getAccounts();
 	
+	ArrayList<Account> getAccounts(EconomyEntity owner);
+	
 	ArrayList<Account> getAccounts(AccountType accountType);
 	
 	ArrayList<Account> getAccounts(EconomyEntity.EconomyType ownerType);

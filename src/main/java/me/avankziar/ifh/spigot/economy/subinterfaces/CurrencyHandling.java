@@ -70,7 +70,6 @@ public interface CurrencyHandling
 	
 	/**
 	 * Returns the a object which contains the .<br>
-	 * <b>amountFromCurrency</b> * <b>multiply</b> = <b>toCurrency amount</b> (return value)
 	 * @param amountFromCurrency
 	 * @param fromCurrency
 	 * @param toCurrency
@@ -93,12 +92,12 @@ public interface CurrencyHandling
 			double amountToDeposit = 0.0;
 			if(taxAreExclusive)
 			{
-				amountToWithdraw = amount + amount*taxInPercent;
+				amountToWithdraw = amount + amount*taxInPercent/100;
 				amountToDeposit = amount;
 			} else
 			{
 				amountToWithdraw = amount;
-				amountToDeposit = amount - amount*taxInPercent;
+				amountToDeposit = amount - amount*taxInPercent/100;
 			}
 			double amountToTax = amountToWithdraw - amountToDeposit;
 			
@@ -133,12 +132,12 @@ public interface CurrencyHandling
 			double amountToDeposit = 0.0;
 			if(taxAreExclusive)
 			{
-				amountToWithdraw = amount + amount*taxInPercent;
+				amountToWithdraw = amount + amount*taxInPercent/100;
 				amountToDeposit = i;
 			} else
 			{
 				amountToWithdraw = amount;
-				amountToDeposit = i - i*taxInPercent;
+				amountToDeposit = i - i*taxInPercent/100;
 			}
 			double amountToTax = i - amountToDeposit;
 			return new Exchange(amountToWithdraw, amountToDeposit, amountToTax, TaxToCurrency.TO_DEPOSIT_CURRENCY);
