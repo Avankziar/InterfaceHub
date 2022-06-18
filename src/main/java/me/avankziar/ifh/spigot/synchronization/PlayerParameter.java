@@ -22,7 +22,7 @@ public interface PlayerParameter
 	
 	void saveAll();
 	
-	void saveServer();
+	void saveServer(String servername);
 	
 	void saveAndKick(Player player);
 	
