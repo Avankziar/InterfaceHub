@@ -192,4 +192,8 @@ public interface PlayerTimes //ADDME Login counter getter setter adder
 	 * Return true if the player last active is set.
 	 */
 	boolean setLastActivity(UUID uuid, long time);
+	
+	String format(long time);
+	
+	String format(long time, boolean useYears, boolean useDays, boolean useHours, boolean useMinutes, boolean useSeconds);
 }
