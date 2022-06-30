@@ -1,5 +1,8 @@
 package main.java.me.avankziar.ifh.general.chat;
 
+import java.util.ArrayList;
+import java.util.UUID;
+
 /**
  * The chattitle are pre- and suffix which most are placed before and after the playername.
  * They can have hover or click events, permissions etc.
@@ -70,4 +73,8 @@ public interface ChatTitle
 	 * @return Integer<br>null
 	 */
 	public Integer getWeight();
+	
+	public ArrayList<String> getChatTitle();
+	
+	public ArrayList<String> getChatTitle(UUID uuid);
 }
