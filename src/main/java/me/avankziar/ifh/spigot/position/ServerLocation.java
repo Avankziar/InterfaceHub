@@ -36,8 +36,8 @@ public class ServerLocation
 	public String toString()
 	{
 		return servername+";"+worldname+"; "
-				+String.valueOf(x)+" : "+String.valueOf(y)+" : "+String.valueOf(z)+" - "
-				+String.valueOf(yaw)+" - "+String.valueOf(pitch);
+				+String.valueOf(x)+" : "+String.valueOf(y)+" : "+String.valueOf(z)+" : "
+				+String.valueOf(yaw)+" : "+String.valueOf(pitch);
 	}
 
 	public String getServername()
