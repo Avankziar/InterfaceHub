@@ -1,14 +1,11 @@
 package main.java.me.avankziar.ifh.spigot;
 
-import java.util.concurrent.Callable;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import main.java.me.avankziar.ifh.general.interfaces.PlayerTimes;
 import main.java.me.avankziar.ifh.spigot.metrics.Metrics;
 
 public class InterfaceHub extends JavaPlugin
@@ -50,25 +47,6 @@ public class InterfaceHub extends JavaPlugin
 	public void setupBstats()
 	{
 		int pluginId = 10912;
-        Metrics metrics = new Metrics(this, pluginId);
-        findCustomData(metrics);
-	}
-	
-	private void findCustomData(Metrics metrics)
-	{
-		RegisteredServiceProvider<PlayerTimes> rspPTimes = Bukkit.getServer().getServicesManager().getRegistration(PlayerTimes.class);
-		PlayerTimes ptimes = null;
-        if (rspPTimes != null) {
-            ptimes = rspPTimes.getProvider();
-        }
-        final String ptimesName = ptimes != null ? ptimes.getName() : "No PlayerTimes";
-        metrics.addCustomChart(new Metrics.SimplePie("playertimes", new Callable<String>() 
-        {
-            @Override
-            public String call() 
-            {
-                return ptimesName;
-            }
-        }));
+        new Metrics(this, pluginId);
 	}
 }

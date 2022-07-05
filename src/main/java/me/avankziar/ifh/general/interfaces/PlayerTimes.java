@@ -2,8 +2,14 @@ package main.java.me.avankziar.ifh.general.interfaces;
 
 import java.util.UUID;
 
-public interface PlayerTimes //ADDME Login counter getter setter adder
+public interface PlayerTimes
 {
+	final static long SEC = 1000L;
+	final static long MIN = SEC*60;
+	final static long HOUR = MIN*60;
+	final static long DAY = HOUR*24;
+	final static long WEEK = DAY*7;
+	final static long YEAR = DAY*365;
 	/*
 	 * Is the PlayerTimes as such enabled.
 	 */
@@ -13,21 +19,6 @@ public interface PlayerTimes //ADDME Login counter getter setter adder
 	 * Return true if the plugin creates a player's playtime log per day.
 	 */
 	boolean supportDailyLog();
-	
-	/*
-	 * The name of the plugin, which has implemented this interface.
-	 */
-	String getName();
-	
-	/*
-	 * The authors of the plugin, which has implemented this interface.
-	 */
-	String getAuthors();
-	
-	/*
-	 * The Version number of the plugin, which has implemented this interface.
-	 */
-	String getVersion();
 	
 	/*
 	 * Return true, if the player is known by the plugin. And/or has a account in the databasesystem of the plugin.
@@ -87,13 +78,7 @@ public interface PlayerTimes //ADDME Login counter getter setter adder
 	/*
 	 * Return true if the time (in milliseconds) has been successfully added to the total time.
 	 */
-	boolean addTotalTime(UUID uuid, long time);
-	
-	/*
-	 * Return true if the time has been successfully added to the total time.
-	 * The integer is converted into the respective milliseconds. For example, 1 year is 1000*60*60*24*365 milliseconds.
-	 */
-	boolean addTotalTime(UUID uuid, int years, int weeks, int days, int hours, int minutes, int seconds);
+	boolean addTotalTime(UUID uuid, long... time);
 	
 	/*
 	 * Return true if the player total time is set.
@@ -118,13 +103,7 @@ public interface PlayerTimes //ADDME Login counter getter setter adder
 	/*
 	 * Return true if the time (in milliseconds) has been successfully added to the active time.
 	 */
-	boolean addActiveTime(UUID uuid, long time);
-	
-	/*
-	 * Return true if the time has been successfully added to the active time.
-	 * The integer is converted into the respective milliseconds. For example, 1 year is 1000*60*60*24*365 milliseconds.
-	 */
-	boolean addActiveTime(UUID uuid, int years, int weeks, int days, int hours, int minutes, int seconds);
+	boolean addActiveTime(UUID uuid, long... time);
 	
 	/*
 	 * Return true if the player active time is set.
@@ -149,13 +128,7 @@ public interface PlayerTimes //ADDME Login counter getter setter adder
 	/*
 	 * Return true if the time (in milliseconds) has been successfully added to the inactive time.
 	 */
-	boolean addInactiveTime(UUID uuid, long time);
-	
-	/*
-	 * Return true if the time has been successfully added to the inactive time.
-	 * The integer is converted into the respective milliseconds. For example, 1 year is 1000*60*60*24*365 milliseconds.
-	 */
-	boolean addInactiveTime(UUID uuid, int years, int weeks, int days, int hours, int minutes, int seconds);
+	boolean addInactiveTime(UUID uuid, long... time);
 	
 	/*
 	 * Return true if the player inactive time is set.
