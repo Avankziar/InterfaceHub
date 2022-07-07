@@ -28,7 +28,7 @@ public interface PlayerTimes
 	/*
 	 * Return true, if a account have successful created.
 	 */
-	boolean createAccount(UUID uuid);
+	boolean createAccount(UUID uuid, String playername);
 	
 	/*
 	 * Return true, if a account have been deleted.
@@ -166,7 +166,11 @@ public interface PlayerTimes
 	 */
 	boolean setLastActivity(UUID uuid, long time);
 	
-	String format(long time);
+	String formatDate(long time);
 	
-	String format(long time, boolean useYears, boolean useDays, boolean useHours, boolean useMinutes, boolean useSeconds);
+	String formatDate(long time, boolean useYears, boolean useMonths, boolean useDays, boolean useHours, boolean useMinutes, boolean useSeconds);
+	
+	String formatTimePeriod(long time);
+	
+	String formatTimePeriod(long time, boolean useYears, boolean useDays, boolean useHours, boolean useMinutes, boolean useSeconds);
 }
