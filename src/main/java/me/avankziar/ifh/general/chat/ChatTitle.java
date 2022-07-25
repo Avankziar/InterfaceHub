@@ -12,11 +12,35 @@ import java.util.UUID;
 public interface ChatTitle
 {
 	/**
-	 * Return the pluginname, which provided this.<br>
-	 * For example: SimpleChatChannels... etc.<br>
-	 * @return String
+	 * Return all active chattitles. First the Prefix, after the Suffix. Sorted within after weight
+	 * @return ArrayList[String]
 	 */
-	public String getProvider();
+	public ArrayList<String> getChatTitle();
+	
+	/**
+	 * Return all active chattitles of the player. First the Prefix, after the Suffix. Sorted within after weight
+	 * <br>Only possible if the player is online.
+	 * @param uuid
+	 * @return
+	 */
+	public ArrayList<String> getChatTitle(UUID uuid);
+	
+	/**
+	 * Register a chattitle.<br>
+	 * @param uniquechattitle
+	 * @param isPrefix
+	 * @param inChatName
+	 * @param inChatColorCode
+	 * @param suggestCommand
+	 * @param hover
+	 * @param permission
+	 * @param weight
+	 * @param registerOnBungee
+	 * @return
+	 */
+	public boolean registerChatTitle(String uniquechattitle, boolean isPrefix, String inChatName,
+			String inChatColorCode, String suggestCommand, String hover, String permission, int weight,
+			boolean registerOnBungee);
 	
 	/**
 	 * Return true, if the ChatTitle a prefix is. False if the ChatTitle a suffix is.<br>
@@ -24,7 +48,7 @@ public interface ChatTitle
 	 * @param chatTitle
 	 * @return Boolean<br>null
 	 */
-	public Boolean isPrefix(String chatTitle);
+	public Boolean isPrefix(String uniquechattitle);
 	
 	/**
 	 * Return the ingame inchat format of the ChatTitle.<br>
@@ -32,7 +56,7 @@ public interface ChatTitle
 	 * @param chatTitle
 	 * @return String<br>null
 	 */
-	public String getInChatName(String chatTitle);
+	public String getInChatName(String uniquechattitle);
 	
 	/**
 	 * Return the ingame inchat color code of the ChatTitle. It can be in '&x' and in hex '&#xxxxxx'.<br>
@@ -40,7 +64,7 @@ public interface ChatTitle
 	 * @param chatTitle
 	 * @return String<br>null
 	 */
-	public String getInChatColor(String chatTitle);
+	public String getInChatColor(String uniquechattitle);
 	
 	/**
 	 * Return the value of the clickevent of the ChatTitle.<br>
@@ -48,7 +72,7 @@ public interface ChatTitle
 	 * @param chatTitle
 	 * @return String<br>null
 	 */
-	public String getClickEvent(String chatTitle);
+	public String getClickEvent(String uniquechattitle);
 	
 	/**
 	 * Return the value of the hoverevent of the ChatTitle.<br>
@@ -56,7 +80,7 @@ public interface ChatTitle
 	 * @param chatTitle
 	 * @return String<br>null
 	 */
-	public String getHoverEvent(String chatTitle);
+	public String getHoverEvent(String uniquechattitle);
 	
 	/**
 	 * Return the permission of the ChatTitle.<br>
@@ -64,7 +88,7 @@ public interface ChatTitle
 	 * @param chatTitle
 	 * @return String<br>null
 	 */
-	public String getPermission(String chatTitle);
+	public String getPermission(String uniquechattitle);
 	
 	/**
 	 * Return the weight of the ChatTitle.<br>
@@ -72,9 +96,5 @@ public interface ChatTitle
 	 * @param chatTitle
 	 * @return Integer<br>null
 	 */
-	public Integer getWeight();
-	
-	public ArrayList<String> getChatTitle();
-	
-	public ArrayList<String> getChatTitle(UUID uuid);
+	public Integer getWeight(String uniquechattitle);
 }

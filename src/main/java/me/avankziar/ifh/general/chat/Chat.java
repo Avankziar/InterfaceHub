@@ -1,7 +1,6 @@
 package main.java.me.avankziar.ifh.general.chat;
 
 import java.util.LinkedHashMap;
-import java.util.UUID;
 
 import net.md_5.bungee.api.chat.TextComponent;
 
@@ -12,25 +11,12 @@ import net.md_5.bungee.api.chat.TextComponent;
  * @author Avankziar
  */
 public interface Chat
-{
-	/**
-	 * Return the pluginname, which provided this.<br>
-	 * For example: SimpleChatChannels... etc.<br>
-	 * @return String
-	 */
-	public String getProvider();
-	
+{	
 	/**
 	 * Return true, if roleplaynames are supported.
 	 * @return boolean
 	 */
 	public boolean supportRolePlayNames();
-	
-	/**
-	 * Return the roleplayname. If this is not supported, returns null.
-	 * @return String<br>null
-	 */
-	public String getRolePlayName();
 	
 	/**
 	 * Return true if chat channels are supported.
@@ -39,51 +25,10 @@ public interface Chat
 	public boolean supportChannels();
 	
 	/**
-	 * Return a string array with the names of the active channels in the proviing plugins.<br>
-	 * Other settings of the channels must be determind by the Channels interface.<br>
-	 * Return null, if no channel exists.
-	 * @return String[]<br>null
-	 */
-	public String[] getAllChannels();
-	
-	/**
-	 * Return all channels of the player.<br>
-	 * Other settings of the channels must be determind by the Channels interface.<br>
-	 * Return null, if the player has no active
-	 * @param uuid
-	 * @return String[]<br>null
-	 */
-	public String[] getChannels(UUID uuid);
-	
-	/**
-	 * Return all <b>active</b> channels of the player.<br>
-	 * Other settings of the channels must be determind by the Channels interface.<br>
-	 * Return null, if the player has no active
-	 * @param playername
-	 * @return String[]<br>null
-	 */
-	public String[] getActiveChannels(UUID uuid);
-	
-	/**
 	 * Return true, if chattitles are supported.
 	 * @return boolean
 	 */
 	public boolean supportChatTitles();
-	
-	/**
-	 * Return a string array with the names of the active chattitle in the providing plugin.<br>
-	 * Return null, if no chattitle exists.
-	 * @return String[]<br>null
-	 */	
-	public String[] getAllChatTitles();
-	
-	/**
-	 * Return all chattitlenames from the player. For example: <b>Admin</b>, <b>Moderator</b> etc.<br>
-	 * Return null, if the player isnt exist or if he has no chattitle.
-	 * @param uuid
-	 * @return String[]<br>null
-	 */
-	public String[] getChatTitles(UUID uuid);
 	
 	/**
 	 * Return true, if emojis are supported.

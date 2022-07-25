@@ -1,6 +1,7 @@
 package main.java.me.avankziar.ifh.general.chat;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * The channels are digital seperations in the chat. They are reachable with entry symbols.
@@ -12,9 +13,27 @@ public interface Channel
 {
 	/**
 	 * Return a list of the uniquename of the channels.
-	 * @return
+	 * @return ArrayList[String]
 	 */
 	public ArrayList<String> getChannels();
+	
+	/**
+	 * Return all channels of the player.<br>
+	 * Other settings of the channels must be determind by the Channels interface.<br>
+	 * Return null, if the player is not existent.
+	 * @param uuid
+	 * @return ArrayList[String]<br>null
+	 */
+	public ArrayList<String> getChannels(UUID uuid);
+	
+	/**
+	 * Return all <b>active</b> channels of the player.<br>
+	 * Other settings of the channels must be determind by the Channels interface.<br>
+	 * Return null, if the player is not existent.
+	 * @param playername
+	 * @return ArrayList[String]<br>null
+	 */
+	public ArrayList<String> getActiveChannels(UUID uuid);
 	
 	/**
 	 * Registered a channel.
@@ -25,9 +44,9 @@ public interface Channel
 	 * @param symbol
 	 * @param inChatName
 	 * @param inChatColorMessage
-	 * @param Permission
+	 * @param permission
 	 * @param joinPart
-	 * @param ChatFormat
+	 * @param chatFormat
 	 * @param useSpecificServer
 	 * @param useSpecificWorld
 	 * @param useBlockRadius
@@ -49,27 +68,27 @@ public interface Channel
 	 */
 	public boolean registerChannel(
 			String uniqueChannelName, String symbol, String inChatName, String inChatColorMessage,
-			String Permission, String joinPart, String ChatFormat,
+			String permission, String joinPart, String chatFormat,
 			boolean useSpecificServer, boolean useSpecificWorld, int useBlockRadius, 
 			long minimumTimeBetweenMessages, long minimumTimeBetweenSameMessage, double percentOfSimiliarityOrLess,
 			String timeColor, String playernameCustomColor,
+			String seperatorBetweenPrefix, String seperatorBetweenSuffix,
 			String mentionSound,
 			boolean useColor, boolean useItemReplacer, boolean useBookReplacer,
 			boolean useRunCommandReplacer, boolean useSuggestCommandReplacer, boolean useWebsiteReplacer,
-			boolean useEmojiReplacer, boolean usePositionReplacer);
+			boolean useEmojiReplacer, boolean useMentionReplacer, boolean usePositionReplacer,
+			boolean registerOnBungee);
 	
 	/**
 	 * Registered a channel. The smaller version.
 	 * <br>Return true if the channel was registered. False if not.
-	 * <br>Beware to register the channel on the system, where you want it to use. So if it should be used over the proxy
-	 * so register it there!
 	 * @param uniqueChannelName
 	 * @param symbol
 	 * @param inChatName
 	 * @param inChatColorMessage
-	 * @param Permission
+	 * @param permission
 	 * @param joinPart
-	 * @param ChatFormat
+	 * @param chatFormat
 	 * @param timeColor
 	 * @param playernameCustomColor
 	 * @param mentionSound
@@ -81,16 +100,18 @@ public interface Channel
 	 * @param useWebsiteReplacer
 	 * @param useEmojiReplacer
 	 * @param usePositionReplacer
+	 * @param registerOnBungee
 	 * @return
 	 */
 	public boolean registerChannel(
 			String uniqueChannelName, String symbol, String inChatName, String inChatColorMessage,
-			String Permission, String joinPart, String ChatFormat,
+			String permission, String joinPart, String chatFormat,
 			String timeColor, String playernameCustomColor,
 			String mentionSound,
 			boolean useColor, boolean useItemReplacer, boolean useBookReplacer,
 			boolean useRunCommandReplacer, boolean useSuggestCommandReplacer, boolean useWebsiteReplacer,
-			boolean useEmojiReplacer, boolean usePositionReplacer);
+			boolean useEmojiReplacer, boolean useMentionReplacer, boolean usePositionReplacer,
+			boolean registerOnBungee);
 	
 	/**
 	 * Return the entry symbol of the channel. The parameter 'NULL' as String means, that this channel has no entry symbol.<br>
