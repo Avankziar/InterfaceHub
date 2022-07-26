@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.administration;
+package main.java.me.avankziar.ifh.bungee.administration;
 
 public interface Administration
 {
@@ -8,12 +8,6 @@ public interface Administration
 	 * @return
 	 */
 	public String getLanguage();
-	
-	/**
-	 * Return the spigot servername.
-	 * @return
-	 */
-	public String getSpigotServerName();
 	
 	/**
 	 * Return a host. The pathName define which of the possible host are returned.
