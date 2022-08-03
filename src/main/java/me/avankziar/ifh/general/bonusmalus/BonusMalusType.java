@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.bonusmalus;
+package main.java.me.avankziar.ifh.general.bonusmalus;
 
 /**
  * Defines in which direction the given value improves.<br>

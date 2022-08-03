@@ -1,15 +1,13 @@
-package main.java.me.avankziar.ifh.spigot.bonusmalus;
+package main.java.me.avankziar.ifh.general.bonusmalus;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-import org.bukkit.plugin.java.JavaPlugin;
-
 public interface BonusMalus
 {
-	default String getBonusMalusReason(JavaPlugin plugin, String... reason)
+	default String getBonusMalusReason(String... reason)
 	{
-		return plugin.getName().toLowerCase() + "_" + String.join("_", reason);
+		return String.join("_", reason);
 	}
 	
 	/**
@@ -19,7 +17,7 @@ public interface BonusMalus
 	 * @param type
 	 * @return
 	 */
-	public boolean register(String bonusMalusName, BonusMalusType type);
+	public boolean register(String bonusMalusName, String displayBonusMalusName, BonusMalusType type);
 	
 	/**
 	 * Return a list of all registered boni/mali.
