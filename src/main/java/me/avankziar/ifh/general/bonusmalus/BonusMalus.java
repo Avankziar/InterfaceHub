@@ -101,7 +101,7 @@ public interface BonusMalus
 	/**
 	 * Return a value, where all bonus and malus of the player for the specific name is apply.<br>
 	 * The formula for the calculation are:<br>
-	 * x = (baseValue + SUM(additionValues))*(SUM(multiplicationValues))<br>
+	 * x = (baseValue + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
 	 * or<br>
 	 * x = (baseValue + SUM(additionValues))*(MUL(multiplicationValues))<br>
 	 * It depends which MultiplicationCalculationType is used.
@@ -117,7 +117,7 @@ public interface BonusMalus
 	 * Return a value, where all bonus and malus of the player for the specific name is apply.<br>
 	 * If the server is null, it will be count as global factor.<br>
 	 * The formula for the calculation are:<br>
-	 * x = (baseValue + SUM(additionValues))*(SUM(multiplicationValues))<br>
+	 * x = (baseValue + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
 	 * or<br>
 	 * x = (baseValue + SUM(additionValues))*(MUL(multiplicationValues))<br>
 	 * It depends which MultiplicationCalculationType is used.
@@ -157,20 +157,19 @@ public interface BonusMalus
 	 * If the server is null, so it is a global factor.<br>
 	 * If the world isnt null but the server is null, it is a global<br>
 	 * If the duration is null, so it is a permanent factor.<br>
-	 * If valueAsPercentage is true, the specific value will be: y = 1 + (value/100)<br>
+	 * value will be always defines as: y = 1 + (value/100). Summit as percentage.<br>
 	 * A multiplication factor will be calculated after a addition factor.<br>
 	 * @param uuid
 	 * @param bonusMalusName
-	 * @param value
+	 * @param valueAsPercent
 	 * @param reason
 	 * @param server
 	 * @param world
 	 * @param duration
-	 * @param valueAsPercentage
 	 * @return
 	 */
 	public boolean addMultiplicationFactor(UUID uuid, String bonusMalusName,
 			double value, String reason,
 			String server, String world,
-			Long duration, boolean valueAsPercentage);
+			Long duration);
 }
