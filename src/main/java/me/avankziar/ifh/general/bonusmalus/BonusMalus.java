@@ -11,13 +11,16 @@ public interface BonusMalus
 	}
 	
 	/**
-	 * Register a bonus/malus. It defines how the bonus/malus work. 
+	 * Register a bonus/malus. It defines how the bonus/malus work. <br>
 	 * @see BonusMalusType
+	 * @see MultiplicationCalculationType
 	 * @param bonusMalusName
-	 * @param type
+	 * @param bonusMalustype
+	 * @param multiplicationCalculationType
 	 * @return
 	 */
-	public boolean register(String bonusMalusName, String displayBonusMalusName, BonusMalusType type);
+	public boolean register(String bonusMalusName, String displayBonusMalusName,
+			BonusMalusType bonusMalustype, MultiplicationCalculationType multiplicationCalculationType);
 	
 	/**
 	 * Return a list of all registered boni/mali.
@@ -31,6 +34,27 @@ public interface BonusMalus
 	 * @return
 	 */
 	public ArrayList<String> getRegistered(BonusMalusType type);
+	
+	/**
+	 * Return the displayname of the registered bonus/malus.
+	 * @param bonusMalusName
+	 * @return
+	 */
+	public String getRegisteredDisplayName(String bonusMalusName);
+	
+	/**
+	 * Return the BonusMalusType of the registered bonus/malus.
+	 * @param bonusMalusName
+	 * @return
+	 */
+	public BonusMalusType getRegisteredBonusMalusType(String bonusMalusName);
+	
+	/**
+	 * Return the MultiplicationCalculationType of the registered bonus/malus.
+	 * @param bonusMalusType
+	 * @return
+	 */
+	public MultiplicationCalculationType getRegisteredMultiplicationCalculationType(String bonusMalusType);
 	
 	/**
 	 * Remove all bonus/malus of the uuid
@@ -77,7 +101,11 @@ public interface BonusMalus
 	/**
 	 * Return a value, where all bonus and malus of the player for the specific name is apply.<br>
 	 * The formula for the calculation are:<br>
-	 * x = (baseValue + SUM(additionValues))*(MUL(multiplicationValues))
+	 * x = (baseValue + SUM(additionValues))*(SUM(multiplicationValues))<br>
+	 * or<br>
+	 * x = (baseValue + SUM(additionValues))*(MUL(multiplicationValues))<br>
+	 * It depends which MultiplicationCalculationType is used.
+	 * @see MultiplicationCalculationType
 	 * @param uuid
 	 * @param baseValue
 	 * @param bonusMalusName
@@ -89,7 +117,11 @@ public interface BonusMalus
 	 * Return a value, where all bonus and malus of the player for the specific name is apply.<br>
 	 * If the server is null, it will be count as global factor.<br>
 	 * The formula for the calculation are:<br>
-	 * x = (baseValue + SUM(additionValues))*(MUL(multiplicationValues))
+	 * x = (baseValue + SUM(additionValues))*(SUM(multiplicationValues))<br>
+	 * or<br>
+	 * x = (baseValue + SUM(additionValues))*(MUL(multiplicationValues))<br>
+	 * It depends which MultiplicationCalculationType is used.
+	 * @see MultiplicationCalculationType
 	 * @param uuid
 	 * @param baseValue
 	 * @param bonusMalusName
@@ -114,8 +146,10 @@ public interface BonusMalus
 	 * @param duration
 	 * @return
 	 */
-	public boolean addAdditionFactor(UUID uuid, String bonusMalusName, double value, String reason,
-			String server, String world, Long duration);
+	public boolean addAdditionFactor(UUID uuid, String bonusMalusName,
+			double value, String reason,
+			String server, String world,
+			Long duration);
 	
 	/**
 	 * Add a multiplication factor for the player, with the specific name and the specific reason.<br>
@@ -135,6 +169,8 @@ public interface BonusMalus
 	 * @param valueAsPercentage
 	 * @return
 	 */
-	public boolean addMultiplicationFactor(UUID uuid, String bonusMalusName, double value, String reason,
-			String server, String world, Long duration, boolean valueAsPercentage);
+	public boolean addMultiplicationFactor(UUID uuid, String bonusMalusName,
+			double value, String reason,
+			String server, String world,
+			Long duration, boolean valueAsPercentage);
 }
