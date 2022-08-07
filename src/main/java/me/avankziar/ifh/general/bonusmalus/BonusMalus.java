@@ -11,6 +11,13 @@ public interface BonusMalus
 	}
 	
 	/**
+	 * Return true, if the bonus/malus is already registered.
+	 * @param bonusMalusName
+	 * @return
+	 */
+	public boolean isRegistered(String bonusMalusName);
+	
+	/**
 	 * Register a bonus/malus. It defines how the bonus/malus work. <br>
 	 * @see BonusMalusType
 	 * @see MultiplicationCalculationType
@@ -54,7 +61,7 @@ public interface BonusMalus
 	 * @param bonusMalusType
 	 * @return
 	 */
-	public MultiplicationCalculationType getRegisteredMultiplicationCalculationType(String bonusMalusType);
+	public MultiplicationCalculationType getRegisteredMultiplicationCalculationType(String bonusMalusName);
 	
 	/**
 	 * Remove all bonus/malus of the uuid
@@ -146,7 +153,7 @@ public interface BonusMalus
 	 * @param duration
 	 * @return
 	 */
-	public boolean addAdditionFactor(UUID uuid, String bonusMalusName,
+	public void addAdditionFactor(UUID uuid, String bonusMalusName,
 			double value, String reason,
 			String server, String world,
 			Long duration);
@@ -168,8 +175,19 @@ public interface BonusMalus
 	 * @param duration
 	 * @return
 	 */
-	public boolean addMultiplicationFactor(UUID uuid, String bonusMalusName,
+	public void addMultiplicationFactor(UUID uuid, String bonusMalusName,
 			double value, String reason,
 			String server, String world,
 			Long duration);
+	
+	/**
+	 * Update all onlineplayers bonus/malus values.
+	 */
+	public void update();
+	
+	/**
+	 * Updates the bonus/malus values of the onlineplayer with the specific uuid.
+	 * @param uuid
+	 */
+	public void update(UUID uuid);
 }
