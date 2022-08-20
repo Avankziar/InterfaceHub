@@ -17,7 +17,7 @@ public interface Vanish
 	
 	void hidePlayer(Player player);
 	
-	void showPlayer(Player p);
+	void showPlayer(Player player);
 	
 	boolean canSee(Player viewer, Player viewed);
 }
