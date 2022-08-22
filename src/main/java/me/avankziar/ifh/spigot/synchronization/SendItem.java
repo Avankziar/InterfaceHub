@@ -7,14 +7,17 @@ import org.bukkit.inventory.ItemStack;
 public interface SendItem
 {
 	/**
-	 * Send the Items to the specific player at the synchroKey "default".
+	 * Send the Items to the specific player.<br>
+	 * SynchroKey is "default".<br>
+	 * Reason is "/".
 	 * @param uuid
 	 * @param itemStack
 	 */
 	void sendItem(UUID uuid, ItemStack...itemStack);
 	
 	/**
-	 * Send the Items to the specific player.
+	 * Send the Items to the specific player.<br>
+	 * Reason is "/".
 	 * @param uuid
 	 * @param synchroKey
 	 * @param syncType
@@ -23,7 +26,26 @@ public interface SendItem
 	void sendItem(UUID uuid, String synchroKey, ItemStack...itemStack);
 	
 	/**
-	 * Send the Items to the specific players.
+	 * Send the Items to the specific player.
+	 * @param uuid
+	 * @param synchroKey
+	 * @param syncType
+	 * @param itemStack
+	 */
+	void sendItem(UUID uuid, String synchroKey, String reason, ItemStack...itemStack);
+	
+	/**
+	 * Send the Items to the specific players.<br>
+	 * SynchroKey is "default".<br>
+	 * Reason is "/".
+	 * @param uuid
+	 * @param itemStack
+	 */
+	void sendItem(UUID[] uuid, ItemStack...itemStack);
+	
+	/**
+	 * Send the Items to the specific players.<br>
+	 * Reason is "/".
 	 * @param uuid
 	 * @param synchroKey
 	 * @param itemStack
@@ -31,22 +53,33 @@ public interface SendItem
 	void sendItem(UUID[] uuid, String synchroKey, ItemStack...itemStack);
 	
 	/**
-	 * Send the Items to the specific players at the synchroKey "default".
+	 * Send the Items to the specific players.
 	 * @param uuid
+	 * @param synchroKey
 	 * @param itemStack
 	 */
-	void sendItem(UUID[] uuid, ItemStack...itemStack);
+	void sendItem(UUID[] uuid, String synchroKey, String reason, ItemStack...itemStack);
 	
 	/**
-	 * Send the Items to all known players.
+	 * Send the Items to all known players.<br>
+	 * SynchroKey is "default".<br>
+	 * Reason is "/".
+	 * @param itemStack
+	 */
+	void sendItem(ItemStack...itemStack);	
+	
+	/**
+	 * Send the Items to all known players.<br>
+	 * Reason is "/".
 	 * @param synchroKey
 	 * @param itemStack
 	 */
 	void sendItem(String synchroKey, ItemStack...itemStack);
 	
 	/**
-	 * Send the Items to all known players at the synchroKey "default".
+	 * Send the Items to all known players.
+	 * @param synchroKey
 	 * @param itemStack
 	 */
-	void sendItem(ItemStack...itemStack);	
+	void sendItem(String synchroKey, String reason, ItemStack...itemStack);
 }
