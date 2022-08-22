@@ -13,7 +13,7 @@ public interface SendItem
 	 * @param uuid
 	 * @param itemStack
 	 */
-	void sendItem(UUID uuid, ItemStack...itemStack);
+	void sendItem(UUID receiver, String sender, ItemStack...itemStack);
 	
 	/**
 	 * Send the Items to the specific player.<br>
@@ -23,7 +23,7 @@ public interface SendItem
 	 * @param syncType
 	 * @param itemStack
 	 */
-	void sendItem(UUID uuid, String synchroKey, ItemStack...itemStack);
+	void sendItem(UUID receiver, String sender, String synchroKey, ItemStack...itemStack);
 	
 	/**
 	 * Send the Items to the specific player.
@@ -32,7 +32,7 @@ public interface SendItem
 	 * @param syncType
 	 * @param itemStack
 	 */
-	void sendItem(UUID uuid, String synchroKey, String reason, ItemStack...itemStack);
+	void sendItem(UUID receiver, String sender, String synchroKey, String reason, ItemStack...itemStack);
 	
 	/**
 	 * Send the Items to the specific players.<br>
@@ -41,7 +41,7 @@ public interface SendItem
 	 * @param uuid
 	 * @param itemStack
 	 */
-	void sendItem(UUID[] uuid, ItemStack...itemStack);
+	void sendItem(UUID[] uuid, String sender, ItemStack...itemStack);
 	
 	/**
 	 * Send the Items to the specific players.<br>
@@ -50,7 +50,7 @@ public interface SendItem
 	 * @param synchroKey
 	 * @param itemStack
 	 */
-	void sendItem(UUID[] uuid, String synchroKey, ItemStack...itemStack);
+	void sendItem(UUID[] uuid, String sender, String synchroKey, ItemStack...itemStack);
 	
 	/**
 	 * Send the Items to the specific players.
@@ -58,7 +58,7 @@ public interface SendItem
 	 * @param synchroKey
 	 * @param itemStack
 	 */
-	void sendItem(UUID[] uuid, String synchroKey, String reason, ItemStack...itemStack);
+	void sendItem(UUID[] uuid, String sender, String synchroKey, String reason, ItemStack...itemStack);
 	
 	/**
 	 * Send the Items to all known players.<br>
@@ -66,7 +66,7 @@ public interface SendItem
 	 * Reason is "/".
 	 * @param itemStack
 	 */
-	void sendItem(ItemStack...itemStack);	
+	void sendItem(String sender, ItemStack...itemStack);	
 	
 	/**
 	 * Send the Items to all known players.<br>
@@ -74,12 +74,12 @@ public interface SendItem
 	 * @param synchroKey
 	 * @param itemStack
 	 */
-	void sendItem(String synchroKey, ItemStack...itemStack);
+	void sendItem(String sender, String synchroKey, ItemStack...itemStack);
 	
 	/**
 	 * Send the Items to all known players.
 	 * @param synchroKey
 	 * @param itemStack
 	 */
-	void sendItem(String synchroKey, String reason, ItemStack...itemStack);
+	void sendItem(String sender, String synchroKey, String reason, ItemStack...itemStack);
 }
