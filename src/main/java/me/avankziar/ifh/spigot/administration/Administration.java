@@ -16,6 +16,13 @@ public interface Administration
 	public String getSpigotServerName();
 	
 	/**
+	 * Return true, if the Mysql with specific path is active.
+	 * @param pathName
+	 * @return
+	 */
+	public boolean isMysqlPathActive(String pathName);
+	
+	/**
 	 * Return a host. The pathName define which of the possible host are returned.
 	 * @param pathName
 	 * @return
