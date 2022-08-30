@@ -136,7 +136,38 @@ public interface BonusMalus
 	 * @param world
 	 * @return
 	 */
-	public double getResult(UUID uuid, double baseValue, String bonusMalusName, String server, String world);	
+	public double getResult(UUID uuid, double baseValue, String bonusMalusName, String server, String world);
+	
+	/**
+	 * Return a boolean, where all bonus and malus of the player for the specific name is apply.<br>
+	 * The formula for the calculation are:<br>
+	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
+	 * or<br>
+	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(MUL(multiplicationValues))<br>
+	 * It depends which MultiplicationCalculationType is used.<br>
+	 * The permissionOutput should be the returnvalue of player.hasPermission(permission)
+	 * @param uuid
+	 * @param permissionOutput
+	 * @param bonusMalusName
+	 * @return
+	 */
+	public boolean getResult(UUID uuid, boolean permissionOutput, String bonusMalusName);
+	
+	/**
+	 * Return a boolean, where all bonus and malus of the player for the specific name is apply.<br>
+	 * If the server is null, it will be count as global factor.<br>
+	 * The formula for the calculation are:<br>
+	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
+	 * or<br>
+	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(MUL(multiplicationValues))<br>
+	 * It depends which MultiplicationCalculationType is used.<br>
+	 * The permissionOutput should be the returnvalue of player.hasPermission(permission)
+	 * @param uuid
+	 * @param permissionOutput
+	 * @param bonusMalusName
+	 * @return
+	 */
+	public boolean getResult(UUID uuid, boolean permissionOutput, String bonusMalusName, String server, String world);
 	
 	/**
 	 * Add a additional factor for the player, with the specific name and the specific reason.<br>
