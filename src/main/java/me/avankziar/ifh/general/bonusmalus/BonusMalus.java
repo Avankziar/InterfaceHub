@@ -66,6 +66,13 @@ public interface BonusMalus
 	public MultiplicationCalculationType getRegisteredMultiplicationCalculationType(String bonusMalusName);
 	
 	/**
+	 * Return a String array for explanation for the bonus/malus.
+	 * @param bonusMalusName
+	 * @return
+	 */
+	public String[] getRegisteredExplanation(String bonusMalusName);
+	
+	/**
 	 * Remove all bonus/malus of the uuid
 	 * @param uuid
 	 */
