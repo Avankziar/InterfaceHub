@@ -119,6 +119,16 @@ public interface BonusMalus
 	public boolean hasBonusMalus(UUID uuid, String bonusMalusName);
 	
 	/**
+	 * Return true if the player has one or more boni/mali of the specified name for a server and/or world.
+	 * @param uuid
+	 * @param bonusMalusName
+	 * @param server
+	 * @param world
+	 * @return
+	 */
+	public boolean hasBonusMalus(UUID uuid, String bonusMalusName, String server, String world);
+	
+	/**
 	 * Return a value, where all bonus and malus of the player for the specific name is apply.<br>
 	 * The formula for the calculation are:<br>
 	 * x = (baseValue + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
