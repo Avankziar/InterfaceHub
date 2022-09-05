@@ -24,10 +24,12 @@ public interface BonusMalus
 	 * @param bonusMalusName
 	 * @param bonusMalustype
 	 * @param multiplicationCalculationType
+	 * @param bonusMalusExplanation
 	 * @return
 	 */
 	public boolean register(String bonusMalusName, String displayBonusMalusName,
-			BonusMalusType bonusMalustype, MultiplicationCalculationType multiplicationCalculationType);
+			BonusMalusType bonusMalustype, MultiplicationCalculationType multiplicationCalculationType,
+			String...bonusMalusExplanation);
 	
 	/**
 	 * Return a list of all registered boni/mali.
