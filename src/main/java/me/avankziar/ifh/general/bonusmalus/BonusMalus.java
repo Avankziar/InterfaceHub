@@ -19,15 +19,19 @@ public interface BonusMalus
 	
 	/**
 	 * Register a bonus/malus. It defines how the bonus/malus work. <br>
+	 * isBooleanBonusMalus definies if the bonus/malus to be understood as boolean.
 	 * @see BonusMalusType
 	 * @see MultiplicationCalculationType
 	 * @param bonusMalusName
+	 * @param displayBonusMalusName
+	 * @param isBooleanBonusMalus
 	 * @param bonusMalustype
 	 * @param multiplicationCalculationType
 	 * @param bonusMalusExplanation
 	 * @return
 	 */
 	public boolean register(String bonusMalusName, String displayBonusMalusName,
+			boolean isBooleanBonusMalus,
 			BonusMalusType bonusMalustype, MultiplicationCalculationType multiplicationCalculationType,
 			String...bonusMalusExplanation);
 	
