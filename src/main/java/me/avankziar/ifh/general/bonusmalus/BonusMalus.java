@@ -131,7 +131,7 @@ public interface BonusMalus
 	/**
 	 * Return a value, where all bonus and malus of the player for the specific name is apply.<br>
 	 * The formula for the calculation are:<br>
-	 * x = (baseValue + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
+	 * x = (baseValue + SUM(additionValues))*(SUM(multiplicationValues))<br>
 	 * or<br>
 	 * x = (baseValue + SUM(additionValues))*(MUL(multiplicationValues))<br>
 	 * It depends which MultiplicationCalculationType is used.
@@ -147,7 +147,7 @@ public interface BonusMalus
 	 * Return a value, where all bonus and malus of the player for the specific name is apply.<br>
 	 * If the server is null, it will be count as global factor.<br>
 	 * The formula for the calculation are:<br>
-	 * x = (baseValue + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
+	 * x = (baseValue + SUM(additionValues))*(SUM(multiplicationValues))<br>
 	 * or<br>
 	 * x = (baseValue + SUM(additionValues))*(MUL(multiplicationValues))<br>
 	 * It depends which MultiplicationCalculationType is used.
@@ -164,7 +164,7 @@ public interface BonusMalus
 	/**
 	 * Return a boolean, where all bonus and malus of the player for the specific name is apply.<br>
 	 * The formula for the calculation are:<br>
-	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
+	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(SUM(multiplicationValues))<br>
 	 * or<br>
 	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(MUL(multiplicationValues))<br>
 	 * It depends which MultiplicationCalculationType is used.<br>
@@ -180,7 +180,7 @@ public interface BonusMalus
 	 * Return a boolean, where all bonus and malus of the player for the specific name is apply.<br>
 	 * If the server is null, it will be count as global factor.<br>
 	 * The formula for the calculation are:<br>
-	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(1 + SUM(multiplicationValues))<br>
+	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(SUM(multiplicationValues))<br>
 	 * or<br>
 	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(MUL(multiplicationValues))<br>
 	 * It depends which MultiplicationCalculationType is used.<br>
