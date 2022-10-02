@@ -1,12 +1,14 @@
-package main.java.me.avankziar.ifh.spigot.interfaces;
+package main.java.me.avankziar.ifh.spigot.storage;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public interface StorageSystem
+public interface PhysicalChestStorage
 {
 	/**
 	 * Return true, if on this location a distributionchest exist.
@@ -14,7 +16,7 @@ public interface StorageSystem
 	 * @param location
 	 * @return
 	 */
-	boolean existDistributionChest(String server, Location location);
+	public boolean existDistributionChest(String server, Location location);
 	
 	/**
 	 * Return true, if on this location a storagechest exist.
@@ -22,14 +24,14 @@ public interface StorageSystem
 	 * @param location
 	 * @return
 	 */
-	boolean existStorageChest(String server, Location location);
+	public boolean existStorageChest(String server, Location location);
 	
 	/**
 	 * Return true, if the player is the owner from a or multiple storagesystems.
 	 * @param player
 	 * @return
 	 */
-	boolean hasDistributionChests(Player player);
+	public boolean hasDistributionChests(Player player);
 	
 	/**
 	 * Return all distributionchests ids, which are on this location.<br>
@@ -38,7 +40,7 @@ public interface StorageSystem
 	 * @param location
 	 * @return
 	 */
-	Integer[] getDistributionChestIDs(String server, Location location);
+	public Integer[] getDistributionChestIDs(String server, Location location);
 	
 	/**
 	 * Return all storagechests ids, which are on this location.<br>
@@ -47,7 +49,7 @@ public interface StorageSystem
 	 * @param location
 	 * @return
 	 */
-	Integer[] getStorageChestIDs(String server, Location location);
+	public Integer[] getStorageChestIDs(String server, Location location);
 	
 	/**
 	 * Return all distributionchests ids, which are in this area.<br>
@@ -57,7 +59,7 @@ public interface StorageSystem
 	 * @param point2
 	 * @return
 	 */
-	Integer[] getDistributionChestIDs(String server, Location point1, Location point2);
+	public Integer[] getDistributionChestIDs(String server, Location point1, Location point2);
 	
 	/**
 	 * Return all storagechests ids, which are in this area.<br>
@@ -67,7 +69,7 @@ public interface StorageSystem
 	 * @param point2
 	 * @return
 	 */
-    Integer[] getStorageChestIDs(String server, Location point1, Location point2);
+	public Integer[] getStorageChestIDs(String server, Location point1, Location point2);
 	
     /**
      * Return true, if this distributionchest is deleted.<br>
@@ -76,14 +78,14 @@ public interface StorageSystem
      * @param deleteBoundedStorageChests
      * @return
      */
-	boolean deleteDistributionChest(int id, boolean deleteBoundedStorageChests);
+    public boolean deleteDistributionChest(int id, boolean deleteBoundedStorageChests);
 	
 	/**
 	 * Return true, if this storagechest is deleted.
 	 * @param id
 	 * @return
 	 */
-	boolean deleteStorageChest(int id);
+	public boolean deleteStorageChest(int id);
 	
 	/**
 	 * Return all storagechests which have this item as filter and bound by this distributionchest.<br>
@@ -92,7 +94,7 @@ public interface StorageSystem
 	 * @param searchItem
 	 * @return
 	 */
-	Integer[] getStorageChestsWithSearchableItem(int distributionchestid, ItemStack searchItem);
+	public Integer[] getStorageChestsWithSearchableItem(int distributionchestid, ItemStack searchItem);
 	
 	/**
 	 * Return all storagechests which have this item as filter and owned by the player.<br>
@@ -101,7 +103,7 @@ public interface StorageSystem
 	 * @param searchableItem
 	 * @return
 	 */
-	Integer[] getStorageChestsWithSearchableItem(Player player, ItemStack searchItem);
+	public Integer[] getStorageChestsWithSearchableItem(Player player, ItemStack searchItem);
 	
 	/**
 	 * Return all storagechests which have this item as filter.<br>
@@ -109,7 +111,7 @@ public interface StorageSystem
 	 * @param searchableItem
 	 * @return
 	 */
-	Integer[] getStorageChestsWithSearchableItem(ItemStack searchItem);
+	public Integer[] getStorageChestsWithSearchableItem(ItemStack searchItem);
 	
 	/**
 	 * Return the owner uuid of this distributionchest.<br>
@@ -117,7 +119,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getDistributionChestOwnerUUID(int id);
+	public String getDistributionChestOwnerUUID(int id);
 	
 	/**
 	 * Return the members uuid of this distributionchest.<br>
@@ -125,7 +127,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	List<String> getDistributionChestMembers(int id);
+	public List<String> getDistributionChestMembers(int id);
 	
 	/**
 	 * Return the creation date of this distributionchest.<br>
@@ -133,7 +135,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Long getDistributionChestCreationDate(int id);
+	public Long getDistributionChestCreationDate(int id);
 	
 	/**
 	 * Return the chestname of this distributionchest.<br>
@@ -141,7 +143,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getDistributionChestChestName(int id);
+	public String getDistributionChestChestName(int id);
 	
 	/**
 	 * Return the normal priority (asc=false or desc=true) of this distributionchest.<br>
@@ -149,7 +151,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getDistributionChestNormalPriority(int id);
+	public Boolean getDistributionChestNormalPriority(int id);
 	
 	/**
 	 * Return the prioritytype of this distributionchest.<br>
@@ -158,7 +160,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getDistributionChestPriorityType(int id);
+	public String getDistributionChestPriorityType(int id);
 	
 	/**
 	 * Return the prioritynumber of this distributionchest.<br>
@@ -167,7 +169,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Integer getDistributionChestPriorityNumber(int id);
+	public Integer getDistributionChestPriorityNumber(int id);
 	
 	/**
 	 * Return true if the chest distribute automatic.<br>
@@ -175,7 +177,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getDistributionChestAutomaticDistribution(int id);
+	public Boolean getDistributionChestAutomaticDistribution(int id);
 	
 	/**
 	 * Return true if the chest distribute random.<br>
@@ -183,7 +185,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getDistributionChestDistributeRandom(int id);
+	public Boolean getDistributionChestDistributeRandom(int id);
 	
 	/**
 	 * Return the server of this distributionchest.<br>
@@ -191,7 +193,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getDistributionChestServer(int id);
+	public String getDistributionChestServer(int id);
 	
 	/**
 	 * Return the location of this distributionchest.<br>
@@ -199,7 +201,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Location getDistribtionChestLocation(int id);
+	public Location getDistribtionChestLocation(int id);
 	
 	
 	/**
@@ -208,7 +210,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getStorageChestOwnerUUID(int id);
+	public String getStorageChestOwnerUUID(int id);
 	
 	/**
 	 * Return the distributionchest id to which this storagechest is bounded.<br>
@@ -216,7 +218,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Integer getStorageChestDistributionChestID(int id);
+	public Integer getStorageChestDistributionChestID(int id);
 	
 	/**
 	 * Return the creation date of this storagechest.<br>
@@ -224,7 +226,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Long getStorageChestCreationDate(int id);
+	public Long getStorageChestCreationDate(int id);
 	
 	/**
 	 * Return the prioritynumber of this storagechest.<br>
@@ -233,7 +235,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Integer getStorageChestPriorityNumber(int id);
+	public Integer getStorageChestPriorityNumber(int id);
 	
 	/**
 	 * Return the itemstack array filter of this storagechest.<br>
@@ -241,7 +243,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	ItemStack[] getStorageChestFilter(int id);
+	public ItemStack[] getStorageChestFilter(int id);
 	
 	/**
 	 * Return the itemstack array filter as searchable string of this storagechest.<br>
@@ -249,7 +251,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String[] getStorageChestSearchContent(int id);
+	public String[] getStorageChestSearchContent(int id);
 	
 	/**
 	 * Return true if this storagechest is a endstorage.<br>
@@ -257,7 +259,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getStorageChestEndStorage(int id);
+	public Boolean getStorageChestEndStorage(int id);
 	
 	/**
 	 * Return the server of this storagechest.<br>
@@ -265,7 +267,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getStorageChestServer(int id);
+	public String getStorageChestServer(int id);
 	
 	/**
 	 * Return the location of this storagechest.<br>
@@ -273,7 +275,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Location getStorageChestLocation(int id);
+	public Location getStorageChestLocation(int id);
 	
 	/**
 	 * Return the chestname of this storagechest.<br>
@@ -281,7 +283,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getStorageChestChestName(int id);
+	public String getStorageChestChestName(int id);
 	
 	/**
 	 * Return true if this storagechest is a void chest.<br>
@@ -289,7 +291,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getStorageChestOptionVoid(int id);
+	public Boolean getStorageChestOptionVoid(int id);
 	
 	/**
 	 * Return true if this storagechest has the option durability active.<br>
@@ -297,7 +299,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getStorageChestOptionDurability(int id);
+	public Boolean getStorageChestOptionDurability(int id);
 	
 	/**
 	 * Return the durabilitytype of this storagechest.<br>
@@ -306,7 +308,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getStorageChestDurabilityType(int id);
+	public String getStorageChestDurabilityType(int id);
 	
 	/**
 	 * Return the durability percent of this storagechest.<br>
@@ -314,7 +316,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Integer getStorageChestDurabilityPercent(int id);
+	public Integer getStorageChestDurabilityPercent(int id);
 	
 	/**
 	 * Return true if this storagechest has the option repair active.<br>
@@ -322,7 +324,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getStorageChestOptionRepair(int id);
+	public Boolean getStorageChestOptionRepair(int id);
 	
 	/**
 	 * Return the repairtype of this storagechest.<br>
@@ -331,7 +333,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	String getStorageChestRepairType(int id);
+	public String getStorageChestRepairType(int id);
 	
 	/**
 	 * Return the repair level cost of this storagechest.<br>
@@ -339,7 +341,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Integer getStorageChestRepairLevelCost(int id);
+	public Integer getStorageChestRepairLevelCost(int id);
 	
 	/**
 	 * Return true if this storagechest has the option enchantment active.<br>
@@ -347,7 +349,7 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getStorageChestOptionEnchantment(int id);
+	public Boolean getStorageChestOptionEnchantment(int id);
 	
 	/**
 	 * Return true if this storagechest has the option material active.<br>
@@ -355,5 +357,44 @@ public interface StorageSystem
 	 * @param id
 	 * @return
 	 */
-	Boolean getStorageChestOptionMaterial(int id);
+	public Boolean getStorageChestOptionMaterial(int id);
+	
+	public boolean isOwner(int storageID, UUID uuid);
+	
+	/**
+	 * Put all Items into storage. The returning items put direct back into the shop
+	 * @param itemStack
+	 * @return
+	 */
+	public void putIntoStorageFromShop(int shopID, int storageID, ItemStack itemStack, long amountOfItems);
+	
+	/**
+	 * Return the Items, which comes out of the storage into the shop
+	 * @param material
+	 * @return
+	 */
+	public void getOutOfStorageToShop(int shopID, int storageID, Material material);
+	
+	/**
+	 * Return the Items, which comes out of the storage into the shop
+	 * @param itemStack
+	 * @return
+	 */
+	public void getOutOfStorageToShop(int shopID, int storageID, ItemStack itemStack);
+	
+	/**
+	 * Return the Items, which comes out of the storage into the shop, with a max amount limit.
+	 * @param material
+	 * @param amountOfItems
+	 * @return
+	 */
+	public void getOutOfStorageToShop(int shopID, int storageID, Material material, long amountOfItems);
+	
+	/**
+	 * Return the Items, which comes out of the storage into the shop, with a max amount limit.<b
+	 * @param itemStack
+	 * @param amountOfItems
+	 * @return
+	 */
+	public void getOutOfStorageToShop(int shopID, int storageID, ItemStack itemStack, long amountOfItems);
 }
