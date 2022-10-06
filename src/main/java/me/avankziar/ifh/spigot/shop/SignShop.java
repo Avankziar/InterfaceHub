@@ -20,6 +20,10 @@ public interface SignShop
 	
 	public boolean isBlackListed(int shopID, UUID uuid);
 	
+	public boolean isWhiteListed(int shopID, UUID uuid);
+	
+	public boolean isCustomListed(int shopID, UUID uuid);
+	
 	public UUID getOwner(int shopID);
 	
 	public String getShopName(int shopID);
