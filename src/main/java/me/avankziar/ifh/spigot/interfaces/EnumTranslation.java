@@ -15,8 +15,10 @@ import org.bukkit.entity.TropicalFish;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.meta.BookMeta;
+import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.map.MapCursor;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.potion.PotionType;
 
 public interface EnumTranslation
 {
@@ -27,6 +29,10 @@ public interface EnumTranslation
 	public String getLocalization(Enchantment ench);
 	
 	public String getLocalization(ItemFlag i);
+	
+	public String getLocalization(PotionType pt);
+	
+	public String getLocalization(PotionType pt, PotionMeta pm);
 	
 	public String getLocalization(PotionEffectType pet);
 	
