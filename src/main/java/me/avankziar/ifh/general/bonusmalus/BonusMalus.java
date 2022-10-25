@@ -32,7 +32,7 @@ public interface BonusMalus
 	 */
 	public boolean register(String bonusMalusName, String displayBonusMalusName,
 			boolean isBooleanBonusMalus,
-			BonusMalusType bonusMalustype, MultiplicationCalculationType multiplicationCalculationType,
+			BonusMalusType bonusMalustype,
 			String...bonusMalusExplanation);
 	
 	/**
@@ -61,13 +61,6 @@ public interface BonusMalus
 	 * @return
 	 */
 	public BonusMalusType getRegisteredBonusMalusType(String bonusMalusName);
-	
-	/**
-	 * Return the MultiplicationCalculationType of the registered bonus/malus.
-	 * @param bonusMalusType
-	 * @return
-	 */
-	public MultiplicationCalculationType getRegisteredMultiplicationCalculationType(String bonusMalusName);
 	
 	/**
 	 * Return a String array for explanation for the bonus/malus.
