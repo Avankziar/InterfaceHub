@@ -78,7 +78,7 @@ public interface BonusMalus
 	/**
 	 * Remove all bonus/malus of the uuid with the specific reason
 	 * @param uuid
-	 * @param reason
+	 * @param internReason
 	 */
 	public void remove(UUID uuid, String reason);
 	
@@ -86,20 +86,20 @@ public interface BonusMalus
 	 * Remove all bonus/malus of the uuid with the specific name and reason
 	 * @param uuid
 	 * @param bonusMalusName
-	 * @param reason
+	 * @param internReason
 	 */
 	public void remove(UUID uuid, String bonusMalusName, String reason);
 	
 	/**
 	 * Remove all bonus/malus with a specific reason.
-	 * @param reason
+	 * @param internReason
 	 */
 	public void remove(String reason);
 	
 	/**
 	 * Remove all bonus/malus with a name and a reason
 	 * @param bonusMalusName
-	 * @param reason
+	 * @param internReason
 	 */
 	public void remove(String bonusMalusName, String reason);
 	
@@ -122,6 +122,48 @@ public interface BonusMalus
 	public boolean hasBonusMalus(UUID uuid, String bonusMalusName, String server, String world);
 	
 	/**
+	 * Return true if the player has one or more boni/mali of the specified name for a internReason and/or server and/or world.
+	 * @param uuid
+	 * @param bonusMalusName
+	 * @param internReason
+	 * @param server
+	 * @param world
+	 * @return
+	 */
+	public boolean hasBonusMalus(UUID uuid, String bonusMalusName, String internReason, String server, String world);
+	
+	/**
+	 * Return the last known base value. Aka, the last value that another plugin specified as "value" in ther getResult method.
+	 * @param uuid
+	 * @param baseValue
+	 * @param bonusMalusName
+	 * @param server
+	 * @param world
+	 * @return
+	 */
+	public double getLastBaseValue(final UUID uuid, final double baseValue, final String bonusMalusName, String server, String world);
+	
+	/**
+	 * Returns all additive values calculated together.
+	 * @param uuid
+	 * @param bonusMalusName
+	 * @param server
+	 * @param world
+	 * @return
+	 */
+	public double getSumValue(UUID uuid, String bonusMalusName, String server, String world);
+	
+	/**
+	 * Returns all multiplicative values calculated together.
+	 * @param uuid
+	 * @param bonusMalusName
+	 * @param server
+	 * @param world
+	 * @return
+	 */
+	public double getMulltiplyValue(UUID uuid, String bonusMalusName, String server, String world);
+	
+	/**
 	 * Return a value, where all bonus and malus of the player for the specific name is apply.<br>
 	 * The formula for the calculation are:<br>
 	 * x = (baseValue + SUM(additionValues))*(SUM(multiplicationValues))<br>
@@ -133,7 +175,7 @@ public interface BonusMalus
 	 * @param baseValue
 	 * @param bonusMalusName
 	 * @return
-	 */
+	 */	
 	public double getResult(UUID uuid, double baseValue, String bonusMalusName);	
 	
 	/**
@@ -195,13 +237,14 @@ public interface BonusMalus
 	 * @param uuid
 	 * @param bonusMalusName
 	 * @param value
-	 * @param reason
+	 * @param internReason
+	 * @param displayReason
 	 * @param server
 	 * @param duration
 	 * @return
 	 */
 	public void addAdditionFactor(UUID uuid, String bonusMalusName,
-			double value, String reason,
+			double value, String internReason, String displayReason,
 			String server, String world,
 			Long duration);
 	
@@ -216,14 +259,15 @@ public interface BonusMalus
 	 * @param uuid
 	 * @param bonusMalusName
 	 * @param valueAsPercent
-	 * @param reason
+	 * @param internReason
+	 * @param displayReason
 	 * @param server
 	 * @param world
 	 * @param duration
 	 * @return
 	 */
 	public void addMultiplicationFactor(UUID uuid, String bonusMalusName,
-			double value, String reason,
+			double value, String internReason, String displayReason,
 			String server, String world,
 			Long duration);
 	
