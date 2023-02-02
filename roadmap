@@ -1,2 +1,10 @@
+Build 1-5-0
+- Implementierte Version (unter GPLv3) von Javaluator unter general.math.javaluator
+- general.math.MathFormulaParser hinzugefügt, als Vereinfachter Zugriff auf den Javaluator
+- spigot.event.misc.ConditionQueryOutputEvent hinzugefügt
+- bungee.event.misc.ConditionQueryOutputEvent hinzugefügt
+- general.condition.Condition hinzugefügt
+- general.condition.ConditionQueryParser hinzugefügt
+
 Build 1-4-5
 - EconomyAction ErrorMessageType "ACCOUNTS_ARE_THE_SAME" hinzugefügt.

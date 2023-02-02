@@ -5,6 +5,11 @@ import java.util.UUID;
 
 public interface BonusMalus
 {
+	default String getBonusMalusName(String pluginname, String... name)
+	{
+		return pluginname.toLowerCase()+"-"+String.join("_", name);
+	}
+	
 	default String getBonusMalusReason(String... reason)
 	{
 		return String.join("_", reason);
@@ -31,7 +36,6 @@ public interface BonusMalus
 	 * @return
 	 */
 	public boolean register(String bonusMalusName, String displayBonusMalusName,
-			boolean isBooleanBonusMalus,
 			BonusMalusType bonusMalustype,
 			String...bonusMalusExplanation);
 	
@@ -80,7 +84,7 @@ public interface BonusMalus
 	 * @param uuid
 	 * @param internReason
 	 */
-	public void remove(UUID uuid, String reason);
+	public void remove(UUID uuid, String internReason);
 	
 	/**
 	 * Remove all bonus/malus of the uuid with the specific name and reason
@@ -88,20 +92,20 @@ public interface BonusMalus
 	 * @param bonusMalusName
 	 * @param internReason
 	 */
-	public void remove(UUID uuid, String bonusMalusName, String reason);
+	public void remove(UUID uuid, String bonusMalusName, String internReason);
 	
 	/**
 	 * Remove all bonus/malus with a specific reason.
 	 * @param internReason
 	 */
-	public void remove(String reason);
+	public void remove(String internReason);
 	
 	/**
 	 * Remove all bonus/malus with a name and a reason
 	 * @param bonusMalusName
 	 * @param internReason
 	 */
-	public void remove(String bonusMalusName, String reason);
+	public void remove(String bonusMalusName, String internReason);
 	
 	/**
 	 * Return true if the player has one or more boni/mali of the specified name.
@@ -195,37 +199,6 @@ public interface BonusMalus
 	 * @return
 	 */
 	public double getResult(UUID uuid, double baseValue, String bonusMalusName, String server, String world);
-	
-	/**
-	 * Return a boolean, where all bonus and malus of the player for the specific name is apply.<br>
-	 * The formula for the calculation are:<br>
-	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(SUM(multiplicationValues))<br>
-	 * or<br>
-	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(MUL(multiplicationValues))<br>
-	 * It depends which MultiplicationCalculationType is used.<br>
-	 * The permissionOutput should be the returnvalue of player.hasPermission(permission)
-	 * @param uuid
-	 * @param permissionOutput
-	 * @param bonusMalusName
-	 * @return
-	 */
-	public boolean getResult(UUID uuid, boolean permissionOutput, String bonusMalusName);
-	
-	/**
-	 * Return a boolean, where all bonus and malus of the player for the specific name is apply.<br>
-	 * If the server is null, it will be count as global factor.<br>
-	 * The formula for the calculation are:<br>
-	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(SUM(multiplicationValues))<br>
-	 * or<br>
-	 * x = (permissionOutput(AsNumber) + SUM(additionValues))*(MUL(multiplicationValues))<br>
-	 * It depends which MultiplicationCalculationType is used.<br>
-	 * The permissionOutput should be the returnvalue of player.hasPermission(permission)
-	 * @param uuid
-	 * @param permissionOutput
-	 * @param bonusMalusName
-	 * @return
-	 */
-	public boolean getResult(UUID uuid, boolean permissionOutput, String bonusMalusName, String server, String world);
 	
 	/**
 	 * Add a additional factor for the player, with the specific name and the specific reason.<br>
