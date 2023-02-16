@@ -13,13 +13,11 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 public class PlayerChangeToNotAfkEvent extends Event
 {
 	private static final HandlerList HANDLERS = new HandlerList();
-	private boolean isCancelled;
 	private Player player;
 
 	public PlayerChangeToNotAfkEvent(@NonNull Player player, boolean isAsync)
 	{
 		super(isAsync);
-		setCancelled(false);
 		this.player = player;
 	}
 	
@@ -32,16 +30,6 @@ public class PlayerChangeToNotAfkEvent extends Event
     {
         return HANDLERS;
     }
-
-	public boolean isCancelled()
-	{
-		return isCancelled;
-	}
-
-	public void setCancelled(boolean isCancelled)
-	{
-		this.isCancelled = isCancelled;
-	}
 	
 	public Player getPlayer()
 	{

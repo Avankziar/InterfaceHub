@@ -126,6 +126,15 @@ public interface BonusMalus
 	public boolean hasBonusMalus(UUID uuid, String bonusMalusName, String server, String world);
 	
 	/**
+	 * Return true if the player has one or more boni/mali of the specified name for a internReason
+	 * @param uuid
+	 * @param conditionName
+	 * @param internreason
+	 * @return
+	 */
+	public boolean hasBonusMalus(UUID uuid, String conditionName, String internreason);
+	
+	/**
 	 * Return true if the player has one or more boni/mali of the specified name for a internReason and/or server and/or world.
 	 * @param uuid
 	 * @param bonusMalusName

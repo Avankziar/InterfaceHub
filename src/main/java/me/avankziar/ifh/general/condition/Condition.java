@@ -101,7 +101,7 @@ public interface Condition
 	public boolean hasConditionEntry(UUID uuid, String conditionName, String internreason, String server, String world);
 	
 	/**
-	 * Return the conditionentry.<br>
+	 * Return the conditionentrys.<br>
 	 * Beware it can be:<br>
 	 * Boolean as "true" or "false" or "0" and "1".<br>
 	 * Numbers as int, long, float, double<br>
@@ -111,10 +111,10 @@ public interface Condition
 	 * @param conditionName
 	 * @return
 	 */
-	public String getConditionEntry(UUID uuid, String conditionName);
+	public String[] getConditionEntry(UUID uuid, String conditionName);
 	
 	/**
-	 * Return the conditionentry for a specific server and/or world.<br>
+	 * Return the conditionentrys for a specific server and/or world.<br>
 	 * Beware it can be:<br>
 	 * Boolean as "true" or "false" or "0" and "1".<br>
 	 * Numbers as int, long, float, double<br>
@@ -126,7 +126,7 @@ public interface Condition
 	 * @param world
 	 * @return
 	 */
-	public String getConditionEntry(UUID uuid, String conditionName, String server, String world);
+	public String[] getConditionEntry(UUID uuid, String conditionName, String server, String world);
 	
 	/**
 	 * Add a entry for a condition with a specific reason.<br>
