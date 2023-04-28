@@ -1,11 +1,11 @@
-package main.java.me.avankziar.ifh.general.bonusmalus;
+package main.java.me.avankziar.ifh.general.modifier;
 
 /**
  * Defines, to which type of value the value set.
  * @author Avankziar
  *
  */
-public enum BonusMalusValueType
+public enum ModifierType
 {
 	ADDITION, MULTIPLICATION;
 }

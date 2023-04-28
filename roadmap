@@ -1,3 +1,15 @@
+Build 1-6-0
+- general.condition.Condition in general.valueentry.ValueEntry geändert
+- general.valueentry.ValueEntry Codeänderung vorgenommen.
+- general.valueentry.objects.ValueEntry hinzugefügt
+- general.valueentry.objects.ValueLable hinzugefügt
+- general.bonusmalus.BonusMalus in general.modifier.Modification geändert
+- general.modifier.Modification Codeänderungen vorgenommen
+- general.bonusmalus.BonusMalusType in general.modifier.ModificationType geändert
+- general.bonusmalus.BonusMalusValueType in general.modifier.ModifierType geändert
+- general.modifier.objects.Modification hinzugefügt.
+- general.modifier.objects.Modifier hinzugefügt.
+
 Build 1-5-0
 - Implementierte Version (unter GPLv3) von Javaluator unter general.math.javaluator
 - general.math.MathFormulaParser (Klasse) hinzugefügt, als Vereinfachter Zugriff auf den Javaluator
