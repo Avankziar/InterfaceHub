@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.UUID;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public interface Modifier
@@ -24,7 +23,7 @@ public interface Modifier
 	 * @param modifierName
 	 * @return
 	 */
-	public boolean isRegistered(String modifierName);
+	public boolean isRegistered(String modificationName);
 	
 	/**
 	 * Register a modifier. It defines how the modifier work. <br>
@@ -58,14 +57,18 @@ public interface Modifier
 	 */
 	public ArrayList<main.java.me.avankziar.ifh.general.modifier.objects.Modification> getRegisteredModification(ModificationType type);
 		
+	public void remove(@Nullable UUID uuid, @Nullable String modificationName, @Nullable String internReason);
+	
 	/**
 	 * Remove all modifier of the uuid with the specific name and reason
 	 * @param uuid
 	 * @param modifierName
 	 * @param internReason
 	 */
-	public void remove(@Nullable UUID uuid, @Nullable String modifierName, @Nullable String internReason,
+	public void remove(UUID uuid, String modificationName, String internReason,
 			@Nullable String server, @Nullable String world);
+	
+	public void remove(@Nullable String server, @Nullable String world);
 	
 	/**
 	 * Return true if the player has one or more modifier of the specified name for a internReason and/or server and/or world.
@@ -76,7 +79,7 @@ public interface Modifier
 	 * @param world
 	 * @return
 	 */
-	public boolean hasModifier(UUID uuid, @Nullable String modifierName, @Nullable String internReason,
+	public boolean hasModifier(UUID uuid, String modificationName, @Nullable String internReason,
 			@Nullable String server, @Nullable String world);
 	
 	/**
@@ -88,7 +91,7 @@ public interface Modifier
 	 * @param world
 	 * @return
 	 */
-	public double getLastBaseValue(final UUID uuid, final String modifierName, @Nullable String server, @Nullable String world);
+	public double getLastBaseValue(final UUID uuid, final String modificationName);
 	
 	/**
 	 * Returns all additive values calculated together.
@@ -113,7 +116,7 @@ public interface Modifier
 	/**
 	 * Return a LinkedHashMap.<br>
 	 * The key is the modificationname and the value is all value under the modificationname totaled.<br>
-	 * The map contains only global values. Means which has no server and no world. 
+	 * The map contains only global values from a player which is on this server online.
 	 * @param uuid
 	 * @param type
 	 * @return
@@ -123,25 +126,22 @@ public interface Modifier
 	/**
 	 * Return a LinkedHashMap.<br>
 	 * The key is the modificationname and the value is all value under the modificationname totaled.<br>
-	 * The map contains only server values. Means which has server but no world. 
+	 * The map contains only server values from a player which is on this server online.
 	 * @param uuid
 	 * @param type
-	 * @param server
 	 * @return
 	 */
-	public LinkedHashMap<String, Double> getPlayerServerModifier(UUID uuid, ModifierType type, @Nonnull String server);
+	public LinkedHashMap<String, Double> getPlayerServerModifier(UUID uuid, ModifierType type);
 	
 	/**
 	 * Return a LinkedHashMap.<br>
-	 * The key is the modificationname and the value is all value under the modificationname totaled.<br>
-	 * The map contains only world values. Means which has a server AND a world. 
+	 * The first key is the world and the second key is modificationname and the value is all value under the modificationname totaled.<br>
+	 * The map contains only world values from a player which is on this server online.
 	 * @param uuid
 	 * @param type
-	 * @param server
-	 * @param world
 	 * @return
 	 */
-	public LinkedHashMap<String, Double> getPlayerServerModifier(UUID uuid, ModifierType type, @Nonnull String server, @Nonnull String world);
+	public LinkedHashMap<String, LinkedHashMap<String, Double>> getPlayerWorldModifier(UUID uuid, ModifierType type);
 	
 	/**
 	 * Return a value, where all modifier of the player for the specific name is apply.<br>
@@ -195,7 +195,7 @@ public interface Modifier
 	 * @param duration
 	 * @return
 	 */
-	public void addFactor(UUID uuid, String modifierName,
+	public void addFactor(UUID uuid, String modificationName,
 			double value, String internReason, String displayReason,
 			@Nullable String server, @Nullable String world,
 			ModifierType modifierType, @Nullable Long duration);

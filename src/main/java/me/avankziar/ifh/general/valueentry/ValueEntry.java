@@ -34,11 +34,7 @@ public interface ValueEntry
 	public boolean register(String internName, String displayName,
 			String...explanation);
 	
-	/**
-	 * Return a list of all registered valueentry.
-	 * @return
-	 */
-	public ArrayList<main.java.me.avankziar.ifh.general.valueentry.objects.ValueLable> getRegisteredValueLable(String valueLableName);
+	public main.java.me.avankziar.ifh.general.valueentry.objects.ValueLable getRegisteredValueLable(String valueLableName);
 	
 	/**
 	 * Return a list of all registered valueentry.
@@ -46,9 +42,12 @@ public interface ValueEntry
 	 */
 	public ArrayList<main.java.me.avankziar.ifh.general.valueentry.objects.ValueLable> getRegisteredValueLable();
 	
+	public void remove(@Nullable UUID uuid, @Nullable String valueLableName, @Nullable String internReason);
 	
-	public void remove(@Nullable UUID uuid, @Nullable String valueEntryName, @Nullable String internReason, 
+	public void remove(UUID uuid, String valueLableName, String internReason,
 			@Nullable String server, @Nullable String world);
+	
+	public void remove(@Nullable String server, @Nullable String world);
 	
 	/**
 	 * Return a boolean, if the player has a entry for a valueentry at a specific server and/or world and a specific reason.
@@ -59,24 +58,41 @@ public interface ValueEntry
 	 * @param world
 	 * @return
 	 */
-	public boolean hasValueEntry(UUID uuid, @Nullable String valueEntryName, @Nullable String internreason, 
+	public boolean hasValueEntry(UUID uuid, String valueEntryName, ValueType type, @Nullable String internreason, 
 			@Nullable String server, @Nullable String world);
 	
 	/**
-	 * Return the valueentryentrys for a specific server and/or world.<br>
-	 * Beware it can be:<br>
-	 * Boolean as "true" or "false" or "0" and "1".<br>
-	 * Numbers as int, long, float, double<br>
-	 * Text as String.<br>
-	 * If no valueentry exist, it return null.
+	 * Return the valueentryentrys as boolean.<br>
+	 * If it not exist, it return null.
 	 * @param uuid
 	 * @param valueEntryName
-	 * @param valueType
 	 * @param server
 	 * @param world
 	 * @return null if not exist
 	 */
-	public Object getValueEntry(UUID uuid, String valueEntryName, ValueType type, @Nullable String server, @Nullable String world);
+	public Boolean getBooleanValueEntry(UUID uuid, String valueEntryName, @Nullable String server, @Nullable String world);
+	
+	/**
+	 * Return the valueentryentrys as double.<br>
+	 * If it not exist, it return null.
+	 * @param uuid
+	 * @param valueEntryName
+	 * @param server
+	 * @param world
+	 * @return null if not exist
+	 */
+	public Double getNumberValueEntry(UUID uuid, String valueEntryName, @Nullable String server, @Nullable String world);
+	
+	/**
+	 * Return the valueentryentrys as text.<br>
+	 * If it not exist, it return null.
+	 * @param uuid
+	 * @param valueEntryName
+	 * @param server
+	 * @param world
+	 * @return null if not exist
+	 */
+	public String getTextValueEntry(UUID uuid, String valueEntryName, @Nullable String server, @Nullable String world);
 	
 	/**
 	 * Add a entry for a valueentry with a specific reason.<br>
@@ -95,9 +111,9 @@ public interface ValueEntry
 	 */
 	public boolean addValueEntry(UUID uuid, String valueLableName,
 			String value, ValueType type,
-			String internReason, String displayReason,
+			@Nullable String internReason, @Nullable String displayReason,
 			@Nullable String server, @Nullable String world,
-			Long duration);
+			@Nullable Long duration);
 	
 	/**
 	 * 

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.valueentry;
+package main.java.me.avankziar.ifh.general.conditionqueryparser;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

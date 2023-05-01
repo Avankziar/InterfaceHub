@@ -122,4 +122,9 @@ public class ValueEntry
 	{
 		this.duration = duration;
 	}
+	
+	public ValueEntry getValueEntry()
+	{
+		return this;
+	}
 }

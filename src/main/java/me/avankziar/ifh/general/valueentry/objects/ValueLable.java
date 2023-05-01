@@ -5,7 +5,6 @@ import java.util.Arrays;
 
 public class ValueLable
 {
-
 	private String internName;
 	private String displayName;
 	private ArrayList<String> explanation;	
@@ -48,5 +47,9 @@ public class ValueLable
 	{
 		this.explanation = explanation;
 	}
-
+	
+	public ValueLable getValueLable()
+	{
+		return this;
+	}
 }
