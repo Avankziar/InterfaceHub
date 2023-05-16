@@ -196,9 +196,9 @@ public interface Modifier
 	 * @return
 	 */
 	public void addFactor(UUID uuid, String modificationName,
-			double value, String internReason, String displayReason,
+			double value, ModifierType modifierType, String internReason, String displayReason,
 			@Nullable String server, @Nullable String world,
-			ModifierType modifierType, @Nullable Long duration);
+			@Nullable Long duration);
 	
 	/**
 	 * Update all onlineplayers modifier values.
