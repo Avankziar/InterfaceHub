@@ -1,4 +1,8 @@
+Build 1-7-0
+- Spigot 1.20.1 support
+
 Build 1-6-0
+- Spigot 1.19.4 support
 - general.condition.Condition in general.valueentry.ValueEntry geändert
 - general.valueentry.ValueEntry Codeänderung vorgenommen.
 - general.valueentry.objects.ValueEntry hinzugefügt
