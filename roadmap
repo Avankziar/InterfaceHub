@@ -1,3 +1,7 @@
+Build 1-9-0
+- spigot.interfaces.BungeeOnlinePlayers hinzugefügt.
+- spigot.interactionblocker.InteractionBlocker hinzugefügt.
+
 Build 1-8-0
 - Spigot 1.20.4
 - spigot.comparison.ItemStackComparison hinzugefügt.
