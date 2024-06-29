@@ -16,18 +16,18 @@ import main.java.me.avankziar.ifh.velocity.metric.Metrics;
 @Plugin(id = "avankziar-interfacehub", name = "InterfaceHub", version = "2-0-0",
 url = "https://www.spigotmc.org/resources/interfacehub.101648/", description = "A Vault-Like plugin. To let plugins communicate with plugins.",
 authors = {"Avankziar"})
-public class IFHVelo
+public class IFH
 {
-	private static IFHVelo plugin;
+	private static IFH plugin;
     private final ProxyServer server;
     public Logger logger = null;
     public String pluginname = "InterfaceHub";
     private final Metrics.Factory metricsFactory;
     
     @Inject
-    public IFHVelo(ProxyServer server, Logger logger, Metrics.Factory metricsFactory) 
+    public IFH(ProxyServer server, Logger logger, Metrics.Factory metricsFactory) 
     {
-    	IFHVelo.plugin = this;
+    	IFH.plugin = this;
         this.server = server;
         this.logger = logger;
         this.metricsFactory = metricsFactory;
@@ -44,16 +44,16 @@ public class IFHVelo
 		logger.info(" |_  $$_/| $$_____/| $$  | $$ | Version: "+pd.getVersion().get());
 		logger.info("   | $$  | $$      | $$  | $$ | Author: ["+String.join(", ", pd.getAuthors())+"]");
 		logger.info("   | $$  | $$$$$   | $$$$$$$$ | Dependencies Plugins: ["+String.join(", ", dependencies)+"]");
-		logger.info("   | $$  | $$__/   | $$__  $$ | Plugin Website:"+pd.getUrl().toString());
+		logger.info("   | $$  | $$__/   | $$__  $$ | Plugin Website:"+pd.getUrl().get().toString());
 		logger.info("   | $$  | $$      | $$  | $$ | Description: "+(pd.getDescription().isPresent() ? pd.getDescription().get() : "/"));
 		logger.info("  /$$$$$$| $$      | $$  | $$ | ");
 		logger.info(" |______/|__/      |__/  |__/ | ");
         setupBstats();
     }
     
-    public static IFHVelo getPlugin()
+    public static IFH getPlugin()
     {
-    	return IFHVelo.plugin;
+    	return IFH.plugin;
     }
     
     public ProxyServer getServer()

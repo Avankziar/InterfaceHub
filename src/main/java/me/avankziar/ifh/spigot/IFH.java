@@ -8,9 +8,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import main.java.me.avankziar.ifh.spigot.metric.Metrics;
 
-public class IFHSpigot extends JavaPlugin
+public class IFH extends JavaPlugin
 {
-	private static IFHSpigot plugin;
+	private static IFH plugin;
 	public static Logger log;
 	public static String pluginName = "InterfaceHub";
 	
@@ -39,7 +39,7 @@ public class IFHSpigot extends JavaPlugin
 		log.info(pluginName + " is disabled!");
 	}
 	
-	public static IFHSpigot getPlugin()
+	public static IFH getPlugin()
 	{
 		return plugin;
 	}

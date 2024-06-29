@@ -16,7 +16,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.velocitypowered.api.plugin.Plugin;
 
-import main.java.me.avankziar.ifh.velocity.IFHVelo;
+import main.java.me.avankziar.ifh.velocity.IFH;
 import main.java.me.avankziar.ifh.velocity.plugin.event.ServiceRegisterEvent;
 import main.java.me.avankziar.ifh.velocity.plugin.event.ServiceUnregisterEvent;
 
@@ -41,7 +41,7 @@ public class SimpleServicesManager implements ServicesManager
 	        registered.add(position, registeredProvider);
 	      } 
 	    }
-	    IFHVelo.getPlugin().getServer().getEventManager().fire(new ServiceRegisterEvent(registeredProvider)).thenAccept((event) -> {});
+	    IFH.getPlugin().getServer().getEventManager().fire(new ServiceRegisterEvent(registeredProvider)).thenAccept((event) -> {});
 	  }
 	  
 	  public void unregisterAll(@Nonnull Plugin plugin) 
@@ -75,7 +75,7 @@ public class SimpleServicesManager implements ServicesManager
 		  } 
 		  for (ServiceUnregisterEvent event : unregisteredEvents)
 		  {
-			  IFHVelo.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
+			  IFH.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
 		  }
 	  }
 	  
@@ -106,7 +106,7 @@ public class SimpleServicesManager implements ServicesManager
 	    } 
 	    for (ServiceUnregisterEvent event : unregisteredEvents)
 	    {
-	    	IFHVelo.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
+	    	IFH.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
 	    }
 	  }
 	  
@@ -134,7 +134,7 @@ public class SimpleServicesManager implements ServicesManager
 	    } 
 	    for (ServiceUnregisterEvent event : unregisteredEvents)
 	    {
-	    	IFHVelo.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
+	    	IFH.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
 	    }
 	  }
 	  

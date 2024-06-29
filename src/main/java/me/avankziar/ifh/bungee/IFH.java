@@ -6,9 +6,9 @@ import main.java.me.avankziar.ifh.bungee.metric.Metrics;
 import main.java.me.avankziar.ifh.bungee.plugin.SimpleServicesManager;
 import net.md_5.bungee.api.plugin.Plugin;
 
-public class IFHBungee extends Plugin
+public class IFH extends Plugin
 {
-	private static IFHBungee plugin;
+	private static IFH plugin;
 	private Logger logger;
 	private SimpleServicesManager ssm;
 
@@ -31,7 +31,7 @@ public class IFHBungee extends Plugin
 		setupBstats();
 	}
 	
-	public static IFHBungee getPlugin()
+	public static IFH getPlugin()
 	{
 		return plugin;
 	}

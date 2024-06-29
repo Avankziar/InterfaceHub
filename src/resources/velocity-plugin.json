@@ -1,7 +1,7 @@
 {"id":"avankziar-interfacehub",
 "name":"InterfaceHub",
 "version":"2-0-0",
-"description":"base for template",
+"description":"A Vault-Like plugin. To let plugins communicate with plugins.",
 "authors":["Avankziar"],
 "dependencies":[],
-"main":"main.java.me.avankziar.ifh.velocity.IFHVelo"}
+"main":"main.java.me.avankziar.ifh.velocity.IFH"}

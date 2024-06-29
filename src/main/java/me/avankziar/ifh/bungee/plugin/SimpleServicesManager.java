@@ -17,7 +17,7 @@ import com.google.common.collect.ImmutableSet;
 
 import main.java.me.avankziar.ifh.bungee.plugin.event.ServiceRegisterEvent;
 import main.java.me.avankziar.ifh.bungee.plugin.event.ServiceUnregisterEvent;
-import main.java.me.avankziar.ifh.bungee.IFHBungee;
+import main.java.me.avankziar.ifh.bungee.IFH;
 import net.md_5.bungee.api.plugin.Plugin;
 
 public class SimpleServicesManager implements ServicesManager
@@ -41,7 +41,7 @@ public class SimpleServicesManager implements ServicesManager
 	        registered.add(position, registeredProvider);
 	      } 
 	    }
-	    IFHBungee.getPlugin().getProxy().getPluginManager().callEvent(new ServiceRegisterEvent(registeredProvider));
+	    IFH.getPlugin().getProxy().getPluginManager().callEvent(new ServiceRegisterEvent(registeredProvider));
 	    //Bukkit.getServer().getPluginManager().callEvent((Event));
 	  }
 	  
@@ -71,7 +71,7 @@ public class SimpleServicesManager implements ServicesManager
 	    } 
 	    for (ServiceUnregisterEvent event : unregisteredEvents)
 	    {
-	    	IFHBungee.getPlugin().getProxy().getPluginManager().callEvent(event);
+	    	IFH.getPlugin().getProxy().getPluginManager().callEvent(event);
 	    	//Bukkit.getServer().getPluginManager().callEvent((Event)event); 
 	    }
 	      
@@ -104,7 +104,7 @@ public class SimpleServicesManager implements ServicesManager
 	    } 
 	    for (ServiceUnregisterEvent event : unregisteredEvents)
 	    {
-	    	IFHBungee.getPlugin().getProxy().getPluginManager().callEvent(event);
+	    	IFH.getPlugin().getProxy().getPluginManager().callEvent(event);
 	    	//Bukkit.getServer().getPluginManager().callEvent((Event)event);
 	    }
 	  }
@@ -133,7 +133,7 @@ public class SimpleServicesManager implements ServicesManager
 	    } 
 	    for (ServiceUnregisterEvent event : unregisteredEvents)
 	    {
-	    	IFHBungee.getPlugin().getProxy().getPluginManager().callEvent(event);
+	    	IFH.getPlugin().getProxy().getPluginManager().callEvent(event);
 	    }
 	  }
 	  
