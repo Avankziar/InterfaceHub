@@ -1,0 +1,7 @@
+{"id":"avankziar-interfacehub",
+"name":"InterfaceHub",
+"version":"2-0-0",
+"description":"base for template",
+"authors":["Avankziar"],
+"dependencies":[],
+"main":"main.java.me.avankziar.ifh.velocity.IFHVelo"}

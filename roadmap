@@ -1,3 +1,27 @@
+Build 2-0-0
+- Java 21 Dependency
+- Support für MC 1.19 und höher
+- Maven pom.xml hinzugefügt
+- Velocity sowie komplette Interface Handhabung hinzugefügt 
+- Bstats Metrics für Bungee & Velocity hinzugefügt
+- velocity.administration.Administration hinzugefügt
+- velocity.event.misc.ConditionQueryOutputEvent hinzugefügt
+- velocity.economy.Economy hinzugefügt
+  velocity.economy.account.Account hinzugefügt
+  velocity.economy.currency.Currency hinzugefügt
+  velocity.economy.currency.CurrencyGradation hinzugefügt
+  velocity.economy.currency.CurrencyInterface hinzugefügt
+  velocity.economy.currency.EconomyCurrency hinzugefügt
+  velocity.economy.currency.Gradation
+  velocity.economy.subinterfaces.AccountHandling hinzugefügt
+  velocity.economy.subinterfaces.CurrencyHandling hinzugefügt
+  velocity.economy.subinterfaces.TransactionHandling hinzugefügt
+- spigot.tovelocity.chatlike.MessageToVelocity hinzugefügt
+- spigot.tovelocity.commands.CommandToVelocity hinzugefügt
+- spigot.interfaces.BungeeOnlinePlayers geändert zu spigot.interfaces.ProxyOnlinePlayers
+  - Methode getBungeeOnlinePlayers() geändert zu getProxyOnlinePlayers()
+  - Methode isBungeeOnline(UUID uuid) geändert zu isProxyOnline(UUID uuid)
+
 Build 1-9-0
 - spigot.interfaces.BungeeOnlinePlayers hinzugefügt.
 - spigot.interactionblocker.InteractionBlocker hinzugefügt.

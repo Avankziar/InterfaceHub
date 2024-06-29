@@ -6,11 +6,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import main.java.me.avankziar.ifh.spigot.metrics.Metrics;
+import main.java.me.avankziar.ifh.spigot.metric.Metrics;
 
-public class InterfaceHub extends JavaPlugin
+public class IFHSpigot extends JavaPlugin
 {
-	private static InterfaceHub plugin;
+	private static IFHSpigot plugin;
 	public static Logger log;
 	public static String pluginName = "InterfaceHub";
 	
@@ -39,7 +39,7 @@ public class InterfaceHub extends JavaPlugin
 		log.info(pluginName + " is disabled!");
 	}
 	
-	public static InterfaceHub getPlugin()
+	public static IFHSpigot getPlugin()
 	{
 		return plugin;
 	}

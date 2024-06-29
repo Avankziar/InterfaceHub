@@ -1,0 +1,4 @@
+name: InterfaceHub
+main: main.java.me.avankziar.ifh.bungee.IFHBungee
+version: 2
+author: Avankziar

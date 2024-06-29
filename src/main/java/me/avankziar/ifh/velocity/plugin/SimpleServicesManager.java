@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.bungee.plugin;
+package main.java.me.avankziar.ifh.velocity.plugin;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,11 +14,11 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.velocitypowered.api.plugin.Plugin;
 
-import main.java.me.avankziar.ifh.bungee.plugin.event.ServiceRegisterEvent;
-import main.java.me.avankziar.ifh.bungee.plugin.event.ServiceUnregisterEvent;
-import main.java.me.avankziar.ifh.bungee.IFHBungee;
-import net.md_5.bungee.api.plugin.Plugin;
+import main.java.me.avankziar.ifh.velocity.IFHVelo;
+import main.java.me.avankziar.ifh.velocity.plugin.event.ServiceRegisterEvent;
+import main.java.me.avankziar.ifh.velocity.plugin.event.ServiceUnregisterEvent;
 
 public class SimpleServicesManager implements ServicesManager
 {
@@ -41,40 +41,42 @@ public class SimpleServicesManager implements ServicesManager
 	        registered.add(position, registeredProvider);
 	      } 
 	    }
-	    IFHBungee.getPlugin().getProxy().getPluginManager().callEvent(new ServiceRegisterEvent(registeredProvider));
-	    //Bukkit.getServer().getPluginManager().callEvent((Event));
+	    IFHVelo.getPlugin().getServer().getEventManager().fire(new ServiceRegisterEvent(registeredProvider)).thenAccept((event) -> {});
 	  }
 	  
-	  public void unregisterAll(@Nonnull Plugin plugin) {
-	    ArrayList<ServiceUnregisterEvent> unregisteredEvents = new ArrayList<>();
-	    synchronized (this.providers) 
-	    {
-	      Iterator<Map.Entry<Class<?>, List<RegisteredServiceProvider<?>>>> it = this.providers.entrySet().iterator();
-	      try {
-	        while (it.hasNext()) {
-	          Map.Entry<Class<?>, List<RegisteredServiceProvider<?>>> entry = it.next();
-	          Iterator<RegisteredServiceProvider<?>> it2 = ((List<RegisteredServiceProvider<?>>)entry.getValue()).iterator();
-	          try {
-	            while (it2.hasNext()) {
-	              RegisteredServiceProvider<?> registered = it2.next();
-	              if (registered.getPlugin().equals(plugin)) {
-	                it2.remove();
-	                unregisteredEvents.add(new ServiceUnregisterEvent(registered));
-	              } 
-	            } 
-	          } catch (NoSuchElementException noSuchElementException) {}
-	          if (((List<?>)entry.getValue()).size() == 0)
-	            it.remove(); 
-	        } 
-	      } catch (NoSuchElementException noSuchElementException) 
-	      {}
-	    } 
-	    for (ServiceUnregisterEvent event : unregisteredEvents)
-	    {
-	    	IFHBungee.getPlugin().getProxy().getPluginManager().callEvent(event);
-	    	//Bukkit.getServer().getPluginManager().callEvent((Event)event); 
-	    }
-	      
+	  public void unregisterAll(@Nonnull Plugin plugin) 
+	  {
+		  ArrayList<ServiceUnregisterEvent> unregisteredEvents = new ArrayList<>();
+		  synchronized (this.providers) 
+		  {
+			  Iterator<Map.Entry<Class<?>, List<RegisteredServiceProvider<?>>>> it = this.providers.entrySet().iterator();
+			  try {
+				  while (it.hasNext()) 
+				  {
+					  Map.Entry<Class<?>, List<RegisteredServiceProvider<?>>> entry = it.next();
+					  Iterator<RegisteredServiceProvider<?>> it2 = ((List<RegisteredServiceProvider<?>>)entry.getValue()).iterator();
+					  try 
+					  {
+						  while (it2.hasNext()) 
+						  {
+							  RegisteredServiceProvider<?> registered = it2.next();
+							  if (registered.getPlugin().equals(plugin)) 
+							  {
+								  it2.remove();
+								  unregisteredEvents.add(new ServiceUnregisterEvent(registered));
+							  } 
+						  } 
+					  } catch (NoSuchElementException noSuchElementException) {}
+					  if (((List<?>)entry.getValue()).size() == 0)
+						  it.remove(); 
+				  } 
+			  } catch (NoSuchElementException noSuchElementException) 
+			  {}
+		  } 
+		  for (ServiceUnregisterEvent event : unregisteredEvents)
+		  {
+			  IFHVelo.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
+		  }
 	  }
 	  
 	  public void unregister(@Nonnull Class<?> service, @Nonnull Object provider) 
@@ -104,8 +106,7 @@ public class SimpleServicesManager implements ServicesManager
 	    } 
 	    for (ServiceUnregisterEvent event : unregisteredEvents)
 	    {
-	    	IFHBungee.getPlugin().getProxy().getPluginManager().callEvent(event);
-	    	//Bukkit.getServer().getPluginManager().callEvent((Event)event);
+	    	IFHVelo.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
 	    }
 	  }
 	  
@@ -133,7 +134,7 @@ public class SimpleServicesManager implements ServicesManager
 	    } 
 	    for (ServiceUnregisterEvent event : unregisteredEvents)
 	    {
-	    	IFHBungee.getPlugin().getProxy().getPluginManager().callEvent(event);
+	    	IFHVelo.getPlugin().getServer().getEventManager().fire(event).thenAccept((e) -> {});
 	    }
 	  }
 	  

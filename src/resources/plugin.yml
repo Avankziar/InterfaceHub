@@ -1,0 +1,9 @@
+main: main.java.me.avankziar.ifh.spigot.IFHSpigot
+name: InterfaceHub
+version: 2
+load: STARTUP
+api-version: 1.19
+description: a Vault-Like plugin. To let plugins communicate with plugins. 
+author: Avankziar
+website: https://www.spigotmc.org/resources/interfacehub.101648/
+prefix: IFH
