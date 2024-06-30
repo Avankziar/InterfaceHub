@@ -6,13 +6,13 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.velocitypowered.api.plugin.Plugin;
+import com.velocitypowered.api.plugin.PluginContainer;
 
 public interface ServicesManager
 {
-	<T> void register(@Nonnull Class<T> paramClass, @Nonnull T paramT, @Nonnull Plugin paramPlugin, @Nonnull ServicePriority paramServicePriority);
+	<T> void register(@Nonnull Class<T> paramClass, @Nonnull T paramT, @Nonnull PluginContainer paramPlugin, @Nonnull ServicePriority paramServicePriority);
 	  
-	void unregisterAll(@Nonnull Plugin paramPlugin);
+	void unregisterAll(@Nonnull PluginContainer paramPlugin);
 	  
 	void unregister(@Nonnull Class<?> paramClass, @Nonnull Object paramObject);
 	
@@ -25,7 +25,7 @@ public interface ServicesManager
 	<T> RegisteredServiceProvider<T> getRegistration(@Nonnull Class<T> paramClass);
 	  
 	@Nonnull
-	List<RegisteredServiceProvider<?>> getRegistrations(@Nonnull Plugin paramPlugin);
+	List<RegisteredServiceProvider<?>> getRegistrations(@Nonnull PluginContainer paramPlugin);
 	  
 	@Nonnull
 	<T> Collection<RegisteredServiceProvider<T>> getRegistrations(@Nonnull Class<T> paramClass);

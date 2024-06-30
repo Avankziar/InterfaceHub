@@ -11,9 +11,10 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.PluginDescription;
 import com.velocitypowered.api.proxy.ProxyServer;
 
+import main.java.me.avankziar.ifh.velocity.plugin.SimpleServicesManager;
 import main.java.me.avankziar.ifh.velocity.metric.Metrics;
 
-@Plugin(id = "avankziar-interfacehub", name = "InterfaceHub", version = "2-0-0",
+@Plugin(id = "interfacehub", name = "InterfaceHub", version = "2-0-0",
 url = "https://www.spigotmc.org/resources/interfacehub.101648/", description = "A Vault-Like plugin. To let plugins communicate with plugins.",
 authors = {"Avankziar"})
 public class IFH
@@ -23,6 +24,7 @@ public class IFH
     public Logger logger = null;
     public String pluginname = "InterfaceHub";
     private final Metrics.Factory metricsFactory;
+	private SimpleServicesManager ssm;
     
     @Inject
     public IFH(ProxyServer server, Logger logger, Metrics.Factory metricsFactory) 
@@ -36,7 +38,7 @@ public class IFH
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) 
     {
-    	PluginDescription pd = server.getPluginManager().getPlugin("avankziar-"+pluginname.toLowerCase()).get().getDescription();
+    	PluginDescription pd = server.getPluginManager().getPlugin(pluginname.toLowerCase()).get().getDescription();
         List<String> dependencies = new ArrayList<>();
         pd.getDependencies().stream().allMatch(x -> dependencies.add(x.toString()));
     	//https://patorjk.com/software/taag/#p=display&h=0&f=Big%20Money-ne&t=IFH
@@ -48,6 +50,8 @@ public class IFH
 		logger.info("   | $$  | $$      | $$  | $$ | Description: "+(pd.getDescription().isPresent() ? pd.getDescription().get() : "/"));
 		logger.info("  /$$$$$$| $$      | $$  | $$ | ");
 		logger.info(" |______/|__/      |__/  |__/ | ");
+		
+		ssm = new SimpleServicesManager();
         setupBstats();
     }
     
@@ -65,6 +69,11 @@ public class IFH
     {
     	return logger;
     }
+    
+    public SimpleServicesManager getServicesManager()
+	{
+		return ssm;
+	}
     
     public void setupBstats()
 	{

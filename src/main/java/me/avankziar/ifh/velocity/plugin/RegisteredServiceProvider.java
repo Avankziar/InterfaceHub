@@ -2,20 +2,21 @@ package main.java.me.avankziar.ifh.velocity.plugin;
 
 import javax.annotation.Nonnull;
 
-import com.velocitypowered.api.plugin.Plugin;
+import com.velocitypowered.api.plugin.PluginContainer;
 
 public class RegisteredServiceProvider<T> implements Comparable<RegisteredServiceProvider<?>>
 {
 
 	 private Class<T> service;
 	  
-	  private Plugin plugin;
+	  private PluginContainer plugin;
 	  
 	  private T provider;
 	  
 	  private ServicePriority priority;
 	  
-	  public RegisteredServiceProvider(@Nonnull Class<T> service, @Nonnull T provider, @Nonnull ServicePriority priority, @Nonnull Plugin plugin) {
+	  public RegisteredServiceProvider(@Nonnull Class<T> service, @Nonnull T provider, @Nonnull ServicePriority priority,
+			  @Nonnull PluginContainer plugin) {
 	    this.service = service;
 	    this.plugin = plugin;
 	    this.provider = provider;
@@ -28,7 +29,7 @@ public class RegisteredServiceProvider<T> implements Comparable<RegisteredServic
 	  }
 	  
 	  @Nonnull
-	  public Plugin getPlugin() {
+	  public PluginContainer getPlugin() {
 	    return this.plugin;
 	  }
 	  

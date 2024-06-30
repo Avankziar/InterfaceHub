@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.velocitypowered.api.plugin.Plugin;
+import com.velocitypowered.api.plugin.PluginContainer;
 
 import main.java.me.avankziar.ifh.velocity.IFH;
 import main.java.me.avankziar.ifh.velocity.plugin.event.ServiceRegisterEvent;
@@ -24,7 +24,7 @@ public class SimpleServicesManager implements ServicesManager
 {
 	private final Map<Class<?>, List<RegisteredServiceProvider<?>>> providers = new HashMap<>();
 	  
-	  public <T> void register(@Nonnull Class<T> service, @Nonnull T provider, @Nonnull Plugin plugin, @Nonnull ServicePriority priority) 
+	  public <T> void register(@Nonnull Class<T> service, @Nonnull T provider, @Nonnull PluginContainer plugin, @Nonnull ServicePriority priority) 
 	  {
 	    RegisteredServiceProvider<T> registeredProvider = null;
 	    synchronized (this.providers) {
@@ -44,7 +44,7 @@ public class SimpleServicesManager implements ServicesManager
 	    IFH.getPlugin().getServer().getEventManager().fire(new ServiceRegisterEvent(registeredProvider)).thenAccept((event) -> {});
 	  }
 	  
-	  public void unregisterAll(@Nonnull Plugin plugin) 
+	  public void unregisterAll(@Nonnull PluginContainer plugin) 
 	  {
 		  ArrayList<ServiceUnregisterEvent> unregisteredEvents = new ArrayList<>();
 		  synchronized (this.providers) 
@@ -164,7 +164,7 @@ public class SimpleServicesManager implements ServicesManager
 	  }
 	  
 	  @Nonnull
-	  public List<RegisteredServiceProvider<?>> getRegistrations(@Nonnull Plugin plugin) {
+	  public List<RegisteredServiceProvider<?>> getRegistrations(@Nonnull PluginContainer plugin) {
 	    ImmutableList.Builder<RegisteredServiceProvider<?>> ret = ImmutableList.builder();
 	    synchronized (this.providers) {
 	      for (List<RegisteredServiceProvider<?>> registered : this.providers.values()) {

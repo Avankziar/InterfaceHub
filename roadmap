@@ -1,6 +1,6 @@
 Build 2-0-0
 - Java 21 Dependency
-- Support für MC 1.19 und höher
+- Spigot 1.21 support
 - Maven pom.xml hinzugefügt
 - Velocity sowie komplette Interface Handhabung hinzugefügt 
 - Bstats Metrics für Bungee & Velocity hinzugefügt

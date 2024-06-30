@@ -1,7 +1,7 @@
-{"id":"avankziar-interfacehub",
+{"id":"interfacehub",
 "name":"InterfaceHub",
 "version":"2-0-0",
 "description":"A Vault-Like plugin. To let plugins communicate with plugins.",
 "authors":["Avankziar"],
-"dependencies":[],
+"url":"https://example.com",
 "main":"main.java.me.avankziar.ifh.velocity.IFH"}
