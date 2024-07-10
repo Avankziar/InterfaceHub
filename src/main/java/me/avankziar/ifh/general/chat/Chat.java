@@ -2,8 +2,6 @@ package main.java.me.avankziar.ifh.general.chat;
 
 import java.util.LinkedHashMap;
 
-import net.md_5.bungee.api.chat.TextComponent;
-
 /**
  * The chat interface covers all the general things from in-game chat.<br>
  * More specific things like ChatTitle (pre- and suffix) and Channels have to be fetched in the respective interfaces.<br>
@@ -46,17 +44,56 @@ public interface Chat
 	public LinkedHashMap<String, String> getAllEmojis();
 	
 	/**
-	 * Return a TextComponent, which was parsed through the default parser.
+	 * Return a net.md_5.bungee.api.chat.TextComponent, which was parsed through the default parser.
+	 * @param rawMessage
+	 * @return TextComponent
+	 * @deprecated 1.21
+	 */	
+	@Deprecated //since MC 1.21
+	public net.md_5.bungee.api.chat.TextComponent parseMessage(String rawMessage);
+	
+	/**
+	 * Return a net.md_5.bungee.api.chat.TextComponent, which was parsed through the parser of the channel.
+	 * If the channel dont exist it returns a empty TextComponent.<br>
+	 * <b>Cannot be used on Velocity</b>
+	 * @param rawMessage
+	 * @return TextComponent
+	 * @deprecated 1.21
+	 */
+	@Deprecated //since MC 1.21
+	public net.md_5.bungee.api.chat.TextComponent parseMessage(String rawMessage, String channel);
+	
+	/**
+	 * Return a net.md_5.bungee.api.chat.TextComponent, which was parsed through the default parser.<br>
+	 * <b>Cannot be used on Velocity</b>
 	 * @param rawMessage
 	 * @return TextComponent
 	 */	
-	public TextComponent parseMessage(String rawMessage);
+	public net.md_5.bungee.api.chat.TextComponent parseMessageToMD5Bungee(String rawMessage);
 	
 	/**
-	 * Return a TextComponent, which was parsed through the parser of the channel.
-	 * If the channel dont exist it returns a empty TextComponent.
+	 * Return a net.md_5.bungee.api.chat.TextComponent, which was parsed through the parser of the channel.
+	 * If the channel dont exist it returns a empty TextComponent.<br>
+	 * <b>Cannot be used on Velocity</b>
 	 * @param rawMessage
 	 * @return TextComponent
 	 */
-	public TextComponent parseMessage(String rawMessage, String channel);
+	public net.md_5.bungee.api.chat.TextComponent parseMessageToMD5Bungee(String rawMessage, String channel);
+	
+	/**
+	 * Return a  net.kyori.adventure.text.Component, which was parsed through the default parser.<br>
+	 * <b>Use with caution on bungee</b>
+	 * @param rawMessage
+	 * @return TextComponent
+	 */	
+	public net.kyori.adventure.text.Component parseMessageToAdventure(String rawMessage);
+	
+	/**
+	 * Return a  net.kyori.adventure.text.Component, which was parsed through the parser of the channel.
+	 * If the channel dont exist it returns a empty TextComponent.<br>
+	 * <b>Use with caution on bungee</b>
+	 * @param rawMessage
+	 * @return TextComponent
+	 */
+	public net.kyori.adventure.text.Component parseMessageToAdventure(String rawMessage, String channel);
 }

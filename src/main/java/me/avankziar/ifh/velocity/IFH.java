@@ -38,6 +38,7 @@ public class IFH
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) 
     {
+    	logger = Logger.getLogger("IFH");
     	PluginDescription pd = server.getPluginManager().getPlugin(pluginname.toLowerCase()).get().getDescription();
         List<String> dependencies = new ArrayList<>();
         pd.getDependencies().stream().allMatch(x -> dependencies.add(x.toString()));

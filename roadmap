@@ -21,6 +21,8 @@ Build 2-0-0
 - spigot.interfaces.BungeeOnlinePlayers geändert zu spigot.interfaces.ProxyOnlinePlayers
   - Methode getBungeeOnlinePlayers() geändert zu getProxyOnlinePlayers()
   - Methode isBungeeOnline(UUID uuid) geändert zu isProxyOnline(UUID uuid)
+- general.chat.Chat Methodename geändert zu parseMessageToMD5()
+- general.chat.Chat Methode parseMessageToAdventure hinzugefügt
 
 Build 1-9-0
 - spigot.interfaces.BungeeOnlinePlayers hinzugefügt.

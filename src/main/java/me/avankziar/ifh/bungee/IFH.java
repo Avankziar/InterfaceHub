@@ -15,7 +15,7 @@ public class IFH extends Plugin
 	public void onEnable()
 	{
 		plugin = this;
-		logger = getLogger();
+		logger = plugin.getProxy().getLogger();
 		
 		//https://patorjk.com/software/taag/#p=display&h=0&f=Big%20Money-ne&t=IFH
 		logger.info("  /$$$$$$ /$$$$$$$$ /$$   /$$ | API-Version: "+plugin.getDescription().getVersion());

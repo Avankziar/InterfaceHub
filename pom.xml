@@ -19,7 +19,7 @@
 	</properties>
 	<build>
 		<defaultGoal>clean package</defaultGoal>
-		<finalName>interfacehub-${project.version}</finalName>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 		<sourceDirectory>${basedir}/src/</sourceDirectory>
 		<resources>
 			<resource>
@@ -123,7 +123,7 @@
 		<dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.21-R0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>

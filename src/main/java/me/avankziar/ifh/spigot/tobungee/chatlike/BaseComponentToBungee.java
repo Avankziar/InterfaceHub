@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.bukkit.Sound;
 
-import main.java.me.avankziar.ifh.general.assistance.ChatApi;
+import main.java.me.avankziar.ifh.general.assistance.ChatApiOld;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -123,12 +123,12 @@ public interface BaseComponentToBungee
 			if(message.size() >= index+1)
 			{
 				ArrayList<BaseComponent> bc = message.get(index);
-				bc.add(ChatApi.apiChat(msg, null, null, null, null));
+				bc.add(ChatApiOld.apiChat(msg, null, null, null, null));
 				message.set(index, bc);
 			} else
 			{
 				ArrayList<BaseComponent> bc = new ArrayList<>();
-				bc.add(ChatApi.apiChat(msg, null, null, null, null));
+				bc.add(ChatApiOld.apiChat(msg, null, null, null, null));
 				message.add(bc);
 			}
 			return this;
@@ -140,12 +140,12 @@ public interface BaseComponentToBungee
 			if(message.size() >= index+1)
 			{
 				ArrayList<BaseComponent> bc = message.get(index);
-				bc.add(ChatApi.apiChat(msg, click, clicktext, null, null));
+				bc.add(ChatApiOld.apiChat(msg, click, clicktext, null, null));
 				message.set(index, bc);
 			} else
 			{
 				ArrayList<BaseComponent> bc = new ArrayList<>();
-				bc.add(ChatApi.apiChat(msg, click, clicktext, null, null));
+				bc.add(ChatApiOld.apiChat(msg, click, clicktext, null, null));
 				message.add(bc);
 			}
 			return this;
@@ -168,7 +168,7 @@ public interface BaseComponentToBungee
 						ht += hovertext[i]+"~!~";
 					}
 				}
-				bc.add(ChatApi.apiChat(msg, null, null, hover, ht));
+				bc.add(ChatApiOld.apiChat(msg, null, null, hover, ht));
 				message.set(index, bc);
 			} else
 			{
@@ -184,7 +184,7 @@ public interface BaseComponentToBungee
 						ht += hovertext[i]+"~!~";
 					}
 				}
-				bc.add(ChatApi.apiChat(msg, null, null, hover, ht));
+				bc.add(ChatApiOld.apiChat(msg, null, null, hover, ht));
 				message.add(bc);
 			}
 			return this;
@@ -218,7 +218,7 @@ public interface BaseComponentToBungee
 						ht += hovertext[i]+"~!~";
 					}
 				}
-				bc.add(ChatApi.apiChat(msg, click, clicktext, hover, ht));
+				bc.add(ChatApiOld.apiChat(msg, click, clicktext, hover, ht));
 				message.set(index, bc);
 			} else
 			{
@@ -234,7 +234,7 @@ public interface BaseComponentToBungee
 						ht += hovertext[i]+"~!~";
 					}
 				}
-				bc.add(ChatApi.apiChat(msg, click, clicktext, hover, ht));
+				bc.add(ChatApiOld.apiChat(msg, click, clicktext, hover, ht));
 				message.add(bc);
 			}
 			return this;
