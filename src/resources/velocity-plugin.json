@@ -1,6 +1,6 @@
 {"id":"interfacehub",
 "name":"InterfaceHub",
-"version":"2-0-0",
+"version":"${version}",
 "description":"A Vault-Like plugin. To let plugins communicate with plugins.",
 "authors":["Avankziar"],
 "url":"https://example.com",
