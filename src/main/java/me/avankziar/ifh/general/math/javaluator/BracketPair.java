@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.math.javaluator;
+package me.avankziar.ifh.general.math.javaluator;
 
 /** A <a href="http://en.wikipedia.org/wiki/Bracket_(mathematics)">bracket pair</a>.
  * @author Jean-Marc Astesana

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.economy.action;
+package me.avankziar.ifh.general.economy.action;
 
 public enum OrdererType
 {

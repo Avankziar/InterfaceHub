@@ -1,11 +1,11 @@
-package main.java.me.avankziar.ifh.bungee.economy;
+package me.avankziar.ifh.bungee.economy;
 
 import javax.annotation.Nonnull;
 
-import main.java.me.avankziar.ifh.bungee.economy.currency.EconomyCurrency;
-import main.java.me.avankziar.ifh.bungee.economy.subinterfaces.AccountHandling;
-import main.java.me.avankziar.ifh.bungee.economy.subinterfaces.CurrencyHandling;
-import main.java.me.avankziar.ifh.bungee.economy.subinterfaces.TransactionHandling;
+import me.avankziar.ifh.bungee.economy.currency.EconomyCurrency;
+import me.avankziar.ifh.bungee.economy.subinterfaces.AccountHandling;
+import me.avankziar.ifh.bungee.economy.subinterfaces.CurrencyHandling;
+import me.avankziar.ifh.bungee.economy.subinterfaces.TransactionHandling;
 
 public interface Economy
 extends AccountHandling, CurrencyHandling, TransactionHandling

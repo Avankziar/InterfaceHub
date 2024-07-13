@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.position;
+package me.avankziar.ifh.spigot.position;
 
 public class ServerLocation
 {

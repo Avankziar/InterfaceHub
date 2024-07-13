@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.serializer;
+package me.avankziar.ifh.spigot.serializer;
 
 public interface Base64
 {

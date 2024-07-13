@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot;
+package me.avankziar.ifh.spigot;
 
 import java.util.logging.Logger;
 
@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import main.java.me.avankziar.ifh.spigot.metric.Metrics;
+import me.avankziar.ifh.spigot.metric.Metrics;
 
 public class IFH extends JavaPlugin
 {

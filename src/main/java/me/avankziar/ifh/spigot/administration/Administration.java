@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.administration;
+package me.avankziar.ifh.spigot.administration;
 
 public interface Administration
 {

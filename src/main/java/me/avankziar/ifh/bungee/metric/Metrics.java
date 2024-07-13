@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.bungee.metric;
+package me.avankziar.ifh.bungee.metric;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

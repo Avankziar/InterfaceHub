@@ -1,11 +1,11 @@
-package main.java.me.avankziar.ifh.spigot.tobungee.chatlike;
+package me.avankziar.ifh.spigot.tobungee.chatlike;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 import org.bukkit.Sound;
 
-import main.java.me.avankziar.ifh.general.assistance.ChatApiOld;
+import me.avankziar.ifh.general.assistance.ChatApiOld;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;

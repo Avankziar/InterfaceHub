@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.math.javaluator;
+package me.avankziar.ifh.general.math.javaluator;
 
 import java.util.ArrayList;
 import java.util.Collection;

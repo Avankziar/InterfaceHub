@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.bungee.administration;
+package me.avankziar.ifh.bungee.administration;
 
 public interface Administration
 {

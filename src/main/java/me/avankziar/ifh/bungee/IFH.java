@@ -1,9 +1,9 @@
-package main.java.me.avankziar.ifh.bungee;
+package me.avankziar.ifh.bungee;
 
 import java.util.logging.Logger;
 
-import main.java.me.avankziar.ifh.bungee.metric.Metrics;
-import main.java.me.avankziar.ifh.bungee.plugin.SimpleServicesManager;
+import me.avankziar.ifh.bungee.metric.Metrics;
+import me.avankziar.ifh.bungee.plugin.SimpleServicesManager;
 import net.md_5.bungee.api.plugin.Plugin;
 
 public class IFH extends Plugin

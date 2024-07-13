@@ -1,8 +1,8 @@
-package main.java.me.avankziar.ifh.velocity.plugin.event;
+package me.avankziar.ifh.velocity.plugin.event;
 
 import javax.annotation.Nonnull;
 
-import main.java.me.avankziar.ifh.velocity.plugin.RegisteredServiceProvider;
+import me.avankziar.ifh.velocity.plugin.RegisteredServiceProvider;
 
 public class ServiceUnregisterEvent extends ServiceEvent
 {

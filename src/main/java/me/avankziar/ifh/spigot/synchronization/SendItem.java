@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.synchronization;
+package me.avankziar.ifh.spigot.synchronization;
 
 import java.util.UUID;
 

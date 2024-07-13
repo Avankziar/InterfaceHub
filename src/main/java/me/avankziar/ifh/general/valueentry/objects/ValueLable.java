@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.valueentry.objects;
+package me.avankziar.ifh.general.valueentry.objects;
 
 import java.util.ArrayList;
 import java.util.Arrays;

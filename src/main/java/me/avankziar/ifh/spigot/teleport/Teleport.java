@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.teleport;
+package me.avankziar.ifh.spigot.teleport;
 
 import java.util.ArrayList;
 

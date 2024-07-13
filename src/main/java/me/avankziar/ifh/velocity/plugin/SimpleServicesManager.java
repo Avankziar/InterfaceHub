@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.velocity.plugin;
+package me.avankziar.ifh.velocity.plugin;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,9 +16,9 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.velocitypowered.api.plugin.PluginContainer;
 
-import main.java.me.avankziar.ifh.velocity.IFH;
-import main.java.me.avankziar.ifh.velocity.plugin.event.ServiceRegisterEvent;
-import main.java.me.avankziar.ifh.velocity.plugin.event.ServiceUnregisterEvent;
+import me.avankziar.ifh.velocity.IFH;
+import me.avankziar.ifh.velocity.plugin.event.ServiceRegisterEvent;
+import me.avankziar.ifh.velocity.plugin.event.ServiceUnregisterEvent;
 
 public class SimpleServicesManager implements ServicesManager
 {

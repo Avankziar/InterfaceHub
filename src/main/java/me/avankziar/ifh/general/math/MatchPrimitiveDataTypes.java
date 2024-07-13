@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.math;
+package me.avankziar.ifh.general.math;
 
 public class MatchPrimitiveDataTypes
 {

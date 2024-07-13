@@ -1,8 +1,8 @@
-package main.java.me.avankziar.ifh.velocity.economy.subinterfaces;
+package me.avankziar.ifh.velocity.economy.subinterfaces;
 
-import main.java.me.avankziar.ifh.velocity.economy.account.Account;
-import main.java.me.avankziar.ifh.general.economy.action.EconomyAction;
-import main.java.me.avankziar.ifh.general.economy.action.OrdererType;
+import me.avankziar.ifh.general.economy.action.EconomyAction;
+import me.avankziar.ifh.general.economy.action.OrdererType;
+import me.avankziar.ifh.velocity.economy.account.Account;
 
 public interface TransactionHandling
 {	

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.math.javaluator;
+package me.avankziar.ifh.general.math.javaluator;
 
 /** An abstract variable set.
  * <br>Javaluator supports expression that contains variables (for example <i>sin(x)</i>).

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.math.javaluator;
+package me.avankziar.ifh.general.math.javaluator;
 
 /** An <a href="http://en.wikipedia.org/wiki/Operator_(mathematics)">operator</a>.
  * @author Jean-Marc Astesana

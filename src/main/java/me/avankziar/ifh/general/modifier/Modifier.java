@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.modifier;
+package me.avankziar.ifh.general.modifier;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -42,20 +42,20 @@ public interface Modifier
 	 * Return a modification with the specific internname.
 	 * @return
 	 */
-	public main.java.me.avankziar.ifh.general.modifier.objects.Modification getRegisteredModification(String internName);
+	public me.avankziar.ifh.general.modifier.objects.Modification getRegisteredModification(String internName);
 	
 	/**
 	 * Return a list of all registered modification.
 	 * @return
 	 */
-	public ArrayList<main.java.me.avankziar.ifh.general.modifier.objects.Modification> getRegisteredModification();
+	public ArrayList<me.avankziar.ifh.general.modifier.objects.Modification> getRegisteredModification();
 	
 	/**
 	 * Return a list of all registered modifier with specific ModificationType.
 	 * @param type
 	 * @return
 	 */
-	public ArrayList<main.java.me.avankziar.ifh.general.modifier.objects.Modification> getRegisteredModification(ModificationType type);
+	public ArrayList<me.avankziar.ifh.general.modifier.objects.Modification> getRegisteredModification(ModificationType type);
 		
 	public void remove(@Nullable UUID uuid, @Nullable String modificationName, @Nullable String internReason);
 	

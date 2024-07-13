@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.math.javaluator;
+package me.avankziar.ifh.general.math.javaluator;
 
 /** A token.
  * <br>When evaluating an expression, it is first split into tokens.

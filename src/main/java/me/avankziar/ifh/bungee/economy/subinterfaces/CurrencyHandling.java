@@ -1,14 +1,14 @@
-package main.java.me.avankziar.ifh.bungee.economy.subinterfaces;
+package me.avankziar.ifh.bungee.economy.subinterfaces;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import main.java.me.avankziar.ifh.bungee.economy.currency.Currency;
-import main.java.me.avankziar.ifh.bungee.economy.currency.EconomyCurrency;
-import main.java.me.avankziar.ifh.bungee.economy.subinterfaces.CurrencyHandling.Exchange.TaxToCurrency;
-import main.java.me.avankziar.ifh.general.economy.account.AccountType;
-import main.java.me.avankziar.ifh.general.economy.account.EconomyEntity;
-import main.java.me.avankziar.ifh.general.economy.currency.CurrencyType;
+import me.avankziar.ifh.bungee.economy.currency.Currency;
+import me.avankziar.ifh.bungee.economy.currency.EconomyCurrency;
+import me.avankziar.ifh.bungee.economy.subinterfaces.CurrencyHandling.Exchange.TaxToCurrency;
+import me.avankziar.ifh.general.economy.account.AccountType;
+import me.avankziar.ifh.general.economy.account.EconomyEntity;
+import me.avankziar.ifh.general.economy.currency.CurrencyType;
 
 public interface CurrencyHandling
 {

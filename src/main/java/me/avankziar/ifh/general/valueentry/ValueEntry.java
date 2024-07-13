@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.valueentry;
+package me.avankziar.ifh.general.valueentry;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -34,13 +34,13 @@ public interface ValueEntry
 	public boolean register(String internName, String displayName,
 			String...explanation);
 	
-	public main.java.me.avankziar.ifh.general.valueentry.objects.ValueLable getRegisteredValueLable(String valueLableName);
+	public me.avankziar.ifh.general.valueentry.objects.ValueLable getRegisteredValueLable(String valueLableName);
 	
 	/**
 	 * Return a list of all registered valueentry.
 	 * @return
 	 */
-	public ArrayList<main.java.me.avankziar.ifh.general.valueentry.objects.ValueLable> getRegisteredValueLable();
+	public ArrayList<me.avankziar.ifh.general.valueentry.objects.ValueLable> getRegisteredValueLable();
 	
 	public void remove(@Nullable UUID uuid, @Nullable String valueLableName, @Nullable String internReason);
 	

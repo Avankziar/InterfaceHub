@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.interfaces;
+package me.avankziar.ifh.general.interfaces;
 
 import java.util.UUID;
 

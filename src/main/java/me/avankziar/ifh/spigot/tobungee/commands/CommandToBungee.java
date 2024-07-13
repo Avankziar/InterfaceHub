@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.tobungee.commands;
+package me.avankziar.ifh.spigot.tobungee.commands;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.bungee.event.misc;
+package me.avankziar.ifh.bungee.event.misc;
 
 import java.util.Collections;
 import java.util.List;

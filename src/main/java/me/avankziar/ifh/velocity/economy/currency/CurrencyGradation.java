@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.velocity.economy.currency;
+package me.avankziar.ifh.velocity.economy.currency;
 
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;

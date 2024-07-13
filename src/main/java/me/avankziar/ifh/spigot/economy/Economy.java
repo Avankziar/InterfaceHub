@@ -1,11 +1,11 @@
-package main.java.me.avankziar.ifh.spigot.economy;
+package me.avankziar.ifh.spigot.economy;
 
 import javax.annotation.Nonnull;
 
-import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
-import main.java.me.avankziar.ifh.spigot.economy.subinterfaces.AccountHandling;
-import main.java.me.avankziar.ifh.spigot.economy.subinterfaces.CurrencyHandling;
-import main.java.me.avankziar.ifh.spigot.economy.subinterfaces.TransactionHandling;
+import me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
+import me.avankziar.ifh.spigot.economy.subinterfaces.AccountHandling;
+import me.avankziar.ifh.spigot.economy.subinterfaces.CurrencyHandling;
+import me.avankziar.ifh.spigot.economy.subinterfaces.TransactionHandling;
 
 public interface Economy
 extends AccountHandling, CurrencyHandling, TransactionHandling

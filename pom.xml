@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>main.java.me.avankziar</groupId>
+	<groupId>me.avankziar</groupId>
 	<artifactId>interfacehub</artifactId>
 	<version>2-0-0</version>
 	<name>InterfaceHub</name>
@@ -17,10 +17,17 @@
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Avankziar Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/Avankziar/InterfaceHub</url>
+		</repository>
+	</distributionManagement>
 	<build>
 		<defaultGoal>clean package</defaultGoal>
 		<finalName>${project.artifactId}-${project.version}</finalName>
-		<sourceDirectory>${basedir}/src/</sourceDirectory>
+		<sourceDirectory>${basedir}/src/main/java/</sourceDirectory>
 		<resources>
 			<resource>
 				<targetPath>.</targetPath>
@@ -59,12 +66,6 @@
       						</excludes>
       					</filter>
       				</filters>
-        			<!--<relocations>
-	          			<relocation>
-	            			<pattern>dev.dejvokep.boostedyaml</pattern>
-	            			<shadedPattern>main.java.avankziar.ifh.libs</shadedPattern>
-	          			</relocation>
-        			</relocations>-->
       			</configuration>
       				<executions>
 		        		<execution>

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.bungee.plugin;
+package me.avankziar.ifh.bungee.plugin;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.interfaces;
+package me.avankziar.ifh.spigot.interfaces;
 
 import java.util.Map;
 import java.util.UUID;

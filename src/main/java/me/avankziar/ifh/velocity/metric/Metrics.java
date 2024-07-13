@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.velocity.metric;
+package me.avankziar.ifh.velocity.metric;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.interactionblocker;
+package me.avankziar.ifh.spigot.interactionblocker;
 
 public enum InteractionBlockerType
 {

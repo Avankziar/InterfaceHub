@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.event.player;
+package me.avankziar.ifh.spigot.event.player;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;

@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.modifier;
+package me.avankziar.ifh.general.modifier;
 
 /**
  * Defines in which direction the given value improves.<br>

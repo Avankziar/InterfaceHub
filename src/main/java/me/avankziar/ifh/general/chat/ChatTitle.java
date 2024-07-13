@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.chat;
+package me.avankziar.ifh.general.chat;
 
 import java.util.ArrayList;
 import java.util.UUID;

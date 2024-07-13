@@ -1,8 +1,8 @@
-package main.java.me.avankziar.ifh.general.modifier.objects;
+package me.avankziar.ifh.general.modifier.objects;
 
 import java.util.UUID;
 
-import main.java.me.avankziar.ifh.general.modifier.ModifierType;
+import me.avankziar.ifh.general.modifier.ModifierType;
 
 public class Modifier
 {

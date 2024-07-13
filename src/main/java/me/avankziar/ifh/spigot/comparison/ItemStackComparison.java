@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.comparison;
+package me.avankziar.ifh.spigot.comparison;
 
 import org.bukkit.inventory.ItemStack;
 

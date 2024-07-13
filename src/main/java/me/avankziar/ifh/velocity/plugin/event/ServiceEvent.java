@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.velocity.plugin.event;
+package me.avankziar.ifh.velocity.plugin.event;
 
 import java.util.Objects;
 
@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import com.velocitypowered.api.event.ResultedEvent;
 import com.velocitypowered.api.event.ResultedEvent.GenericResult;
 
-import main.java.me.avankziar.ifh.velocity.plugin.RegisteredServiceProvider;
+import me.avankziar.ifh.velocity.plugin.RegisteredServiceProvider;
 
 public abstract class ServiceEvent implements ResultedEvent<GenericResult>
 {

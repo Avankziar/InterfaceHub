@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.tobungee.chatlike;
+package me.avankziar.ifh.spigot.tobungee.chatlike;
 
 import java.util.ArrayList;
 import java.util.UUID;

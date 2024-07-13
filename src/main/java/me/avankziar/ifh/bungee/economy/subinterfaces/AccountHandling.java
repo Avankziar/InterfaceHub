@@ -1,14 +1,14 @@
-package main.java.me.avankziar.ifh.bungee.economy.subinterfaces;
+package me.avankziar.ifh.bungee.economy.subinterfaces;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-import main.java.me.avankziar.ifh.bungee.economy.account.Account;
-import main.java.me.avankziar.ifh.bungee.economy.currency.EconomyCurrency;
-import main.java.me.avankziar.ifh.general.economy.account.AccountCategory;
-import main.java.me.avankziar.ifh.general.economy.account.AccountManagementType;
-import main.java.me.avankziar.ifh.general.economy.account.AccountType;
-import main.java.me.avankziar.ifh.general.economy.account.EconomyEntity;
+import me.avankziar.ifh.bungee.economy.account.Account;
+import me.avankziar.ifh.bungee.economy.currency.EconomyCurrency;
+import me.avankziar.ifh.general.economy.account.AccountCategory;
+import me.avankziar.ifh.general.economy.account.AccountManagementType;
+import me.avankziar.ifh.general.economy.account.AccountType;
+import me.avankziar.ifh.general.economy.account.EconomyEntity;
 
 public interface AccountHandling
 {

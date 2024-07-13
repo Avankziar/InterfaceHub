@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.bungee.economy.currency;
+package me.avankziar.ifh.bungee.economy.currency;
 
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;

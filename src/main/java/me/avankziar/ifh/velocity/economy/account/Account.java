@@ -1,9 +1,9 @@
-package main.java.me.avankziar.ifh.velocity.economy.account;
+package me.avankziar.ifh.velocity.economy.account;
 
-import main.java.me.avankziar.ifh.velocity.economy.currency.EconomyCurrency;
-import main.java.me.avankziar.ifh.general.economy.account.AccountCategory;
-import main.java.me.avankziar.ifh.general.economy.account.AccountType;
-import main.java.me.avankziar.ifh.general.economy.account.EconomyEntity;
+import me.avankziar.ifh.general.economy.account.AccountCategory;
+import me.avankziar.ifh.general.economy.account.AccountType;
+import me.avankziar.ifh.general.economy.account.EconomyEntity;
+import me.avankziar.ifh.velocity.economy.currency.EconomyCurrency;
 
 /**
  * The Account class. This represents all accounts, from normal player/entity/server accounts, to bank accounts.<br>

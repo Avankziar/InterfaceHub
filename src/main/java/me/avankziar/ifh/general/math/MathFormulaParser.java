@@ -1,10 +1,10 @@
-package main.java.me.avankziar.ifh.general.math;
+package me.avankziar.ifh.general.math;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import main.java.me.avankziar.ifh.general.math.javaluator.DoubleEvaluator;
-import main.java.me.avankziar.ifh.general.math.javaluator.StaticVariableSet;
+import me.avankziar.ifh.general.math.javaluator.DoubleEvaluator;
+import me.avankziar.ifh.general.math.javaluator.StaticVariableSet;
 
 public class MathFormulaParser
 {

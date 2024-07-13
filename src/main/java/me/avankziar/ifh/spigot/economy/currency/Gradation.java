@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.economy.currency;
+package me.avankziar.ifh.spigot.economy.currency;
 
 import org.bukkit.inventory.ItemStack;
 

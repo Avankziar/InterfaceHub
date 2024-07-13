@@ -1,11 +1,11 @@
-package main.java.me.avankziar.ifh.spigot.shop;
+package me.avankziar.ifh.spigot.shop;
 
 import java.util.UUID;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import main.java.me.avankziar.ifh.spigot.position.ServerLocation;
+import me.avankziar.ifh.spigot.position.ServerLocation;
 
 /**
  * The interface of a normal shop.

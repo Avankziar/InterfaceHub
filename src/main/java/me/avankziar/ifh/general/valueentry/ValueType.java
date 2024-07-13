@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.general.valueentry;
+package me.avankziar.ifh.general.valueentry;
 
 public enum ValueType
 {

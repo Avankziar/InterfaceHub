@@ -1,9 +1,9 @@
-package main.java.me.avankziar.ifh.general.modifier.objects;
+package me.avankziar.ifh.general.modifier.objects;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import main.java.me.avankziar.ifh.general.modifier.ModificationType;
+import me.avankziar.ifh.general.modifier.ModificationType;
 
 public class Modification
 {

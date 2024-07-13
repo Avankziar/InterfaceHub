@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.tovelocity.commands;
+package me.avankziar.ifh.spigot.tovelocity.commands;
 
 import java.util.UUID;
 

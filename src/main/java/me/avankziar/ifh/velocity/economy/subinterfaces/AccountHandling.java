@@ -1,14 +1,14 @@
-package main.java.me.avankziar.ifh.velocity.economy.subinterfaces;
+package me.avankziar.ifh.velocity.economy.subinterfaces;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-import main.java.me.avankziar.ifh.velocity.economy.account.Account;
-import main.java.me.avankziar.ifh.velocity.economy.currency.EconomyCurrency;
-import main.java.me.avankziar.ifh.general.economy.account.AccountCategory;
-import main.java.me.avankziar.ifh.general.economy.account.AccountManagementType;
-import main.java.me.avankziar.ifh.general.economy.account.AccountType;
-import main.java.me.avankziar.ifh.general.economy.account.EconomyEntity;
+import me.avankziar.ifh.general.economy.account.AccountCategory;
+import me.avankziar.ifh.general.economy.account.AccountManagementType;
+import me.avankziar.ifh.general.economy.account.AccountType;
+import me.avankziar.ifh.general.economy.account.EconomyEntity;
+import me.avankziar.ifh.velocity.economy.account.Account;
+import me.avankziar.ifh.velocity.economy.currency.EconomyCurrency;
 
 public interface AccountHandling
 {

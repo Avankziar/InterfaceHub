@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.bungee.economy.currency;
+package me.avankziar.ifh.bungee.economy.currency;
 
 public class Gradation
 {	

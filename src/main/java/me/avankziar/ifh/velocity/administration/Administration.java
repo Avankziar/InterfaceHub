@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.velocity.administration;
+package me.avankziar.ifh.velocity.administration;
 
 public interface Administration
 {

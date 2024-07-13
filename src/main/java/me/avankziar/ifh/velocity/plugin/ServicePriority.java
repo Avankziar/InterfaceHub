@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.velocity.plugin;
+package me.avankziar.ifh.velocity.plugin;
 
 public enum ServicePriority
 {

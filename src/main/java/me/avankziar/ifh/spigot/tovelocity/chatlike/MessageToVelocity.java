@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.tovelocity.chatlike;
+package me.avankziar.ifh.spigot.tovelocity.chatlike;
 
 import java.util.ArrayList;
 import java.util.UUID;

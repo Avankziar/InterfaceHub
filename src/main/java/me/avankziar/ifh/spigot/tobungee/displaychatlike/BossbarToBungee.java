@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.tobungee.displaychatlike;
+package me.avankziar.ifh.spigot.tobungee.displaychatlike;
 
 public interface BossbarToBungee
 {

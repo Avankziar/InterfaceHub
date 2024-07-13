@@ -1,14 +1,14 @@
-package main.java.me.avankziar.ifh.spigot.economy.subinterfaces;
+package me.avankziar.ifh.spigot.economy.subinterfaces;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-import main.java.me.avankziar.ifh.general.economy.account.AccountCategory;
-import main.java.me.avankziar.ifh.general.economy.account.AccountManagementType;
-import main.java.me.avankziar.ifh.general.economy.account.AccountType;
-import main.java.me.avankziar.ifh.general.economy.account.EconomyEntity;
-import main.java.me.avankziar.ifh.spigot.economy.account.Account;
-import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
+import me.avankziar.ifh.general.economy.account.AccountCategory;
+import me.avankziar.ifh.general.economy.account.AccountManagementType;
+import me.avankziar.ifh.general.economy.account.AccountType;
+import me.avankziar.ifh.general.economy.account.EconomyEntity;
+import me.avankziar.ifh.spigot.economy.account.Account;
+import me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 
 public interface AccountHandling
 {

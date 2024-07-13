@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.velocity.plugin;
+package me.avankziar.ifh.velocity.plugin;
 
 import java.util.Collection;
 import java.util.List;

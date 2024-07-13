@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.velocity;
+package me.avankziar.ifh.velocity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.PluginDescription;
 import com.velocitypowered.api.proxy.ProxyServer;
 
-import main.java.me.avankziar.ifh.velocity.plugin.SimpleServicesManager;
-import main.java.me.avankziar.ifh.velocity.metric.Metrics;
+import me.avankziar.ifh.velocity.metric.Metrics;
+import me.avankziar.ifh.velocity.plugin.SimpleServicesManager;
 
 @Plugin(id = "interfacehub", name = "InterfaceHub", version = "2-0-0",
 url = "https://www.spigotmc.org/resources/interfacehub.101648/", description = "A Vault-Like plugin. To let plugins communicate with plugins.",

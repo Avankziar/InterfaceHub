@@ -1,4 +1,4 @@
-package main.java.me.avankziar.ifh.spigot.permission;
+package me.avankziar.ifh.spigot.permission;
 
 import java.util.ArrayList;
 import java.util.Map;

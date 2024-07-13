@@ -1,9 +1,9 @@
-package main.java.me.avankziar.ifh.spigot.economy.account;
+package me.avankziar.ifh.spigot.economy.account;
 
-import main.java.me.avankziar.ifh.general.economy.account.AccountCategory;
-import main.java.me.avankziar.ifh.general.economy.account.AccountType;
-import main.java.me.avankziar.ifh.general.economy.account.EconomyEntity;
-import main.java.me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
+import me.avankziar.ifh.general.economy.account.AccountCategory;
+import me.avankziar.ifh.general.economy.account.AccountType;
+import me.avankziar.ifh.general.economy.account.EconomyEntity;
+import me.avankziar.ifh.spigot.economy.currency.EconomyCurrency;
 /**
  * The Account class. This represents all accounts, from normal player/entity/server accounts, to bank accounts.<br>
  * For a explanation to implements this,

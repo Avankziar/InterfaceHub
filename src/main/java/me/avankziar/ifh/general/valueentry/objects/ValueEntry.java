@@ -1,8 +1,8 @@
-package main.java.me.avankziar.ifh.general.valueentry.objects;
+package me.avankziar.ifh.general.valueentry.objects;
 
 import java.util.UUID;
 
-import main.java.me.avankziar.ifh.general.valueentry.ValueType;
+import me.avankziar.ifh.general.valueentry.ValueType;
 
 public class ValueEntry
 {

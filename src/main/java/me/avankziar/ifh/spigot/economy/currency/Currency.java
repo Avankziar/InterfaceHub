@@ -1,6 +1,6 @@
-package main.java.me.avankziar.ifh.spigot.economy.currency;
+package me.avankziar.ifh.spigot.economy.currency;
 
-import main.java.me.avankziar.ifh.general.economy.currency.CurrencyType;
+import me.avankziar.ifh.general.economy.currency.CurrencyType;
 
 public class Currency
 {
