@@ -1,4 +1,4 @@
-main: main.java.me.avankziar.ifh.spigot.IFH
+main: me.avankziar.ifh.spigot.IFH
 name: InterfaceHub
 version: 2
 load: STARTUP

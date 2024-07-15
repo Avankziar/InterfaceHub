@@ -4,4 +4,4 @@
 "description":"A Vault-Like plugin. To let plugins communicate with plugins.",
 "authors":["Avankziar"],
 "url":"https://example.com",
-"main":"main.java.me.avankziar.ifh.velocity.IFH"}
+"main":"me.avankziar.ifh.velocity.IFH"}
