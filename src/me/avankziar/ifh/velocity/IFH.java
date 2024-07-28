@@ -41,7 +41,7 @@ public class IFH
     	logger = Logger.getLogger("IFH");
     	PluginDescription pd = server.getPluginManager().getPlugin(pluginname.toLowerCase()).get().getDescription();
         List<String> dependencies = new ArrayList<>();
-        pd.getDependencies().stream().allMatch(x -> dependencies.add(x.toString()));
+        pd.getDependencies().stream().allMatch(x -> dependencies.add(x.getId()));
     	//https://patorjk.com/software/taag/#p=display&h=0&f=Big%20Money-ne&t=IFH
 		logger.info("  /$$$$$$ /$$$$$$$$ /$$   /$$ | Id: "+pd.getId());
 		logger.info(" |_  $$_/| $$_____/| $$  | $$ | Version: "+pd.getVersion().get());

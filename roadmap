@@ -1,7 +1,7 @@
 Build 2-0-0
 - Java 21 Dependency
 - Spigot 1.21 support
-- Maven pom.xml hinzugefügt
+- Viele Interne Abhängigkeiten Hinzugefügt, deshalb die Datei Größe
 - Velocity sowie komplette Interface Handhabung hinzugefügt 
 - Bstats Metrics für Bungee & Velocity hinzugefügt
 - velocity.administration.Administration hinzugefügt
