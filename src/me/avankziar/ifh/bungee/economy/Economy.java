@@ -1,5 +1,7 @@
 package me.avankziar.ifh.bungee.economy;
 
+import java.math.RoundingMode;
+
 import javax.annotation.Nonnull;
 
 import me.avankziar.ifh.bungee.economy.currency.EconomyCurrency;
@@ -96,6 +98,13 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	String getDefaultDecimalSeperator(EconomyCurrency economyCurrency);
 	
 	/**
+	 * Return which roundingmode 
+	 * @param economyCurrency
+	 * @return
+	 */
+	RoundingMode getDefaultRoundingMode(EconomyCurrency economyCurrency);
+	
+	/**
 	 * A string format of the amount in the specific currency in one String.
 	 * <br>decimalPlaces cannot be less than 0.
 	 * <br>See the examples.
@@ -183,4 +192,20 @@ extends AccountHandling, CurrencyHandling, TransactionHandling
 	 */
 	String format(double amount, @Nonnull EconomyCurrency economyCurrency, int gradationQuantity, int decimalPlaces, 
 			boolean useSIPrefix, boolean useSymbol, String thousandSeperator, String decimalSeperator);
+	
+	/**
+	 * The same as the other format, only with now forceable roundingmode.
+	 * @param amount
+	 * @param economyCurrency
+	 * @param gradationQuantity
+	 * @param decimalPlaces
+	 * @param useSIPrefix
+	 * @param useSymbol
+	 * @param thousandSeperator
+	 * @param decimalSeperator
+	 * @param roundingMode
+	 * @return
+	 */
+	String format(double amount, @Nonnull EconomyCurrency economyCurrency, int gradationQuantity, int decimalPlaces, 
+			boolean useSIPrefix, boolean useSymbol, String thousandSeperator, String decimalSeperator, RoundingMode roundingMode);
 }

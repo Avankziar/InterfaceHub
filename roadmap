@@ -1,3 +1,7 @@
+Build 2-1-0
+- Economy Methode getDefaultRoundingMode hinzugefügt.
+- Economy Methode format mit einem RoundingMode hinzugefügt.
+
 Build 2-0-0
 - Java 21 Dependency
 - Spigot 1.21 support
