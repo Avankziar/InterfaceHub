@@ -3,5 +3,5 @@
 "version":"${version}",
 "description":"A Vault-Like plugin. To let plugins communicate with plugins.",
 "authors":["Avankziar"],
-"url":"https://example.com",
+"url":"https://github.com/Avankziar/InterfaceHub",
 "main":"me.avankziar.ifh.velocity.IFH"}

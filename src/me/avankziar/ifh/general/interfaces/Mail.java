@@ -10,6 +10,7 @@ import net.md_5.bungee.api.chat.TextComponent;
  * @author Avankziar
  *
  */
+@Deprecated
 public interface Mail
 {
 	/**

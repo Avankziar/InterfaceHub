@@ -1,6 +1,11 @@
 Build 2-1-0
 - Economy Methode getDefaultRoundingMode hinzugefügt.
 - Economy Methode format mit einem RoundingMode hinzugefügt.
+- general.interfaces.Mail ist nun veraltet.
+- general.interfaces.EMail hinzugefügt.
+- spigot.sendable.MailBox hinzugefügt.
+- spigot.sendable.PMail hinzugefügt
+- spigot.sendable.Parcel hinzugefügt
 
 Build 2-0-0
 - Java 21 Dependency
