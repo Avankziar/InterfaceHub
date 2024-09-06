@@ -17,6 +17,12 @@ To install InterfaceHub (IFH), proceed as follows:
 You can integrate IFH with the jar file or you can call maven dependency:
 
 ```
+<repository>
+    <id>github</id>
+	<name>GitHub Avankziar Apache Maven Packages</name>
+    <url>https://maven.pkg.github.com/Avankziar/InterfaceHub</url>
+</repository>
+	    
 <dependency>
   <groupId>me.avankziar</groupId>
   <artifactId>interfacehub</artifactId>
@@ -24,3 +30,10 @@ You can integrate IFH with the jar file or you can call maven dependency:
 </dependency>
 ```
 Version can be found <b>[here](https://github.com/Avankziar/InterfaceHub/packages/2204307)</b>!
+
+# Integrated Possible Dependency
+- adventure-platform-bukkit
+- adventure-text-minimessage
+- boosted-yaml
+- mysql-connector-j
+- sqlite-jdbc

@@ -3,6 +3,8 @@ package me.avankziar.ifh.general.interfaces;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.jetbrains.annotations.ApiStatus.ScheduledForRemoval;
+
 import net.md_5.bungee.api.chat.TextComponent;
 
 /**
@@ -10,7 +12,8 @@ import net.md_5.bungee.api.chat.TextComponent;
  * @author Avankziar
  *
  */
-@Deprecated
+@Deprecated()
+@ScheduledForRemoval(inVersion = "2-1-0")
 public interface Mail
 {
 	/**

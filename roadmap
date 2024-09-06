@@ -6,6 +6,7 @@ Build 2-1-0
 - spigot.sendable.MailBox hinzugefügt.
 - spigot.sendable.PMail hinzugefügt
 - spigot.sendable.Parcel hinzugefügt
+- Dependency SQLite hinzugefügt.
 
 Build 2-0-0
 - Java 21 Dependency
