@@ -1,3 +1,8 @@
+Build 2-2-0
+- general.interfaces.PlayerTimes Methode 'public String getAfkReason(UUID)' hinzugefügt.
+- spigot.teleport.Home hinzugefügt.
+- spigot.teleport.Warp hinzugefügt.
+
 Build 2-1-0
 - Economy Methode getDefaultRoundingMode hinzugefügt.
 - Economy Methode format mit einem RoundingMode hinzugefügt.
