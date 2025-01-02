@@ -9,11 +9,11 @@
 	<name>InterfaceHub</name>
 	<description>A central point of contact for various interfaces for MC plugins</description>
 	<packaging>jar</packaging>
-	<url>https://github.com/${repository-owner}/${repository-name}.git</url>
+	<url>https://github.com/Avankziar/InterfaceHub.git</url>
     <scm>
-        <url>https://github.com/${repository-owner}/${repository-name}.git</url>
-        <connection>scm:git:git@github.com:${repository-owner}/${repository-name}.git</connection>
-        <developerConnection>scm:git:git@github.com:${repository-owner}/${repository-name}.git</developerConnection>
+       	<url>https://github.com/Avankziar/InterfaceHub.git</url>
+   		<connection>scm:git:https://github.com/Avankziar/InterfaceHub.git</connection>
+   		<developerConnection>scm:git:https://github.com/Avankziar/InterfaceHub.git</developerConnection>
     </scm>
     <properties>
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
