@@ -1,5 +1,5 @@
 2-4-0
-- Added me.avankziar.ifh.spigot.event.inventory.InventoryPostUpdateEvent
+- me.avankziar.ifh.spigot.event.inventory.InventoryPostUpdateEvent hinzugefügt.
 
 Build 2-3-0
 - Spigot 1.21.4 Support

@@ -30,6 +30,7 @@ You can integrate IFH with the jar file or you can call maven dependency:
 </dependency>
 ```
 Version can be found <b>[here](https://github.com/Avankziar/InterfaceHub/packages/2204307)</b>!
+To access this, you need to add a personal access token in github. Else it will fail.
 
 # Integrated Possible Dependency
 - adventure-platform-bukkit
