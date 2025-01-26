@@ -146,6 +146,11 @@ public class Account
 		return type;
 	}
 	
+	public boolean hasNegativeBalance()
+	{
+		return this.balance < 0.0;
+	}
+	
 	public double getBalance()
 	{
 		return this.balance;
