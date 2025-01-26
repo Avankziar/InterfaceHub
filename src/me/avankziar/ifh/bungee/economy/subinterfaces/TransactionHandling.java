@@ -17,6 +17,8 @@ public interface TransactionHandling
 	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount);
 	
+	EconomyAction transaction(Account withdraw, Account deposit, double amount, boolean withdrawCanGoNegativ);
+	
 	/**
 	 * Use to do a simple economy action between 2 Accounts.
 	 * <br>If you wish to take or add a amount on one EconomyEntity, please use
@@ -32,6 +34,9 @@ public interface TransactionHandling
 	 */
 	EconomyAction transaction(Account withdraw, Account deposit, double amount,
 			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment);
+	
+	EconomyAction transaction(Account withdraw, Account deposit, double amount,
+			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment, boolean withdrawCanGoNegativ);
 	
 	/**
 	 * Use to do a simple economy action between 2 Accounts.
@@ -54,10 +59,19 @@ public interface TransactionHandling
 	 * @param taxDepot
 	 * @return
 	 */
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreExclusive, Account taxDepot);
+	EconomyAction transaction(Account withdraw, Account deposit, double amount,
+			double taxInPercent, boolean taxAreExclusive, Account taxDepot);
 	
-	EconomyAction transaction(Account withdraw, Account deposit, double amount, double taxInPercent, boolean taxAreExclusive, Account taxDepot,
+	EconomyAction transaction(Account withdraw, Account deposit, double amount,
+			double taxInPercent, boolean taxAreExclusive, Account taxDepot, boolean withdrawCanGoNegativ);
+	
+	EconomyAction transaction(Account withdraw, Account deposit, double amount,
+			double taxInPercent, boolean taxAreExclusive, Account taxDepot,
 			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment);
+	
+	EconomyAction transaction(Account withdraw, Account deposit, double amount,
+			double taxInPercent, boolean taxAreExclusive, Account taxDepot,
+			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment, boolean withdrawCanGoNegativ);
 	
 	/**
 	 * Use to do a simple economy action of only one EconomyEntity.
@@ -85,13 +99,23 @@ public interface TransactionHandling
 	 */
 	EconomyAction withdraw(Account holder, double amount);
 	
+	EconomyAction withdraw(Account holder, double amount, boolean withdrawCanGoNegativ);
+	
 	EconomyAction withdraw(Account holder, double amount, 
 			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment);
 	
+	EconomyAction withdraw(Account holder, double amount, 
+			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment, boolean withdrawCanGoNegativ);
+	
 	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreExclusive, Account taxDepot);
+	
+	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreExclusive, Account taxDepot, boolean withdrawCanGoNegativ);
 	
 	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreExclusive, Account taxDepot,
 			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment);
+	
+	EconomyAction withdraw(Account holder, double amount, double taxInPercent, boolean taxAreExclusive, Account taxDepot,
+			OrdererType type, String ordererUUIDOrPluginName, String actionLogCategory, String actionLogComment, boolean withdrawCanGoNegativ);
 	
 	
 	EconomyAction exchangeCurrencies(Account withdrawAccount, Account depositAccount, double amountFromWithdrawAccount);

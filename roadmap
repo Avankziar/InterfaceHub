@@ -1,3 +1,10 @@
+2-5-0
+- me.avankziar.ifh.bungee.economy.subinterfaces.TransactionHandling &&
+  me.avankziar.ifh.spigot.economy.subinterfaces.TransactionHandling &&
+  me.avankziar.ifh.velocity.economy.subinterfacesTransactionHandling Methoden withdraw und transaction aller Arten haben eine Methodenvariation erhalten.
+  Dort ist nun der boolean withdrawCanGoNegativ hinzugefügt.
+  Dieser soll ermöglichen, dass das Abziehen von einem Account auch ins Negative gehen kann.
+
 2-4-0
 - me.avankziar.ifh.spigot.event.inventory.InventoryPostUpdateEvent hinzugefügt.
 
