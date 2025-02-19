@@ -5,7 +5,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import me.avankziar.ifh.general.enums.StatisticType;
+import me.avankziar.ifh.general.statistic.StatisticType;
 /**
  * Event which should be called, if a custom statistic will be incremented.
  * The Achievement plugin should be listen.
