@@ -6,5 +6,5 @@ public interface Statistic
 {
 	public Long getStatistic(UUID uuid, StatisticType statisticType);
 	
-	
+	public boolean addStatistic(UUID uuid, StatisticType statisticType, long value);
 }

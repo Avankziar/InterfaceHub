@@ -14,11 +14,20 @@ public class PlayerChangeToNotAfkEvent extends Event
 {
 	private static final HandlerList HANDLERS = new HandlerList();
 	private Player player;
+	private long timeWhenChangeToNotAfk;
 
 	public PlayerChangeToNotAfkEvent(@NonNull Player player, boolean isAsync)
 	{
 		super(isAsync);
 		this.player = player;
+		this.timeWhenChangeToNotAfk = System.currentTimeMillis();
+	}
+	
+	public PlayerChangeToNotAfkEvent(@NonNull Player player, boolean isAsync, long timeWhenChangeToNotAfk)
+	{
+		super(isAsync);
+		this.player = player;
+		this.timeWhenChangeToNotAfk = timeWhenChangeToNotAfk;
 	}
 	
 	public HandlerList getHandlers() 
@@ -34,5 +43,14 @@ public class PlayerChangeToNotAfkEvent extends Event
 	public Player getPlayer()
 	{
 		return player;
+	}
+	
+	/**
+	 * Time in millisec UNIX when change to not afk.
+	 * @return
+	 */
+	public long getTimeWhenChangeToNotAfk()
+	{
+		return timeWhenChangeToNotAfk;
 	}
 }

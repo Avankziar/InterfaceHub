@@ -1,6 +1,9 @@
 2-6-0
 - spigot.event.player.PlayerStatisticIncrementEvent hinzugefügt.
-- general.enums.StatisticType hinzugefügt.
+- general.statistic.StatisticType hinzugefügt.
+- general.statistic.Statistic hinzugefügt.
+- spigot.event.player.PlayerChangeToAfkEvent "long getTimeWhenChangeToAfk()" hinzugefügt.
+- spigot.event.player.PlayerChangeToNotAfkEvent "long getTimeWhenChangeToNotAfk()" hinzugefügt.
 
 2-5-0
 - me.avankziar.ifh.bungee.economy.subinterfaces.TransactionHandling &&

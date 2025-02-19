@@ -1,5 +1,7 @@
 package me.avankziar.ifh.spigot.event.player;
 
+import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -12,18 +14,32 @@ import me.avankziar.ifh.general.statistic.StatisticType;
  */
 public class PlayerStatisticIncrementEvent extends Event
 {
-
 	private static final HandlerList HANDLERS = new HandlerList();
 	private Player player;
 	private StatisticType statisticType;
+	private Material material;
+	private EntityType entityType;
 	private long incrementValue;
 
-	public PlayerStatisticIncrementEvent(@NonNull Player player, StatisticType statisticType, long incrementValue,
+	public PlayerStatisticIncrementEvent(@NonNull Player player, StatisticType statisticType, Material material, long incrementValue,
 			boolean isAsync)
 	{
 		super(isAsync);
 		this.player = player;
 		this.statisticType = statisticType;
+		this.material = material;
+		this.entityType = null;
+		this.incrementValue = incrementValue;
+	}
+	
+	public PlayerStatisticIncrementEvent(@NonNull Player player, StatisticType statisticType, EntityType entityType, long incrementValue,
+			boolean isAsync)
+	{
+		super(isAsync);
+		this.player = player;
+		this.statisticType = statisticType;
+		this.material = null;
+		this.entityType = entityType;
 		this.incrementValue = incrementValue;
 	}
 	
@@ -45,6 +61,16 @@ public class PlayerStatisticIncrementEvent extends Event
 	public StatisticType getStatisticType() 
 	{
 		return statisticType;
+	}
+	
+	public Material getMaterial()
+	{
+		return material;
+	}
+	
+	public EntityType getEntityType()
+	{
+		return entityType;
 	}
 
 	public long getIncrementValue() 
