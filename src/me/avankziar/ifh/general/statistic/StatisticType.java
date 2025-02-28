@@ -3,6 +3,7 @@ package me.avankziar.ifh.general.statistic;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.bukkit.Statistic;
@@ -104,68 +105,69 @@ public class StatisticType
     public static final StatisticType NOTEBLOCK_TUNED = registerStatisticType("NOTEBLOCK_TUNED", SortingType.INTERACTION_WITH_BLOCKS);
     
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent<br>
-     * The Bukkit Statistic WALK_ON_WATER_ONE_CM and WALK_UNDER_WATER_ONE_CM should be also run through this.
+     * The Bukkit Statistic WALK_ON_WATER_ONE_CM and WALK_UNDER_WATER_ONE_CM should be also run through this,
+     * because in 1.21.4 without expensive checks it is not possible to determine if a player walks under or over water.
      */
     public static final StatisticType WALK_ONE_CM = registerStatisticType("WALK_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
     public static final StatisticType MINECART_ONE_CM = registerStatisticType("MINECART_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
 	public static final StatisticType BOAT_ONE_CM = registerStatisticType("BOAT_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
 	public static final StatisticType PIG_ONE_CM = registerStatisticType("PIG_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
 	public static final StatisticType HORSE_ONE_CM = registerStatisticType("HORSE_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
 	public static final StatisticType SPRINT_ONE_CM = registerStatisticType("SPRINT_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
 	public static final StatisticType CROUCH_ONE_CM = registerStatisticType("CROUCH_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
 	public static final StatisticType AVIATE_ONE_CM = registerStatisticType("AVIATE_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
 	public static final StatisticType CLIMB_ONE_CM = registerStatisticType("CLIMB_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
 	public static final StatisticType FLY_ONE_CM = registerStatisticType("FLY_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
     public static final StatisticType SWIM_ONE_CM = registerStatisticType("SWIM_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
     public static final StatisticType STRIDER_ONE_CM = registerStatisticType("STRIDER_ONE_CM", SortingType.MOVEMENT);
     /**
-     * Bukkit Statistic which will be not increased though sorg.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
+     * Bukkit Statistic which will be not increased though org.bukkit.event.player.PlayerStatisticIncrementEvent since 1.19.<br>
      * If it should be increased, it must be done through track org.bukkit.event.player.PlayerMoveEvent
      */
     //Not PlayerMoveEvent, but a "move" action
@@ -200,9 +202,16 @@ public class StatisticType
     public static final StatisticType CRAWLING_ONE_CM = registerStatisticType("CRAWLING_ONE_CM", SortingType.MOVEMENT);
 	
 	private String uniquename;
-	private StatisticType(String uniquename)
+	private SortingType sortingType;
+	private StatisticType(String uniquename, SortingType sortingType)
 	{
 		this.uniquename = uniquename;
+		this.sortingType = sortingType;
+	}
+	
+	public SortingType getSortingType()
+	{
+		return this.sortingType;
 	}
 	
 	/**
@@ -223,19 +232,20 @@ public class StatisticType
 	 * @param sortingType
 	 * @return
 	 */
-	public static StatisticType registerStatisticType(String uniquename, SortingType sortingType)
+	public static StatisticType registerStatisticType(@Nonnull String uniquename, @Nonnull SortingType sortingType)
 	{
 		if(uniquename == null || sortingType == null)
 		{
 			return null;
 		}
-		StatisticType st = new StatisticType(uniquename);
-		if(statisticTypes.add(st))
+		StatisticType st = new StatisticType(uniquename, sortingType);
+		boolean b = statisticTypes.add(st);
+		if(b)
 		{
 			HashSet<StatisticType> hs = sortedStatisticTypes.containsKey(sortingType) 
 					? sortedStatisticTypes.get(sortingType) : new HashSet<StatisticType>();
 			hs.add(st);
-			sortedStatisticTypes.put(SortingType.PLUGINS, hs);
+			sortedStatisticTypes.put(sortingType, hs);
 			return st;
 		}
 		return null;
