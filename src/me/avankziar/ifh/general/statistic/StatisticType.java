@@ -21,7 +21,8 @@ public class StatisticType
 		PLUGINS,
 		SPECIAL,
 		SKILL,
-		ECONOMY;
+		ECONOMY,
+		CHAT_AND_COMMAND;
 	}
 	
 	private static HashSet<StatisticType> statisticTypes = new HashSet<>();
@@ -200,7 +201,22 @@ public class StatisticType
      * Custom StatisticTypes(Movement) which are not included in Bukkit Statistic.
      */
     public static final StatisticType CRAWLING_ONE_CM = registerStatisticType("CRAWLING_ONE_CM", SortingType.MOVEMENT);
-	
+    /**
+     * Custom StatisticType(CHAT_AND_COMMAND) which are not inclued in Bukkit Statistic.<br>
+     * One executed command, applies as +1.
+     */
+    public static final StatisticType COMMAND_EXECUTED = registerStatisticType("COMMAND_EXECUTED", SortingType.CHAT_AND_COMMAND);
+    /**
+     * Custom StatisticType(CHAT_AND_COMMAND) which are not inclued in Bukkit Statistic.<br>
+     * One written character applies as +1.
+     */
+	public static final StatisticType CHAT_CHARACTER = registerStatisticType("CHAT_CHARACTER", SortingType.CHAT_AND_COMMAND);
+	/**
+     * Custom StatisticType(CHAT_AND_COMMAND) which are not inclued in Bukkit Statistic.<br>
+     * One written word applies as +1.
+     */
+	public static final StatisticType CHAT_WORD = registerStatisticType("CHAT_WORD", SortingType.CHAT_AND_COMMAND);
+    
 	private String uniquename;
 	private SortingType sortingType;
 	private StatisticType(String uniquename, SortingType sortingType)
