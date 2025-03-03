@@ -12,17 +12,18 @@ public class StatisticType
 {
 	public enum SortingType
 	{
-		WITH_SUBSTATISTIC,
-		MISCELLANEOUS,
+		CHAT_AND_COMMAND,
 		DAMAGE_AND_DEATH,
-		INTERACTION_WITH_BLOCKS,
-		MOVEMENT,
-		TIME,
-		PLUGINS,
-		SPECIAL,
-		SKILL,
 		ECONOMY,
-		CHAT_AND_COMMAND;
+		INTERACTION_WITH_BLOCKS,
+		MISCELLANEOUS,
+		MOVEMENT,
+		PLUGINS,
+		SKILL,
+		SPECIAL,
+		TIME,
+		WITH_SUBSTATISTIC,
+		;
 	}
 	
 	private static HashSet<StatisticType> statisticTypes = new HashSet<>();
@@ -174,8 +175,11 @@ public class StatisticType
     //Not PlayerMoveEvent, but a "move" action
     public static final StatisticType JUMP = registerStatisticType("JUMP", SortingType.MOVEMENT);
     
-    //Must be access an protocol with a special plugin
-    public static final StatisticType SNEAK_TIME = registerStatisticType("SNEAK_TIME", SortingType.TIME);
+    /**
+     * Must be access an protocol with a special plugin.<br>
+     * Was as <b>SNEAK_TIME</b> a bukkit statistic, but was put to a conformity with <b>ONE_MINUTE</b> at the END.
+     */
+    public static final StatisticType SNEAK_TIME_ONE_MINUTE = registerStatisticType("SNEAK_TIME", SortingType.TIME);
     
     /**
      * Custom StatisticTypes which are not included in Bukkit Statistic.
@@ -232,7 +236,10 @@ public class StatisticType
 	
 	/**
 	 * Register a StatistcType with SortingType <b>PLUGINS</b>, which a stored in a HashSet.<br>
-	 * Returns null if one of the @param are null or if the StatisticType are already registered.
+	 * Returns null if one of the @param are null or if the StatisticType are already registered.<br><br>
+	 * If you want to register a <b>time</b> or <b>distance</b> based statistic, please add at the end of
+	 * your statistic name <b>ONE_CM</b> for distance or <b>ONE_MINUTE</b> for time.<br>
+	 * This set a distinctive tone for the statistic name and make conversion of unit simpler.
 	 * @param uniquename
 	 * @return
 	 */
@@ -243,7 +250,10 @@ public class StatisticType
 	
 	/**
 	 * Register a StatistcType, which a stored in a HashSet.<br>
-	 * Returns null if one of the @param are null or if the StatisticType are already registered.
+	 * Returns null if one of the @param are null or if the StatisticType are already registered.<br><br>
+	 * If you want to register a <b>time</b> or <b>distance</b> based statistic, please add at the end of
+	 * your statistic name <b>ONE_CM</b> for distance or <b>ONE_MINUTE</b> for time.<br>
+	 * This set a distinctive tone for the statistic name and make conversion of unit simpler.
 	 * @param uniquename
 	 * @param sortingType
 	 * @return
@@ -317,6 +327,8 @@ public class StatisticType
 		case WALK_ON_WATER_ONE_CM:
 		case WALK_UNDER_WATER_ONE_CM:
 			return StatisticType.WALK_ONE_CM;
+		case SNEAK_TIME:
+			return StatisticType.SNEAK_TIME_ONE_MINUTE;
 		default:
 			return StatisticType.valueOf(statistic.toString());
 		}
