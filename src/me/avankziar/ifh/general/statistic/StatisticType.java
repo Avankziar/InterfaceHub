@@ -190,10 +190,6 @@ public class StatisticType
      */
     public static final StatisticType VOTE = registerStatisticType("VOTE", SortingType.PLUGINS);
     /**
-     * Custom StatisticTypes(Time) which are not included in Bukkit Statistic.
-     */
-    public static final StatisticType TOTAL_ONLINE_ONE_MINUTE = registerStatisticType("TOTAL_ONLINE_ONE_MINUTE", SortingType.TIME);
-    /**
      * Custom StatisticTypes(Time) which <b>ARE</b> included in Bukkit Statistic <b>BUT</b> which was tracked per tick not a minute!
      */
     public static final StatisticType PLAY_ONE_MINUTE = registerStatisticType("PLAY_ONE_MINUTE", SortingType.TIME); //A new definition, definitive one minute
