@@ -1,5 +1,7 @@
 2-6-0
 - spigot.event.player.PlayerStatisticIncrementEvent hinzugefügt.
+- bungee.event.player.PlayerStatisticIncrementEvent hinzugefügt.
+- velocity.event.player.PlayerStatisticIncrementEvent hinzugefügt.
 - general.statistic.StatisticType hinzugefügt.
 - general.statistic.Statistic hinzugefügt.
 - spigot.event.player.PlayerChangeToAfkEvent "long getTimeWhenChangeToAfk()" hinzugefügt.

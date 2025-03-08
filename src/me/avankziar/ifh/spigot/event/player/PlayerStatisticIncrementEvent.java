@@ -19,9 +19,9 @@ public class PlayerStatisticIncrementEvent extends Event
 	private StatisticType statisticType;
 	private Material material;
 	private EntityType entityType;
-	private long incrementValue;
+	private double incrementValue;
 
-	public PlayerStatisticIncrementEvent(@NonNull Player player, StatisticType statisticType, Material material, long incrementValue,
+	public PlayerStatisticIncrementEvent(@NonNull Player player, StatisticType statisticType, Material material, double incrementValue,
 			boolean isAsync)
 	{
 		super(isAsync);
@@ -32,7 +32,7 @@ public class PlayerStatisticIncrementEvent extends Event
 		this.incrementValue = incrementValue;
 	}
 	
-	public PlayerStatisticIncrementEvent(@NonNull Player player, StatisticType statisticType, EntityType entityType, long incrementValue,
+	public PlayerStatisticIncrementEvent(@NonNull Player player, StatisticType statisticType, EntityType entityType, double incrementValue,
 			boolean isAsync)
 	{
 		super(isAsync);
@@ -73,7 +73,7 @@ public class PlayerStatisticIncrementEvent extends Event
 		return entityType;
 	}
 
-	public long getIncrementValue() 
+	public double getIncrementValue() 
 	{
 		return incrementValue;
 	}
