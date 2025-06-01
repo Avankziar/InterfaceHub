@@ -1,4 +1,4 @@
-2-7-0-pre-1
+2-7-0
 - general.chat.Channel Methode registerChannel Parameter "boolean usePlayerChoosenMentionSound" und "String mentionSoundCategory" hinzugefügt.
 
 2-6-0
