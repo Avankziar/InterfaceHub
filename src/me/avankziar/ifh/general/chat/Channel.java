@@ -107,7 +107,7 @@ public interface Channel
 			String uniqueChannelName, String symbol, String inChatName, String inChatColorMessage,
 			String permission, String joinPart, String chatFormat,
 			String timeColor, String playernameCustomColor,
-			String mentionSound,
+			boolean usePlayerChoosenMentionSound, String mentionSound, String mentionSoundCategory,
 			boolean useColor, boolean useItemReplacer, boolean useBookReplacer,
 			boolean useRunCommandReplacer, boolean useSuggestCommandReplacer, boolean useWebsiteReplacer,
 			boolean useEmojiReplacer, boolean useMentionReplacer, boolean usePositionReplacer,
