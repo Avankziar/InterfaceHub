@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: '21'
           distribution: 'adopt'
-          cache: 'none' #vorher maven
+          #cache: 'maven'
 
       - name: Build with Maven
         run: mvn install
