@@ -73,7 +73,7 @@ public interface Channel
 			long minimumTimeBetweenMessages, long minimumTimeBetweenSameMessage, double percentOfSimiliarityOrLess,
 			String timeColor, String playernameCustomColor,
 			String seperatorBetweenPrefix, String seperatorBetweenSuffix,
-			String mentionSound,
+			boolean usePlayerChoosenMentionSound, String mentionSound, String mentionSoundCategory,
 			boolean useColor, boolean useItemReplacer, boolean useBookReplacer,
 			boolean useRunCommandReplacer, boolean useSuggestCommandReplacer, boolean useWebsiteReplacer,
 			boolean useEmojiReplacer, boolean useMentionReplacer, boolean usePositionReplacer,
