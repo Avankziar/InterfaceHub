@@ -69,7 +69,8 @@ public interface Channel
 	public boolean registerChannel(
 			String uniqueChannelName, String symbol, String inChatName, String inChatColorMessage,
 			String permission, String joinPart, String chatFormat,
-			boolean useSpecificServer, boolean useSpecificWorld, int useBlockRadius, 
+			boolean useSpecificServer, boolean useSpecificWorld, int useBlockRadius,
+			boolean useLanguageSeparationPerChannel,
 			long minimumTimeBetweenMessages, long minimumTimeBetweenSameMessage, double percentOfSimiliarityOrLess,
 			String timeColor, String playernameCustomColor,
 			String seperatorBetweenPrefix, String seperatorBetweenSuffix,
@@ -106,6 +107,7 @@ public interface Channel
 	public boolean registerChannel(
 			String uniqueChannelName, String symbol, String inChatName, String inChatColorMessage,
 			String permission, String joinPart, String chatFormat,
+			boolean useLanguageSeparationPerChannel,
 			String timeColor, String playernameCustomColor,
 			boolean usePlayerChoosenMentionSound, String mentionSound, String mentionSoundCategory,
 			boolean useColor, boolean useItemReplacer, boolean useBookReplacer,

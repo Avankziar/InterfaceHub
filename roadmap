@@ -1,5 +1,5 @@
 2-7-0
-- general.chat.Channel Methode registerChannel Parameter "boolean usePlayerChoosenMentionSound" und "String mentionSoundCategory" hinzugefügt.
+- general.chat.Channel Methode registerChannel Parameter "boolean usePlayerChoosenMentionSound" und "String mentionSoundCategory" sowie "boolean useLanguageSeparationPerChannel" hinzugefügt.
 
 2-6-0
 - spigot.event.player.PlayerStatisticIncrementEvent hinzugefügt.
