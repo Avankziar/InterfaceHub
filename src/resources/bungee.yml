@@ -1,4 +1,4 @@
 name: InterfaceHub
 main: me.avankziar.ifh.bungee.IFH
-version: 2
+version: ${version}
 author: Avankziar

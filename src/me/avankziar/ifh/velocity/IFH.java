@@ -7,16 +7,12 @@ import java.util.logging.Logger;
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
-import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.PluginDescription;
 import com.velocitypowered.api.proxy.ProxyServer;
 
 import me.avankziar.ifh.velocity.metric.Metrics;
 import me.avankziar.ifh.velocity.plugin.SimpleServicesManager;
 
-@Plugin(id = "interfacehub", name = "InterfaceHub", version = "2-0-0",
-url = "https://www.spigotmc.org/resources/interfacehub.101648/", description = "A Vault-Like plugin. To let plugins communicate with plugins.",
-authors = {"Avankziar"})
 public class IFH
 {
 	private static IFH plugin;
