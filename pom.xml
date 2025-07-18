@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.avankziar</groupId>
 	<artifactId>interfacehub</artifactId>
-	<version>2-7-1</version>
+	<version>2-7-2</version>
 	<name>InterfaceHub</name>
 	<description>A central point of contact for various interfaces for MC plugins</description>
 	<packaging>jar</packaging>
@@ -68,12 +68,6 @@
       						</excludes>
       					</filter>
       				</filters>
-					<relocations>
-						<relocation>
-							<pattern>dev.dejvokep.boostedyaml</pattern>
-							<shadedPattern>interfacehub.dev.dejvokep.boostedyaml</shadedPattern>
-						</relocation>
-					</relocations>
       			</configuration>
 				<executions>
 					<execution>
@@ -89,7 +83,7 @@
 			    <artifactId>maven-jar-plugin</artifactId>
 			    <version>2.4</version>
 			    <configuration>
-			      <outputDirectory>F:\Datein\Dev\Dev Server 1.21.4</outputDirectory>
+			      <outputDirectory>F:\Datein\Dev\Dev Server 1.21.8</outputDirectory>
 			      <finalName>${project.artifactId}-${project.version}</finalName>
 			    </configuration>
 			    <executions>
