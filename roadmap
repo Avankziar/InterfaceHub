@@ -1,3 +1,23 @@
+BoostYaml
+Da mit der ArrayException nicht kommt
+<relocations>
+    <relocation>
+        <pattern>dev.dejvokep</pattern>
+        <shadedPattern>interfacehub.dev.dejvokep</shadedPattern>
+    </relocation>
+</relocations>
+auf interfacehub seite
+bei btm ganz einfach <scope>provided</scope>
+und auch relocaten auf 
+<relocations>
+    <relocation>
+        <pattern>dev.dejvokep</pattern>
+        <shadedPattern>interfacehub.dev.dejvokep</shadedPattern>
+    </relocation>
+</relocations>
+
+
+
 2-7-0
 - general.chat.Channel Methode registerChannel Parameter "boolean usePlayerChoosenMentionSound" und "String mentionSoundCategory" sowie "boolean useLanguageSeparationPerChannel" hinzugefügt.
 
