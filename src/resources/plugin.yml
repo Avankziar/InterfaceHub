@@ -1,6 +1,6 @@
 main: me.avankziar.ifh.spigot.IFH
 name: InterfaceHub
-version: 2
+version: ${version}
 load: STARTUP
 api-version: 1.21
 description: A Vault-Like plugin. To let plugins communicate with plugins.
