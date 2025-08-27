@@ -1,3 +1,6 @@
+2-7-4
+- Mathematische Konstanten korrekt gekürzt auf Double Level Wert.
+
 2-7-3
 - Relocate des boosted-yaml um fehler der multiplen dependency vorzubeugen.
 

@@ -65,17 +65,17 @@ public class DoubleEvaluator extends AbstractEvaluator<Double> {
 	public static final Constant PI = new Constant("pi");
 	/** A constant that represents e (2.718281...) Eulersche Zahl, https://de.wikipedia.org/wiki/Eulersche_Zahl*/
 	public static final Constant E = new Constant("e");
-	/** A constant that represents (1.61803398874989484820) Goldener Schnitt, https://de.wikipedia.org/wiki/Goldener_Schnitt*/
+	/** A constant that represents (1.61803398874989...) Goldener Schnitt, https://de.wikipedia.org/wiki/Goldener_Schnitt*/
 	public static final Constant PHI = new Constant("phi");
-	/** A constant that represents (0.57721566490153286060) Euler-Mascheroni-Konstante, https://de.wikipedia.org/wiki/Euler-Mascheroni-Konstante*/
+	/** A constant that represents (0.57721566490153...) Euler-Mascheroni-Konstante, https://de.wikipedia.org/wiki/Euler-Mascheroni-Konstante*/
 	public static final Constant GAMMA = new Constant("gamma");
-	/** A constant that represents (1.20205690315959428539) Apéry-Konstante, https://de.wikipedia.org/wiki/Ap%C3%A9ry-Konstante*/
+	/** A constant that represents (1.20205690315959...) Apéry-Konstante, https://de.wikipedia.org/wiki/Ap%C3%A9ry-Konstante*/
 	public static final Constant RZETA3 = new Constant("rzetaIII");
-	/** A constant that represents (1.60669515241529176378) Erdős-Borwein-Konstante, https://de.wikipedia.org/wiki/Erd%C5%91s-Borwein-Konstante*/
+	/** A constant that represents (1.60669515241529...) Erdős-Borwein-Konstante, https://de.wikipedia.org/wiki/Erd%C5%91s-Borwein-Konstante*/
 	public static final Constant EB = new Constant("eb");
-	/** A constant that represents (1.45136923488338105028396848589202744949303228364801) Ramanujan-Soldner-Konstante, https://de.wikipedia.org/wiki/Ramanujan-Soldner-Konstante */ 
+	/** A constant that represents (1.451369234883...) Ramanujan-Soldner-Konstante, https://de.wikipedia.org/wiki/Ramanujan-Soldner-Konstante */ 
 	public static final Constant µ = new Constant("µ");
-	/** A constant that represents (2.62205755429211981046483958989111941368275495143162) Lemniskatische Konstante, https://de.wikipedia.org/wiki/Lemniskatische_Konstante*/
+	/** A constant that represents (2.62205755429211) Lemniskatische Konstante, https://de.wikipedia.org/wiki/Lemniskatische_Konstante*/
 	public static final Constant VARPI = new Constant("varpi");
 	/** A constant that represents () */
 	/** A constant that represents () */
@@ -235,12 +235,12 @@ public class DoubleEvaluator extends AbstractEvaluator<Double> {
 	{
 		if (PI.equals(constant)) {return Math.PI;} 
 		else if (E.equals(constant)) {return Math.E;} 
-		else if(PHI.equals(constant)) {return Double.valueOf(1.61803398874989484820);} 
-		else if(GAMMA.equals(constant)) {return Double.valueOf(0.57721566490153286060);} 
-		else if(RZETA3.equals(constant)) {return Double.valueOf(1.20205690315959428539);} 
-		else if(EB.equals(constant)) {return Double.valueOf(1.60669515241529176378);} 
-		else if(µ.equals(constant)) {return Double.valueOf(1.45136923488338105028396848589202744949303228364801);} 
-		else if(VARPI.equals(constant)) {return Double.valueOf(2.62205755429211981046483958989111941368275495143162);} 
+		else if(PHI.equals(constant)) {return Double.valueOf(1.61803398874989);} 
+		else if(GAMMA.equals(constant)) {return Double.valueOf(0.57721566490153);} 
+		else if(RZETA3.equals(constant)) {return Double.valueOf(1.20205690315959);} 
+		else if(EB.equals(constant)) {return Double.valueOf(1.60669515241529);} 
+		else if(µ.equals(constant)) {return Double.valueOf(1.45136923488338);} 
+		else if(VARPI.equals(constant)) {return Double.valueOf(2.62205755429211);} 
 		else {return super.evaluate(constant, evaluationContext);}
 	}
 
